@@ -31,8 +31,8 @@
       <div class="login">
         <p>Другим способом</p>
         <div class="btns">
-          <button>Номер телефона</button>
-          <button>E-mail</button>
+          <button @click="$emit('changeWindow', 2)">Номер телефона</button>
+          <button @click="$emit('changeWindow', 3)">E-mail</button>
         </div>
       </div>
       <div class="policy">

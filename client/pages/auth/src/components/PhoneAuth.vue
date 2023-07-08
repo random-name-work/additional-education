@@ -6,7 +6,7 @@
 
     <div class="auth">
       <div class="backBtn">
-        <button>
+        <button @click="$emit('back', 1)">
           <svg
             width="8"
             height="14"
@@ -26,7 +26,6 @@
         <input type="text" placeholder="Телефон" />
         <button type="submit">Далее</button>
       </div>
-      <div class="nextButton"></div>
       <div class="policy">
         <p>
           Регистрируясь в сервисе, принимаю условия
