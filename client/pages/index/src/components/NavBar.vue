@@ -1,7 +1,7 @@
 <template>
   <div class="navbar">
     <div class="logo">
-      <img src="../assets/logo_nav.png" alt="logo" />
+      <img src="./../../../src/assets/logo_nav.png" alt="logo" />
     </div>
     <div class="blueBtn">
       <a href="#"> Все курсы </a>
