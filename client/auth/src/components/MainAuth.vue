@@ -1,7 +1,7 @@
 <template>
   <div class="centered">
     <div class="logo">
-      <img src="./../../../../src/assets/logo_nav.png" alt="logo" />
+      <img src="./../assets/logo.png" alt="logo" />
     </div>
 
     <div class="auth">
@@ -71,9 +71,13 @@ button {
   width: 100%;
   height: calc(100% - 16px);
 
+  background-color: #f6f8f9;
+
   .auth {
     max-width: 420px;
     width: 100%;
+    background-color: #fff;
+
 
     border-radius: 12px;
     box-shadow: 0px 8px 30px 0px rgba(0, 0, 0, 0.05);
