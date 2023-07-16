@@ -1,10 +1,19 @@
 <template>
   <div class="navbar">
     <div class="logo">
-      <img src="./../../../src/assets/logo_nav.png" alt="logo" />
+      <img src="./../assets/logo.png" alt="logo" />
     </div>
     <div class="blueBtn">
-      <a href="#"> Все курсы </a>
+      <v-btn
+        href="#"
+        variant="outlined"
+        color="#3d8be4"
+        min-height="40px"
+        min-width="158px"
+        block
+      >
+        Все курсы
+      </v-btn>
     </div>
     <div class="btn">
       <a href="#"> Видеолекции </a>
@@ -63,7 +72,7 @@
       </a>
     </div>
   </div>
-  <hr>
+  <hr />
 </template>
 
 <script></script>
@@ -93,31 +102,34 @@ a {
   align-items: center;
 
   box-shadow: 0px 0px 10px #cccccc;
-  .phone a, .auth a{
-    display: flex;
-    align-items: center;
+  .phone {
+    a {
+      display: flex;
+      align-items: center;
 
-    gap: 8px;
-
-}
-
-  .auth a, .blueBtn a{
-    color: #3d8be4;
+      gap: 8px;
+    }
+    &__img {
+      height: 24px;
+    }
   }
 
-  .blueBtn a{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .auth {
+    &__img {
+      width: 28px;
+      height: 28px;
+    }
+    a {
+      display: flex;
+      align-items: center;
 
-    width: 158px;
-    height: 40px;
+      gap: 8px;
 
-    border-radius: 3px;
-    border: 1px solid #3D8BE4;    
+      color: #3d8be4;
+    }
   }
 }
-hr{
-    opacity: 0.1;
+hr {
+  opacity: 0.1;
 }
 </style>

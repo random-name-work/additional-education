@@ -23,8 +23,20 @@
         <h2>Войдите или зарегистрируйтесь по номеру телефона</h2>
       </div>
       <div class="form">
-        <input type="text" placeholder="Телефон" />
-        <button type="submit">Далее</button>
+        <v-form v-model="vadilForm">
+          <v-text-field
+          v-model="phoneNumber"
+          :rules="phoneNumberRules"
+          label="Телефон"
+          placeholder="+7-(ххх)-ххх-хх-хх"
+          variant="outlined"
+          required
+          ></v-text-field>
+          <v-btn
+          :disabled="!vadilForm"
+          block
+          >Далее</v-btn>
+        </v-form>
       </div>
       <div class="policy">
         <p>
@@ -41,8 +53,11 @@
 export default {
   data() {
     return {
+      validForm: false,
       phoneNumber: "",
-      phoneNumberRules: [],
+      phoneNumberRules: [
+        (v) => !!v || "Введите номер!"
+      ],
     };
   },
   methods: {},
@@ -127,26 +142,12 @@ input {
     }
 
     .form {
-      display: flex;
-      flex-direction: column;
-
-      gap: 20px;
-
+      
       input,
       button {
         height: 53px;
-        border-radius: 6px;
-
-        border: none;
       }
-      input {
-        padding: 15px 20px;
-
-        font-size: 17px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 140%;
-      }
+      
       button {
         color: #ffffff;
         background-color: #3d8be4;
@@ -156,11 +157,6 @@ input {
         font-weight: 400;
         line-height: 150%;
         letter-spacing: 0.16px;
-
-        &:hover {
-          cursor: pointer;
-          opacity: 0.8;
-        }
       }
     }
 
