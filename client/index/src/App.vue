@@ -4,17 +4,21 @@
   </div>
   <div class="content">
     <HeaderScene></HeaderScene>
+    <FindCource></FindCource>
+    
   </div>
 </template>
 
 <script>
 import NavBar from "./components/NavBar.vue";
 import HeaderScene from "./components/HeaderScene.vue";
+import FindCource from "./components/FindCource.vue"
 export default {
   name: "App",
   components: {
     NavBar,
     HeaderScene,
+    FindCource
   },
 };
 </script>

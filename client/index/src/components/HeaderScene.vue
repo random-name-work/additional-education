@@ -53,6 +53,7 @@
 <style scoped lang="scss">
 .headerBlock {
   display: flex;
+  min-height: 805px;
   .header {
     margin-top: 166px;
     p {
