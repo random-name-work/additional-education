@@ -15,7 +15,7 @@
           </div>
         </div>
         <div class="advantage">
-          <img src="../assets/advantagesIcons/Hat.png" alt="" />
+          <img src="../assets/advantagesIcons/Coins.png" alt="" />
           <div class="advantage__text">
             <h3>Рассрочка и онлайн оплата</h3>
             <p>
@@ -25,7 +25,7 @@
           </div>
         </div>
         <div class="advantage">
-          <img src="../assets/advantagesIcons/Hat.png" alt="" />
+          <img src="../assets/advantagesIcons/Test.png" alt="" />
           <div class="advantage__text">
             <h3>Сами подготовим все документы</h3>
             <p>
@@ -35,7 +35,7 @@
           </div>
         </div>
         <div class="advantage">
-          <img src="../assets/advantagesIcons/Hat.png" alt="" />
+          <img src="../assets/advantagesIcons/Van.png" alt="" />
           <div class="advantage__text">
             <h3>Доставка документов</h3>
             <p>
@@ -45,7 +45,7 @@
           </div>
         </div>
         <div class="advantage">
-          <img src="../assets/advantagesIcons/Hat.png" alt="" />
+          <img src="../assets/advantagesIcons/Hours.png" alt="" />
           <div class="advantage__text">
             <h3>Ускоренное обучение</h3>
             <p>
@@ -55,7 +55,7 @@
           </div>
         </div>
         <div class="advantage">
-          <img src="../assets/advantagesIcons/Hat.png" alt="" />
+          <img src="../assets/advantagesIcons/Bubbles.png" alt="" />
           <div class="advantage__text">
             <h3>Общайтесь как Вам удобно</h3>
             <p>
@@ -98,10 +98,14 @@
         display: flex;
         gap: 30px;
 
+        @media (max-width: 1300px) {
+          margin-left: 50px;
+          margin-right: 50px;
+        }
         img {
           max-width: 55px;
           max-height: 55px;
-          @media (max-width: 380px){
+          @media (max-width: 380px) {
             display: none;
           }
         }
@@ -121,10 +125,6 @@
             line-height: 140%;
           }
         }
-      }
-      @media (max-width: 1300px) {
-        margin-left: 50px;
-        margin-right: 50px;
       }
     }
   }

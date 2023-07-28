@@ -19,30 +19,18 @@
         </v-btn>
       </div>
     </div>
-    <div class="scene">
-      <img
-        class="scene__img1"
-        src="./../assets/headerScene1.png"
-        alt="header scene"
-      />
-      <img
-        class="scene__img2"
-        src="./../assets/headerScene2.png"
-        alt="header scene"
-      />
-      <div class="numbers">
-        <div class="number">
-          <h1>187</h1>
-          <p>Lorem ipsum</p>
-        </div>
-        <div class="number">
-          <h1>24</h1>
-          <p>Lorem ipsum</p>
-        </div>
-        <div class="number">
-          <h1>8</h1>
-          <p>Lorem ipsum</p>
-        </div>
+    <div class="numbers">
+      <div class="number">
+        <h1>187</h1>
+        <p>Lorem ipsum</p>
+      </div>
+      <div class="number">
+        <h1>24</h1>
+        <p>Lorem ipsum</p>
+      </div>
+      <div class="number">
+        <h1>8</h1>
+        <p>Lorem ipsum</p>
       </div>
     </div>
   </div>
@@ -52,25 +40,46 @@
 
 <style scoped lang="scss">
 .headerBlock {
-  display: flex;
-  min-height: 805px;
+  h1 {
+    font-size: clamp(20px, 6.2vw, 55px);
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%;
+  }
 
-  width: 1200px;
+  max-width: 1200px;
+  width: 100%;
   margin: auto;
+
+  padding-top: 166px;
+  padding-bottom: 40px;
+
+  overflow: visible;
+
+  background-image: url("./../assets/headerScene.png");
+  background-position: 128% 98px;
+
+  @media (max-width: 1300px) {
+    padding-top: 80px;
+    background-image: none;
+  }
   .header {
-    margin-top: 166px;
+    max-width: 750px;
+    width: 100%;
+
+    @media (max-width: 1300px) {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
     p {
-      font-size: 17px;
+      font-size: clamp(14px, 4.3vw, 17px);
       font-style: normal;
       font-weight: 400;
       line-height: 140%;
     }
     h1 {
-      font-size: 55px;
-      font-style: normal;
-      font-weight: 600;
-      line-height: 130%;
-
+      margin-top: 20px;
       max-width: 750px;
     }
     .headerBtns {
@@ -80,31 +89,43 @@
       gap: 40px;
 
       max-width: 400px;
+      width: 100%;
+      @media (max-width: 1300px) {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      @media (max-width: 600px) {
+        max-width: 280px;
+        flex-direction: column;
+      }
     }
   }
-  .scene {
-    position: absolute;
 
-    margin-top: 98px;
-    margin-left: 630px;
-    z-index: -1;
+  .numbers {
+    margin-top: 90px;
 
-    &__img1 {
-      z-index: -1;
-      position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    gap: 108px;
+
+    @media (max-width: 1300px) {
+      margin-top: 80px;
+      margin-left: auto;
+      margin-right: auto;
+
+      justify-content: center;
+      gap: 20px;
     }
-    &__img2 {
-      margin-top: 135px;
-      margin-left: 122px;
-    }
-    .numbers {
-      margin-top: 120px;
-      display: flex;
-      gap: 108px;
+    .number {
+      p {
+        margin-top: 36px;
+        font-size: clamp(12px, 3.7vw, 19px);
 
-      .number {
-        text-align: center;
+        @media (max-width: 1300px) {
+          margin-top: 10px;
+        }
       }
+      text-align: center;
     }
   }
 }

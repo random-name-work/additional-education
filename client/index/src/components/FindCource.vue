@@ -7,7 +7,7 @@
         <label :for="`${btn}`" @click="displayId = btn">{{ btn }}</label>
       </div>
     </div>
-    <Carousel ref="carousel" :items-to-show="3" v-model="currentSlide">
+    <Carousel ref="carousel" :breakpoints="breakpoints" v-model="currentSlide">
       <Slide v-for="course in sortedCourses" :key="course.id">
         <div class="carousel__item">
           <img src="@/assets/courseImage1.png" alt="" />
@@ -109,12 +109,13 @@ export default {
       sortedCourses: [
         {
           id: 1,
-          img: "img/courseImage1.png",
+          img: "@/img/courseImage1.png",
           header: "Педагогика",
           content:
             "Педагог высшего образования по программам подготовки кадров высшей квалификации",
           time: "от 250 ак.ч.",
         },
+        
         {
           id: 2,
           img: "./../assets/courseImage2.png",
@@ -155,44 +156,45 @@ export default {
             "Педагог высшего образования по программам подготовки кадров высшей квалификации",
           time: "от 250 ак.ч.",
         },
-        {
-          id: 7,
-          img: "./../assets/courseImage1",
-          header: "Педагогика",
-          content:
-            "Педагог высшего образования по программам подготовки кадров высшей квалификации",
-          time: "от 250 ак.ч.",
-        },
-        {
-          id: 8,
-          img: "./../assets/courseImage2",
-          header: "Медицина",
-          content:
-            "Педагог высшего образования по программам подготовки кадров высшей квалификации",
-          time: "от 250 ак.ч.",
-        },
-        {
-          id: 9,
-          img: "./../assets/courseImage3",
-          header: "Юриспруденция",
-          content:
-            "Педагог высшего образования по программам подготовки кадров высшей квалификации",
-          time: "от 250 ак.ч.",
-        },
       ],
+      breakpoints: {
+        320:{
+          itemsToShow: 1,
+          snapAlign: 'center'
+        },
+        600:{
+          itemsToShow: 1.5,
+        },
+        800:{
+          itemsToShow: 2,
+        },
+        1000:{
+          itemsToShow: 2.5,
+          
+        },
+        1300:{
+          itemsToShow: 3,
+        }
+      }
     };
   },
 };
 </script>
 
 <style scoped lang="scss">
+// slider left right btns in App.vue styles
 .findCourseSlider{
-  width: 1200px;
+  max-width: 1200px;
+  width: 100%;
+  
   margin: auto;
+  padding-top: 120px;
+
+  @media (max-width: 1300px){
+    padding-top: 80px;
+  }
 }
 h2 {
-  margin-top: 120px;
-
   font-size: 36px;
   font-style: normal;
   font-weight: 600;
@@ -204,6 +206,7 @@ h2 {
   margin-top: 30px;
 
   display: flex;
+  flex-wrap: wrap;
   gap: 40px;
   justify-content: center;
 
@@ -233,7 +236,8 @@ h2 {
   margin-top: 47px;
   margin-bottom: 100px;
   &__item {
-    min-height: 487px;
+    min-height: 465px;
+    padding-bottom: 22px;
     width: 100%;
     border-radius: 12px;
     border: 1px solid #e5e5e5;
@@ -250,6 +254,9 @@ h2 {
       margin-left: 30px;
       margin-right: 30px;
       text-align: left;
+      @media (max-width:450px){
+        text-align: center;
+      }
     }
     .header {
       margin-top: 20px;
@@ -261,6 +268,10 @@ h2 {
       font-style: normal;
       font-weight: 600;
       line-height: 130%;
+
+      @media (max-width:450px){
+        text-align: center;
+      }
     }
     .timeAndBtn {
       margin-top: 32px;
@@ -275,6 +286,10 @@ h2 {
       &__time {
         display: flex;
         gap: 8px;
+      }
+      @media (max-width:450px){
+        flex-direction: column;
+        gap: 20px;
       }
     }
   }

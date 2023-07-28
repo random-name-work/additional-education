@@ -67,10 +67,10 @@ button,
     }
   }
   &__prev{
-    left: 37%;
+    left: calc(50% - 150px);
   }
   &__next{
-    right: 37%;
+    right: calc(50% - 150px);
   }
 }
 
