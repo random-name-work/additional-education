@@ -5,20 +5,22 @@
   <div class="content">
     <HeaderScene></HeaderScene>
     <FindCource></FindCource>
-    
+    <Advantages></Advantages>
   </div>
 </template>
 
 <script>
 import NavBar from "./components/NavBar.vue";
 import HeaderScene from "./components/HeaderScene.vue";
-import FindCource from "./components/FindCource.vue"
+import FindCource from "./components/FindCource.vue";
+import Advantages from "./components/AdvantagesUdpo.vue"
 export default {
   name: "App",
   components: {
     NavBar,
     HeaderScene,
-    FindCource
+    FindCource,
+    Advantages
   },
 };
 </script>
@@ -43,10 +45,6 @@ button,
   color: #ff00fa;
 }
 
-.content {
-  width: 1200px;
-  margin: auto;
-}
 
 //slider arrows
 .carousel{
@@ -75,4 +73,6 @@ button,
     right: 37%;
   }
 }
+
+
 </style>

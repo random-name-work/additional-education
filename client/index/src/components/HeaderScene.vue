@@ -54,6 +54,9 @@
 .headerBlock {
   display: flex;
   min-height: 805px;
+
+  width: 1200px;
+  margin: auto;
   .header {
     margin-top: 166px;
     p {

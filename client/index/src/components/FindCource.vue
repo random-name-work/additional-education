@@ -186,6 +186,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.findCourseSlider{
+  width: 1200px;
+  margin: auto;
+}
 h2 {
   margin-top: 120px;
 
@@ -225,7 +229,6 @@ h2 {
     }
   }
 }
-
 .carousel {
   margin-top: 47px;
   margin-bottom: 100px;
