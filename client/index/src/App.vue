@@ -46,7 +46,33 @@ button,
 .content {
   width: 1200px;
   margin: auto;
+}
 
-  
+//slider arrows
+.carousel{
+  &__prev,
+  &__next{
+    top: 99%;
+
+    width: 57px;
+    height: 57px;
+
+    border: 1px solid #000000;
+    border-radius: 50%;
+
+    svg{
+      margin-top: 11px;
+    }
+
+    &:hover{
+      opacity: 0.8;
+    }
+  }
+  &__prev{
+    left: 37%;
+  }
+  &__next{
+    right: 37%;
+  }
 }
 </style>
