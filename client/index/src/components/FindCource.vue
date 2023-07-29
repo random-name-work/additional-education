@@ -3,8 +3,18 @@
     <h2>Найти то, что тебе нужно</h2>
     <div class="btns">
       <div class="btn" v-for="btn in buttonsName" :key="btn">
-        <input v-model="sortType" :id="`${btn}`" type="radio" name="type" :value="`${btn}`" />
-        <label :for="`${btn}`" @click="displayId = btn">{{ btn }}</label>
+        <input
+          v-model="sortType"
+          :id="`${btn}`"
+          type="radio"
+          name="type"
+          :value="`${btn}`"
+        />
+        <label :for="`${btn}`" @click="displayId = btn">
+          <h5>
+            {{ btn }}
+          </h5>
+        </label>
       </div>
     </div>
     <Carousel ref="carousel" :breakpoints="breakpoints" v-model="currentSlide">
@@ -12,14 +22,14 @@
         <div class="carousel__item">
           <img src="@/assets/courseImage1.png" alt="" />
           <div class="type">
-            <p>
+            <p class="text1">
               {{ course.header }}
             </p>
           </div>
           <div class="header">
-            <p>
+            <h4>
               {{ course.content }}
-            </p>
+            </h4>
           </div>
           <div class="timeAndBtn">
             <div class="timeAndBtn__time">
@@ -33,7 +43,7 @@
                 <path d="M12 6V14L16.5 17.5" stroke="#3D8BE4" />
                 <circle cx="12" cy="12" r="11.5" stroke="#3D8BE4" />
               </svg>
-              <p>
+              <p class="caption">
                 {{ course.time }}
               </p>
             </div>
@@ -54,29 +64,37 @@
       </Slide>
       <template #addons>
         <navigation>
-        <template #next>
-          <span> <svg
-      class="carousel__icon"
-      viewBox="0 0 24 24"
-      role="img"
-      aria-label="Arrow pointing to the right"
-    >
-      <title>Arrow pointing to the right</title>
-      <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"></path>
-    </svg> </span>
-        </template>
-        <template #prev>
-          <span> <svg
-      class="carousel__icon"
-      viewBox="0 0 24 24"
-      role="img"
-      aria-label="Arrow pointing to the left"
-    >
-      <title>Arrow pointing to the left</title>
-      <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"></path>
-    </svg> </span>
-        </template>
-      </navigation>
+          <template #next>
+            <span>
+              <svg
+                class="carousel__icon"
+                viewBox="0 0 24 24"
+                role="img"
+                aria-label="Arrow pointing to the right"
+              >
+                <title>Arrow pointing to the right</title>
+                <path
+                  d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
+                ></path>
+              </svg>
+            </span>
+          </template>
+          <template #prev>
+            <span>
+              <svg
+                class="carousel__icon"
+                viewBox="0 0 24 24"
+                role="img"
+                aria-label="Arrow pointing to the left"
+              >
+                <title>Arrow pointing to the left</title>
+                <path
+                  d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
+                ></path>
+              </svg>
+            </span>
+          </template>
+        </navigation>
         <Pagination />
       </template>
     </Carousel>
@@ -115,7 +133,7 @@ export default {
             "Педагог высшего образования по программам подготовки кадров высшей квалификации",
           time: "от 250 ак.ч.",
         },
-        
+
         {
           id: 2,
           img: "./../assets/courseImage2.png",
@@ -158,24 +176,23 @@ export default {
         },
       ],
       breakpoints: {
-        320:{
+        320: {
           itemsToShow: 1,
-          snapAlign: 'center'
+          snapAlign: "center",
         },
-        600:{
+        600: {
           itemsToShow: 1.5,
         },
-        800:{
+        800: {
           itemsToShow: 2,
         },
-        1000:{
+        1000: {
           itemsToShow: 2.5,
-          
         },
-        1300:{
+        1300: {
           itemsToShow: 3,
-        }
-      }
+        },
+      },
     };
   },
 };
@@ -183,37 +200,38 @@ export default {
 
 <style scoped lang="scss">
 // slider left right btns in App.vue styles
-.findCourseSlider{
+.findCourseSlider {
   max-width: 1200px;
   width: 100%;
-  
+
   margin: auto;
   padding-top: 120px;
 
-  @media (max-width: 1300px){
+  @media (max-width: 1300px) {
     padding-top: 80px;
   }
 }
 h2 {
-  font-size: 36px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 130%;
+  margin-left: 10px;
+  margin-right: 10px;
 
   text-align: center;
 }
 .btns {
   margin-top: 30px;
 
+  margin-left: 10px;
+  margin-right: 10px;
+
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
   justify-content: center;
 
+  // custom input
   input {
     display: none;
   }
-
   input:checked + label {
     color: #3d8be4;
 
@@ -236,11 +254,15 @@ h2 {
   margin-top: 47px;
   margin-bottom: 100px;
   &__item {
+    
     min-height: 465px;
-    padding-bottom: 22px;
     width: 100%;
+
+    padding-bottom: 22px;
+    
     border-radius: 12px;
     border: 1px solid #e5e5e5;
+    
     background: #ffffff;
     box-shadow: 0px 8px 30px 0px rgba(0, 0, 0, 0.05);
 
@@ -254,7 +276,7 @@ h2 {
       margin-left: 30px;
       margin-right: 30px;
       text-align: left;
-      @media (max-width:450px){
+      @media (max-width: 450px) {
         text-align: center;
       }
     }
@@ -264,12 +286,7 @@ h2 {
       margin-right: 30px;
       text-align: left;
 
-      font-size: 20px;
-      font-style: normal;
-      font-weight: 600;
-      line-height: 130%;
-
-      @media (max-width:450px){
+      @media (max-width: 450px) {
         text-align: center;
       }
     }
@@ -285,9 +302,11 @@ h2 {
 
       &__time {
         display: flex;
+        align-items: center;
+
         gap: 8px;
       }
-      @media (max-width:450px){
+      @media (max-width: 450px) {
         flex-direction: column;
         gap: 20px;
       }
@@ -297,6 +316,5 @@ h2 {
   &__slide {
     padding: 26px;
   }
-
 }
 </style>

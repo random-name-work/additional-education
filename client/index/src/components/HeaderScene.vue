@@ -1,7 +1,7 @@
 <template>
   <div class="headerBlock">
     <div class="header">
-      <p>Университет дополнительного профессионального образования</p>
+      <p class="text1">Университет дополнительного профессионального образования</p>
       <h1>Повышение квалификации и профессиональная переподготовка</h1>
       <div class="headerBtns">
         <v-btn flat color="#3d8be4" min-height="60px" min-width="180px" block>
@@ -34,19 +34,13 @@
       </div>
     </div>
   </div>
+  
 </template>
 
 <script></script>
 
 <style scoped lang="scss">
 .headerBlock {
-  h1 {
-    font-size: clamp(20px, 6.2vw, 55px);
-    font-style: normal;
-    font-weight: 600;
-    line-height: 130%;
-  }
-
   max-width: 1200px;
   width: 100%;
   margin: auto;
@@ -71,12 +65,6 @@
       margin-left: auto;
       margin-right: auto;
       text-align: center;
-    }
-    p {
-      font-size: clamp(14px, 4.3vw, 17px);
-      font-style: normal;
-      font-weight: 400;
-      line-height: 140%;
     }
     h1 {
       margin-top: 20px;
