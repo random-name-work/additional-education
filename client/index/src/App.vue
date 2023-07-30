@@ -29,6 +29,8 @@ export default {
 * {
   padding: 0;
   margin: 0;
+
+  box-sizing: border-box;
 }
 h1 {
   font-family: "Golos Text", sans-serif;
@@ -64,8 +66,6 @@ h5 {
   font-style: normal;
   font-weight: 600;
   line-height: 150%;
-}
-h6 {
 }
 .text1 {
   font-family: "Golos Text", sans-serif;
@@ -106,11 +106,10 @@ h6 {
   line-height: 120%;
   letter-spacing: 0.12px;
 }
-.v-btn {
-  font-size: 16px;
-  color: #ff00fa;
-}
 
+.content{
+  margin-top: 96px;
+}
 //slider arrows
 .carousel {
   &__prev,
