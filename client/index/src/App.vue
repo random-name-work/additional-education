@@ -6,6 +6,8 @@
     <HeaderScene></HeaderScene>
     <FindCource></FindCource>
     <Advantages></Advantages>
+    <LowPrice></LowPrice>
+    <FormalitiesComponent></FormalitiesComponent>
   </div>
 </template>
 
@@ -14,6 +16,8 @@ import NavBar from "./components/NavBar.vue";
 import HeaderScene from "./components/HeaderScene.vue";
 import FindCource from "./components/FindCource.vue";
 import Advantages from "./components/AdvantagesUdpo.vue";
+import LowPrice from "./components/LowPrice.vue";
+import FormalitiesComponent from "./components/FormalitiesComponent.vue"
 export default {
   name: "App",
   components: {
@@ -21,6 +25,8 @@ export default {
     HeaderScene,
     FindCource,
     Advantages,
+    LowPrice,
+    FormalitiesComponent,
   },
 };
 </script>
