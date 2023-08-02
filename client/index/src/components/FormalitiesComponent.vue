@@ -82,6 +82,9 @@ img{
     justify-content: center;
   }
   .block {
+    padding-left: 10px;
+    padding-right: 10px;
+
     max-width: 367px;
     width: 100%;
 

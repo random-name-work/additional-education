@@ -7,6 +7,7 @@
     <FindCource></FindCource>
     <Advantages></Advantages>
     <LowPrice></LowPrice>
+    <VideoLections></VideoLections>
     <FormalitiesComponent></FormalitiesComponent>
   </div>
 </template>
@@ -18,6 +19,7 @@ import FindCource from "./components/FindCource.vue";
 import Advantages from "./components/AdvantagesUdpo.vue";
 import LowPrice from "./components/LowPrice.vue";
 import FormalitiesComponent from "./components/FormalitiesComponent.vue"
+import VideoLections from "./components/VideoLections.vue"
 export default {
   name: "App",
   components: {
@@ -27,6 +29,7 @@ export default {
     Advantages,
     LowPrice,
     FormalitiesComponent,
+    VideoLections,
   },
 };
 </script>
