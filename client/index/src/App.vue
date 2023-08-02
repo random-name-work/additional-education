@@ -9,6 +9,7 @@
     <LowPrice></LowPrice>
     <VideoLections></VideoLections>
     <FormalitiesComponent></FormalitiesComponent>
+    <PopularPrograms></PopularPrograms>
   </div>
 </template>
 
@@ -18,8 +19,10 @@ import HeaderScene from "./components/HeaderScene.vue";
 import FindCource from "./components/FindCource.vue";
 import Advantages from "./components/AdvantagesUdpo.vue";
 import LowPrice from "./components/LowPrice.vue";
-import FormalitiesComponent from "./components/FormalitiesComponent.vue"
 import VideoLections from "./components/VideoLections.vue"
+import FormalitiesComponent from "./components/FormalitiesComponent.vue"
+
+import PopularPrograms from "./components/PopularPrograms.vue"
 export default {
   name: "App",
   components: {
@@ -28,8 +31,10 @@ export default {
     FindCource,
     Advantages,
     LowPrice,
-    FormalitiesComponent,
     VideoLections,
+    FormalitiesComponent,
+    PopularPrograms,
+
   },
 };
 </script>
