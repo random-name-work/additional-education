@@ -10,6 +10,7 @@
     <VideoLections></VideoLections>
     <FormalitiesComponent></FormalitiesComponent>
     <PopularPrograms></PopularPrograms>
+    <ProvidedTraining></ProvidedTraining>
   </div>
 </template>
 
@@ -19,10 +20,10 @@ import HeaderScene from "./components/HeaderScene.vue";
 import FindCource from "./components/FindCource.vue";
 import Advantages from "./components/AdvantagesUdpo.vue";
 import LowPrice from "./components/LowPrice.vue";
-import VideoLections from "./components/VideoLections.vue"
-import FormalitiesComponent from "./components/FormalitiesComponent.vue"
-
-import PopularPrograms from "./components/PopularPrograms.vue"
+import VideoLections from "./components/VideoLections.vue";
+import FormalitiesComponent from "./components/FormalitiesComponent.vue";
+import PopularPrograms from "./components/PopularPrograms.vue";
+import ProvidedTraining from "./components/ProvidedTraining.vue";
 export default {
   name: "App",
   components: {
@@ -34,7 +35,7 @@ export default {
     VideoLections,
     FormalitiesComponent,
     PopularPrograms,
-
+    ProvidedTraining,
   },
 };
 </script>
@@ -104,7 +105,8 @@ h5 {
   line-height: 140%;
 }
 // menu button
-.menu, .v-btn {
+.menu,
+.v-btn {
   font-family: "Golos Text", sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -121,7 +123,7 @@ h5 {
   letter-spacing: 0.12px;
 }
 
-.content{
+.content {
   margin-top: 96px;
 }
 //slider arrows
