@@ -1,17 +1,19 @@
 <template>
-  <div class="providedTraining">
-    <div class="content">
-      <h2>Обучение за счёт вашей компании.</h2>
-      <p class="text">
-        У нас действует 2 вида договора на обучение.По одному вы оплачиваете
-        сами. А второй предлагает оплатить обучение за счёт вашей компании.
-      </p>
-      <v-btn flat color="#3d8be4" min-height="60px" min-width="180px" block
-        >Выбрать курс
-      </v-btn>
-    </div>
-    <div class="scene">
-      <img src="./../assets/ProvidedScene.png" alt="providedScene" />
+  <div class="bg_color">
+    <div class="providedTraining">
+      <div class="content">
+        <h2>Обучение за счёт вашей компании.</h2>
+        <p class="text2">
+          У нас действует 2 вида договора на обучение. По одному вы оплачиваете
+          сами, а второй предлагает оплатить обучение за счёт вашей компании.
+        </p>
+        <v-btn flat color="#3d8be4" min-height="60px" min-width="180px" block
+          >Выбрать курс
+        </v-btn>
+      </div>
+      <div class="scene">
+        <img src="./../assets/ProvidedScene.png" alt="providedScene" />
+      </div>
     </div>
   </div>
 </template>
@@ -19,9 +21,14 @@
 <script></script>
 
 <style scoped lang="scss">
+.bg_color{
+  background-color: #F6F8F9;
+}
 .providedTraining {
   max-width: 1200px;
   width: 100%;
+
+  
 
   padding-top: 120px;
   padding-bottom: 80px;

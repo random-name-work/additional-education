@@ -11,6 +11,7 @@
     <FormalitiesComponent></FormalitiesComponent>
     <PopularPrograms></PopularPrograms>
     <ProvidedTraining></ProvidedTraining>
+    <OurManagers></OurManagers>
   </div>
 </template>
 
@@ -24,6 +25,8 @@ import VideoLections from "./components/VideoLections.vue";
 import FormalitiesComponent from "./components/FormalitiesComponent.vue";
 import PopularPrograms from "./components/PopularPrograms.vue";
 import ProvidedTraining from "./components/ProvidedTraining.vue";
+import OurManagers from "./components/OurManagers.vue";
+
 export default {
   name: "App",
   components: {
@@ -36,6 +39,7 @@ export default {
     FormalitiesComponent,
     PopularPrograms,
     ProvidedTraining,
+    OurManagers,
   },
 };
 </script>
