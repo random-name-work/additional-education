@@ -136,7 +136,7 @@ export default {
     gap: 40px;
 
     @media (max-width:1300px){
-        margin-left: 10%;
+        margin-left: 10px;
         margin-right: 10px;
     }
     .managerCard {

@@ -14,6 +14,7 @@
     <OurManagers></OurManagers>
     <EducationLicense></EducationLicense>
     <OurBlog></OurBlog>
+    <QuestionsAndAnswers></QuestionsAndAnswers>
   </div>
 </template>
 
@@ -30,6 +31,7 @@ import ProvidedTraining from "./components/ProvidedTraining.vue";
 import OurManagers from "./components/OurManagers.vue";
 import EducationLicense from "./components/EducationLicense.vue";
 import OurBlog from "./components/OurBlog.vue";
+import QuestionsAndAnswers from "./components/QuestionsAndAnswers.vue"
 
 export default {
   name: "App",
@@ -46,6 +48,7 @@ export default {
     OurManagers,
     EducationLicense,
     OurBlog,
+    QuestionsAndAnswers,
   },
 };
 </script>

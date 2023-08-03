@@ -1,5 +1,5 @@
 <template>
-  <div class="topSlider">
+  <div class="ourBlog">
     <header>
       <h2>Наш блог</h2>
       <v-btn
@@ -198,7 +198,7 @@ a{
     }
 }
 // slider left right btns in App.vue styles
-.topSlider {
+.ourBlog {
   max-width: 1200px;
   width: 100%;
 
