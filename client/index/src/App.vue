@@ -12,6 +12,7 @@
     <PopularPrograms></PopularPrograms>
     <ProvidedTraining></ProvidedTraining>
     <OurManagers></OurManagers>
+    <EducationLicense></EducationLicense>
   </div>
 </template>
 
@@ -26,6 +27,7 @@ import FormalitiesComponent from "./components/FormalitiesComponent.vue";
 import PopularPrograms from "./components/PopularPrograms.vue";
 import ProvidedTraining from "./components/ProvidedTraining.vue";
 import OurManagers from "./components/OurManagers.vue";
+import EducationLicense from "./components/EducationLicense.vue";
 
 export default {
   name: "App",
@@ -40,6 +42,7 @@ export default {
     PopularPrograms,
     ProvidedTraining,
     OurManagers,
+    EducationLicense,
   },
 };
 </script>
