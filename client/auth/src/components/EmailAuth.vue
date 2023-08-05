@@ -1,186 +1,147 @@
 <template>
+  <div class="bgColor">
+    <div class="logo">
+      <img src="./../assets/logo.png" alt="logo" />
+    </div>
     <div class="centered">
-      <div class="logo">
-        <img src="./../assets/logo.png" alt="logo" />
-      </div>
-  
       <div class="auth">
-        <div class="backBtn">
-          <button @click="$emit('back', 1)">
-            <svg
-              width="8"
-              height="14"
-              viewBox="0 0 8 14"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path id="Vector 34" d="M7 1L1 7L7 13" stroke="#3D8BE4" />
-            </svg>
-            Назад
-          </button>
+        <div class="backBtn" @click="$emit('back', 1)">
+          <svg
+            width="8"
+            height="14"
+            viewBox="0 0 8 14"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path id="Vector 34" d="M7 1L1 7L7 13" stroke="#3D8BE4" />
+          </svg>
+          <p class="text1">Назад</p>
         </div>
-        <div class="header">
-          <h2>Войдите или зарегистрируйтесь по номеру телефона</h2>
-        </div>
+        <h4>Войдите или зарегистрируйтесь по номеру телефона</h4>
         <div class="form">
-          <input type="text" placeholder="E-mail" />
-          <input type="text" placeholder="Введите или придумайте пароль" />
-          <button type="submit">Далее</button>
+          <v-form v-model="validForm">
+            <v-text-field
+              class="w-100"
+              v-model="email"
+              :rules="emailRules"
+              label="Email"
+              variant="outlined"
+              required
+            ></v-text-field>
+            <v-text-field
+              class="w-100"
+              v-model="password"
+              :rules="passwordRules"
+              label="Пароль"
+              variant="outlined"
+              required
+            ></v-text-field>
+            <v-btn
+              flat
+              color="#3d8be4"
+              min-height="60px"
+              min-width="180px"
+              block
+              :disabled="!validForm"
+              >Далее</v-btn
+            >
+          </v-form>
         </div>
         <div class="policy">
-          <p>
+          <p class="caption">
             Регистрируясь в сервисе, принимаю условия
-            <a href="#"> соглашения</a> и
-            <a href="#"> политики конфиденциальности </a>
+            <a href="#" class="caption"> соглашения</a> и
+            <a href="#" class="caption"> политики конфиденциальности </a>
           </p>
         </div>
       </div>
     </div>
-  </template>
-  
-  <script>
-  export default {
-    data() {
-      return {
-        phoneNumber: "",
-        phoneNumberRules: [],
-      };
-    },
-    methods: {},
-  };
-  </script>
-  
-  <style scoped lang="scss">
-  * {
-    box-sizing: border-box;
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      email: "",
+      emailRules: [],
+      password: "",
+      passwordRules: [],
+    };
+  },
+  methods: {},
+};
+</script>
+
+<style scoped lang="scss">
+.bgColor {
+  background-color: #f6f8f9;
+  width: 100%;
+  height: 100vh;
+}
+.logo {
+  position: absolute;
+
+  top: 20px;
+  left: 30px;
+
+  @media (max-height: 630px) {
+    display: none;
   }
-  p,
-  a,
-  h2,
-  button,
-  input {
-    font-family: "Golos Text", sans-serif;
-  }
-  .centered {
-    .logo {
-      position: absolute;
-  
-      top: 20px;
-      left: 30px;
-    }
-    position: absolute;
-  
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  
+}
+.centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100vh;
+  .auth {
+    max-width: 420px;
     width: 100%;
-    height: calc(100% - 16px);
-    background-color: #f6f8f9;
-  
-    .auth {
-      max-width: 420px;
-      width: 100%;
-      background-color: #fff;
-  
-      border-radius: 12px;
-      box-shadow: 0px 8px 30px 0px rgba(0, 0, 0, 0.05);
-  
-      margin: auto;
-      padding: 40px 30px;
-  
+    background-color: #fff;
+
+    border-radius: 12px;
+    box-shadow: 0px 8px 30px 0px rgba(0, 0, 0, 0.05);
+
+    padding: 40px 30px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+
+    @media (max-width: 480px) {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    .backBtn {
+      color: #3d8be4;
+
+      display: flex;
+      align-items: center;
+
+      gap: 8px;
+      &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+      }
+    }
+
+    .v-form {
       display: flex;
       flex-direction: column;
-  
       gap: 20px;
-  
-      .backBtn {
-        button {
-          color: #3d8be4;
-  
-          display: flex;
-          justify-content: center;
-          align-items: center;
-  
-          gap: 8px;
-  
-          font-size: 17px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: 140%;
-  
-          background-color: #fff;
-          border: none;
-  
-          &:hover {
-            cursor: pointer;
-            opacity: 0.8;
-          }
-        }
-      }
-      .header {
-        h2 {
-          font-size: 20px;
-          font-style: normal;
-          font-weight: 600;
-          line-height: 130%;
-        }
-      }
-  
-      .form {
-        display: flex;
-        flex-direction: column;
-  
-        gap: 20px;
-  
-        input,
-        button {
-          height: 53px;
-          border-radius: 6px;
-  
-          border: none;
-        }
-        input {
-          padding: 15px 20px;
-  
-          font-size: 17px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: 140%;
-        }
-        button {
-          color: #ffffff;
-          background-color: #3d8be4;
-  
-          font-size: 16px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: 150%;
-          letter-spacing: 0.16px;
-  
-          &:hover {
-            cursor: pointer;
-            opacity: 0.8;
-          }
-        }
-      }
-  
-      .policy {
-        p {
-          font-size: 12px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: 120%;
-          letter-spacing: 0.12px;
-  
-          opacity: 0.4;
-  
-          a {
-            color: #000;
-          }
+    }
+
+    .policy {
+      p {
+        opacity: 0.4;
+        a {
+          color: #000;
         }
       }
     }
   }
-  </style>
-  
+}
+</style>

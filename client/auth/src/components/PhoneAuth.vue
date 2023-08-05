@@ -1,12 +1,11 @@
 <template>
-  <div class="centered">
+  <div class="bgColor">
     <div class="logo">
       <img src="./../assets/logo.png" alt="logo" />
     </div>
-
-    <div class="auth">
-      <div class="backBtn">
-        <button @click="$emit('back', 1)">
+    <div class="centered">
+      <div class="auth">
+        <div class="backBtn" @click="$emit('back', 1)">
           <svg
             width="8"
             height="14"
@@ -16,34 +15,39 @@
           >
             <path id="Vector 34" d="M7 1L1 7L7 13" stroke="#3D8BE4" />
           </svg>
-          Назад
-        </button>
-      </div>
-      <div class="header">
-        <h2>Войдите или зарегистрируйтесь по номеру телефона</h2>
-      </div>
-      <div class="form">
-        <v-form v-model="vadilForm">
-          <v-text-field
-          v-model="phoneNumber"
-          :rules="phoneNumberRules"
-          label="Телефон"
-          placeholder="+7-(ххх)-ххх-хх-хх"
-          variant="outlined"
-          required
-          ></v-text-field>
-          <v-btn
-          :disabled="!vadilForm"
-          block
-          >Далее</v-btn>
-        </v-form>
-      </div>
-      <div class="policy">
-        <p>
-          Регистрируясь в сервисе, принимаю условия
-          <a href="#"> соглашения</a> и
-          <a href="#"> политики конфиденциальности </a>
-        </p>
+          <p class="text1">Назад</p>
+        </div>
+        <h4>Войдите или зарегистрируйтесь по номеру телефона</h4>
+
+        <div class="form">
+          <v-form v-model="validForm">
+            <v-text-field
+              class="w-100"
+              v-model="phoneNumber"
+              :rules="phoneNumberRules"
+              label="Телефон"
+              variant="outlined"
+              required
+            ></v-text-field>
+            <v-btn
+              flat
+              color="#3d8be4"
+              min-height="60px"
+              min-width="180px"
+              block
+              :disabled="!validForm"
+              >Далее</v-btn
+            >
+          </v-form>
+        </div>
+        
+        <div class="policy">
+          <p class="caption">
+            Регистрируясь в сервисе, принимаю условия
+            <a href="#" class="caption"> соглашения</a> и
+            <a href="#" class="caption"> политики конфиденциальности </a>
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -55,9 +59,7 @@ export default {
     return {
       validForm: false,
       phoneNumber: "",
-      phoneNumberRules: [
-        (v) => !!v || "Введите номер!"
-      ],
+      phoneNumberRules: [(v) => !!v || "Введите номер!"],
     };
   },
   methods: {},
@@ -65,23 +67,22 @@ export default {
 </script>
 
 <style scoped lang="scss">
-* {
-  box-sizing: border-box;
+.bgColor {
+  background-color: #f6f8f9;
+  width: 100%;
+  height: 100vh;
 }
-p,
-a,
-h2,
-button,
-input {
-  font-family: "Golos Text", sans-serif;
+.logo {
+  position: absolute;
+
+  top: 20px;
+  left: 30px;
+
+  @media (max-height: 630px) {
+    display: none;
+  }
 }
 .centered {
-  .logo {
-    position: absolute;
-
-    top: 20px;
-    left: 30px;
-  }
   position: absolute;
 
   display: flex;
@@ -90,7 +91,6 @@ input {
 
   width: 100%;
   height: calc(100% - 16px);
-  background-color: #f6f8f9;
 
   .auth {
     max-width: 420px;
@@ -108,68 +108,31 @@ input {
 
     gap: 20px;
 
+    @media (max-width: 480px) {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
     .backBtn {
-      button {
-        color: #3d8be4;
+      color: #3d8be4;
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
+      display: flex;
+      align-items: center;
 
-        gap: 8px;
-
-        font-size: 17px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 140%;
-
-        background-color: #fff;
-        border: none;
-
-        &:hover {
-          cursor: pointer;
-          opacity: 0.8;
-        }
-      }
-    }
-    .header {
-      h2 {
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 600;
-        line-height: 130%;
+      gap: 8px;
+      &:hover {
+        cursor: pointer;
+        opacity: 0.8;
       }
     }
 
-    .form {
-      
-      input,
-      button {
-        height: 53px;
-      }
-      
-      button {
-        color: #ffffff;
-        background-color: #3d8be4;
-
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 150%;
-        letter-spacing: 0.16px;
-      }
+    .v-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
-
     .policy {
       p {
-        font-size: 12px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 120%;
-        letter-spacing: 0.12px;
-
         opacity: 0.4;
-
         a {
           color: #000;
         }

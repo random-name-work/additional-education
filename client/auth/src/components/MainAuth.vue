@@ -1,46 +1,66 @@
 <template>
-  <div class="centered">
+  <div class="bgColor">
     <div class="logo">
       <img src="./../assets/logo.png" alt="logo" />
     </div>
-
-    <div class="auth">
-      <div class="header">
-        <h2>Войдите или зарегистрируйтесь</h2>
-      </div>
-      <div class="login">
-        <p>Через соцсеть</p>
-        <div class="images">
-          <a href="#">
-            <img src="./../assets/vkLogo.png" alt="vk" />
-          </a>
-          <a href="#">
-            <img src="./../assets/facebookLogo.png" alt="facebook" />
-          </a>
-          <a href="#">
-            <img src="./../assets/okruLogo.png" alt="okru" />
-          </a>
-          <a href="#">
-            <img src="./../assets/mailLogo.png" alt="mail" />
-          </a>
-          <a href="#">
-            <img src="./../assets/yandexLogo.png" alt="yandex" />
-          </a>
+    <div class="centered">
+      <div class="auth">
+        <h4>Войдите или зарегистрируйтесь</h4>
+        <div class="login">
+  
+          <p class="text1">Через соцсеть</p>
+          
+          <div class="images">
+            <a href="#">
+              <img src="./../assets/vkLogo.png" alt="vk" />
+            </a>
+            <a href="#">
+              <img src="./../assets/facebookLogo.png" alt="facebook" />
+            </a>
+            <a href="#">
+              <img src="./../assets/okruLogo.png" alt="okru" />
+            </a>
+            <a href="#">
+              <img src="./../assets/mailLogo.png" alt="mail" />
+            </a>
+            <a href="#">
+              <img src="./../assets/yandexLogo.png" alt="yandex" />
+            </a>
+          </div>
+  
         </div>
-      </div>
-      <div class="login">
-        <p>Другим способом</p>
-        <div class="btns">
-          <button @click="$emit('changeWindow', 2)">Номер телефона</button>
-          <button @click="$emit('changeWindow', 3)">E-mail</button>
+        
+        <div class="login">
+          <p class="text1">Другим способом</p>
+          <div class="btns">
+            <v-btn 
+            @click="$emit('changeWindow', 2)"
+            min-height="64px"
+            flat
+            variant="outlined"
+            class="text-none pl-8 pr-8 pt-5 pb-5"
+            >
+            Номер телефона
+            </v-btn>
+            
+            <v-btn 
+            @click="$emit('changeWindow', 3)"
+            min-height="64px"
+            flat
+            variant="outlined"
+            class="text-none pl-11 pr-11 pt-5 pb-5"
+            >
+            E-mail
+            </v-btn>
+          </div>
         </div>
-      </div>
-      <div class="policy">
-        <p>
-          Регистрируясь в сервисе, принимаю условия
-          <a href="#"> соглашения</a> и
-          <a href="#"> политики конфиденциальности </a>
-        </p>
+        <div class="policy">
+          <p class="caption">
+            Регистрируясь в сервисе, принимаю условия
+            <a href="#" class="caption"> соглашения</a> и
+            <a href="#" class="caption"> политики конфиденциальности </a>
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -49,35 +69,33 @@
 <script></script>
 
 <style scoped lang="scss">
-p,
-a,
-h2,
-button {
-  font-family: "Golos Text", sans-serif;
+.bgColor {
+  background-color: #F6F8F9;
+  width: 100%;
+  height: 100vh;
 }
-.centered {
-  .logo {
-    position: absolute;
-
-    top: 20px;
-    left: 30px;
-  }
+.logo {
   position: absolute;
 
+  top: 20px;
+  left: 30px;
+
+  @media (max-height: 630px) {
+    display: none;
+  }
+}
+.centered {
   display: flex;
   align-items: center;
   justify-content: center;
 
   width: 100%;
-  height: calc(100% - 16px);
-
-  background-color: #f6f8f9;
+  height: 100vh;
 
   .auth {
     max-width: 420px;
     width: 100%;
     background-color: #fff;
-
 
     border-radius: 12px;
     box-shadow: 0px 8px 30px 0px rgba(0, 0, 0, 0.05);
@@ -90,61 +108,29 @@ button {
 
     gap: 30px;
 
-    .header {
-      h2 {
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 600;
-        line-height: 130%;
-      }
+    @media (max-width: 440px) {
+      margin-left: 10px;
+      margin-right: 10px;
     }
     .login {
       display: flex;
       flex-direction: column;
+      flex-wrap: wrap;
 
       gap: 15px;
 
       .btns,
       .images {
         display: flex;
-        justify-content: space-between;
-      }
+        justify-content: space-around;
+        flex-wrap: wrap;
 
-      .btns {
-        button {
-          padding: 20px 33px;
-
-          border-radius: 6px;
-          border: 1px solid var(--line, #e5e5e5);
-
-          background-color: #fff;
-
-          font-size: 16px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: 150%;
-          letter-spacing: 0.16px;
-
-          color: #000;
-          text-decoration: none;
-
-          &:hover {
-            cursor: pointer;
-            opacity: 0.8;
-          }
-        }
+        gap: 11px;
       }
     }
     .policy {
       p {
-        font-size: 12px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 120%;
-        letter-spacing: 0.12px;
-
         opacity: 0.4;
-
         a {
           color: #000;
         }

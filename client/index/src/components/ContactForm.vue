@@ -48,6 +48,7 @@
           color="#3d8be4"
           min-height="60px"
           max-width="450px"
+          :disabled="!valid"
         >
           Получить консультацию
         </v-btn>
