@@ -15,6 +15,7 @@
     <EducationLicense></EducationLicense>
     <OurBlog></OurBlog>
     <QuestionsAndAnswers></QuestionsAndAnswers>
+    <ContactForm></ContactForm>
   </div>
 </template>
 
@@ -31,7 +32,8 @@ import ProvidedTraining from "./components/ProvidedTraining.vue";
 import OurManagers from "./components/OurManagers.vue";
 import EducationLicense from "./components/EducationLicense.vue";
 import OurBlog from "./components/OurBlog.vue";
-import QuestionsAndAnswers from "./components/QuestionsAndAnswers.vue"
+import QuestionsAndAnswers from "./components/QuestionsAndAnswers.vue";
+import ContactForm from "./components/ContactForm.vue";
 
 export default {
   name: "App",
@@ -49,6 +51,7 @@ export default {
     EducationLicense,
     OurBlog,
     QuestionsAndAnswers,
+    ContactForm,
   },
 };
 </script>
@@ -95,7 +98,8 @@ h5 {
   font-weight: 600;
   line-height: 150%;
 }
-.text1 {
+.text1,
+.v-field-label {
   font-family: "Golos Text", sans-serif;
   font-size: clamp(15px, 4.6vw, 17px);
   font-style: normal;
@@ -164,6 +168,21 @@ h5 {
   }
   &__next {
     right: calc(50% - 150px);
+  }
+}
+
+// ContactForm checkbox settings
+.v-input {
+  &__control {
+    margin-top: 10px;
+
+    .v-label {
+      overflow: visible;
+    }
+  }
+
+  &__details {
+    margin-top: 10px;
   }
 }
 </style>
