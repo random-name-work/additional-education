@@ -63,10 +63,11 @@
 export default {
   data() {
     return {
+      validForm: false,
       email: "",
-      emailRules: [],
+      emailRules: [(v) => !!v || "Введите email!"],
       password: "",
-      passwordRules: [],
+      passwordRules: [(v) => !!v || "Введите пароль!"],
     };
   },
   methods: {},
