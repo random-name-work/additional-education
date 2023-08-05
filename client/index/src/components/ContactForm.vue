@@ -52,8 +52,6 @@
           Получить консультацию
         </v-btn>
       </v-form>
-
-      <hr>
     </div>
   </div>
 </template>
@@ -134,8 +132,6 @@ export default {
       margin-left: auto;
     }
     // v-label settings for checkbox in App.vue
-    .v-label {
-    }
   }
 }
 </style>

@@ -16,6 +16,7 @@
     <OurBlog></OurBlog>
     <QuestionsAndAnswers></QuestionsAndAnswers>
     <ContactForm></ContactForm>
+    <FooterComponent></FooterComponent>
   </div>
 </template>
 
@@ -34,6 +35,7 @@ import EducationLicense from "./components/EducationLicense.vue";
 import OurBlog from "./components/OurBlog.vue";
 import QuestionsAndAnswers from "./components/QuestionsAndAnswers.vue";
 import ContactForm from "./components/ContactForm.vue";
+import FooterComponent from "./components/FooterComponent.vue"
 
 export default {
   name: "App",
@@ -52,6 +54,7 @@ export default {
     OurBlog,
     QuestionsAndAnswers,
     ContactForm,
+    FooterComponent
   },
 };
 </script>
