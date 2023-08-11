@@ -3,16 +3,19 @@
     <NavBar></NavBar> 
   </div>
   <div class="content">
+    <CatalogComponent></CatalogComponent>
   </div>
 </template>
 
 <script>
 import NavBar from "./components/NavBar.vue";
+import CatalogComponent from "./components/CatalogComponent.vue";
 
 export default {
   name: "App",
   components: {
     NavBar,
+    CatalogComponent,
   },
 };
 </script>
@@ -103,5 +106,14 @@ h5 {
 
 .content {
   margin-top: 96px;
+}
+
+label.v-label{
+    overflow: visible;
+    opacity: 1;
+
+    &:hover{
+      opacity: 0.8;
+    }
 }
 </style>
