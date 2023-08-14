@@ -173,6 +173,12 @@ h5 {
     right: calc(50% - 150px);
   }
 }
+// slider nav dots
+.carousel__pagination-button::after {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
 
 // ContactForm checkbox settings
 .v-input {

@@ -125,11 +125,15 @@
         flex-wrap: wrap;
         justify-content: space-around;
       }
-      h5 {
-        margin-top: 20px;
-      }
-      p.text3 {
-        margin-top: 5px;
+      .info {
+        max-width: 200px;
+        width: 100%;
+        h5 {
+          margin-top: 20px;
+        }
+        p.text3 {
+          margin-top: 5px;
+        }
       }
     }
   }
