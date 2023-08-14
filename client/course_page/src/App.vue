@@ -77,7 +77,7 @@ h5 {
   font-weight: 400;
   line-height: 140%;
   letter-spacing: 0.2px;
-}
+} 
 .text3 {
   font-family: "Golos Text", sans-serif;
   font-size: clamp(14px, 4.3vw, 16px);
