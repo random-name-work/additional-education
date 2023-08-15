@@ -10,11 +10,13 @@
           name="type"
           :value="`${btn}`"
         />
-        <label :for="`${btn}`" @click="displayId = btn">
-          <h5>
-            {{ btn }}
-          </h5>
-        </label>
+        <div class="label">
+          <label :for="`${btn}`" @click="displayId = btn">
+            <h5>
+              {{ btn }}
+            </h5>
+          </label>
+        </div>
       </div>
     </div>
     <Carousel ref="carousel" :breakpoints="breakpoints" v-model="currentSlide">
@@ -133,7 +135,6 @@ export default {
             "Педагог высшего образования по программам подготовки кадров высшей квалификации",
           time: "от 250 ак.ч.",
         },
-
         {
           id: 2,
           img: "./../assets/courseImage2.png",
@@ -232,11 +233,11 @@ h2 {
   input {
     display: none;
   }
-  input:checked + label {
+  input:checked ~ .label {
     color: #3d8be4;
-
+    
     padding-bottom: 7px;
-    border-bottom: 2px solid #3d8be4;
+    border-bottom: 2px solid #3D8BE4;
   }
   label {
     font-size: 16px;

@@ -8,6 +8,7 @@
     <EducationalDiploma></EducationalDiploma>
     <CourseSignUp></CourseSignUp>
     <ContactFormBlue></ContactFormBlue>
+    <EducationPlan></EducationPlan>
   </div>
 </template>
 
@@ -18,6 +19,7 @@ import CourseInfo from "./components/CourseInfo.vue";
 import EducationalDiploma from "./components/EducationalDiploma.vue";
 import CourseSignUp from "./components/CourseSignUp.vue";
 import ContactFormBlue from "./components/ContactFormBlue.vue";
+import EducationPlan from "./components/EducatuonPlan.vue"
 export default {
   name: "App",
   components: {
@@ -26,7 +28,8 @@ export default {
     CourseInfo,
     EducationalDiploma,
     CourseSignUp,
-    ContactFormBlue
+    ContactFormBlue,
+    EducationPlan
   },
 };
 </script>
