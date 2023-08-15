@@ -15,6 +15,7 @@
     <CourseSignUp></CourseSignUp>
     <MightBeInteresting></MightBeInteresting>
     <ContactForm></ContactForm>
+    <FooterComponent></FooterComponent>
   </div>
 </template>
 
@@ -30,7 +31,8 @@ import SimilarCourses from "./components/SimilarCourses.vue";
 import EducationLicense from "./components/EducationLicense.vue";
 import socialReposte from "./components/SocialReposte.vue";
 import MightBeInteresting from "./components/MightBeInteresting.vue";
-import ContactForm from "./components/ContactForm.vue"
+import ContactForm from "./components/ContactForm.vue";
+import FooterComponent from "./components/FooterComponent.vue"
 export default {
   name: "App",
   components: {
@@ -46,6 +48,7 @@ export default {
     socialReposte,
     MightBeInteresting,
     ContactForm,
+    FooterComponent
   },
 };
 </script>
