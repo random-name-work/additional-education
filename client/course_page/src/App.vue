@@ -7,6 +7,7 @@
     <CourseInfo></CourseInfo>
     <EducationalDiploma></EducationalDiploma>
     <CourseSignUp></CourseSignUp>
+    <ContactFormBlue></ContactFormBlue>
   </div>
 </template>
 
@@ -16,6 +17,7 @@ import HeaderScene from "./components/HeaderScene.vue";
 import CourseInfo from "./components/CourseInfo.vue";
 import EducationalDiploma from "./components/EducationalDiploma.vue";
 import CourseSignUp from "./components/CourseSignUp.vue";
+import ContactFormBlue from "./components/ContactFormBlue.vue";
 export default {
   name: "App",
   components: {
@@ -23,7 +25,8 @@ export default {
     HeaderScene,
     CourseInfo,
     EducationalDiploma,
-    CourseSignUp
+    CourseSignUp,
+    ContactFormBlue
   },
 };
 </script>
@@ -151,6 +154,21 @@ h5 {
       top: 98%;
       right: calc(50% - 150px);
     }
+  }
+}
+
+// ContactForm checkbox settings
+.v-input {
+  &__control {
+    margin-top: 10px;
+
+    .v-label {
+      overflow: visible;
+    }
+  }
+
+  &__details {
+    margin-top: 10px;
   }
 }
 </style>

@@ -81,6 +81,11 @@ export default {
     padding-bottom: 80px;
   }
 
+  h2{
+    @media(max-width:1279px){
+      text-align: center;
+    }
+  }
   .priceList {
     margin-top: 120px;
 
@@ -88,6 +93,10 @@ export default {
     flex-wrap: wrap;
 
     gap: 60px;
+
+    @media(max-width:1279px){
+      justify-content: space-around;
+    }
     .card {
       max-width: 570px;
       width: 100%;
