@@ -11,6 +11,7 @@
     <EducationPlan></EducationPlan>
     <SimilarCourses></SimilarCourses>
     <EducationLicense></EducationLicense>
+    <socialReposte></socialReposte>
   </div>
 </template>
 
@@ -24,6 +25,7 @@ import ContactFormBlue from "./components/ContactFormBlue.vue";
 import EducationPlan from "./components/EducatuonPlan.vue";
 import SimilarCourses from "./components/SimilarCourses.vue";
 import EducationLicense from "./components/EducationLicense.vue";
+import socialReposte from "./components/SocialReposte.vue"
 export default {
   name: "App",
   components: {
@@ -35,7 +37,8 @@ export default {
     ContactFormBlue,
     EducationPlan,
     SimilarCourses,
-    EducationLicense
+    EducationLicense,
+    socialReposte
   },
 };
 </script>
