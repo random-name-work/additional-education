@@ -13,6 +13,7 @@
     <EducationLicense></EducationLicense>
     <socialReposte></socialReposte>
     <CourseSignUp></CourseSignUp>
+    <MightBeInteresting></MightBeInteresting>
   </div>
 </template>
 
@@ -26,7 +27,8 @@ import ContactFormBlue from "./components/ContactFormBlue.vue";
 import EducationPlan from "./components/EducatuonPlan.vue";
 import SimilarCourses from "./components/SimilarCourses.vue";
 import EducationLicense from "./components/EducationLicense.vue";
-import socialReposte from "./components/SocialReposte.vue"
+import socialReposte from "./components/SocialReposte.vue";
+import MightBeInteresting from "./components/MightBeInteresting.vue"
 export default {
   name: "App",
   components: {
@@ -39,7 +41,8 @@ export default {
     EducationPlan,
     SimilarCourses,
     EducationLicense,
-    socialReposte
+    socialReposte,
+    MightBeInteresting
   },
 };
 </script>
@@ -189,7 +192,8 @@ h5 {
 
 //SimilarCourses nav arrows
 .similarCourses,
-.license{
+.license,
+.mightBeInteresting{
   .carousel {
   &__prev,
   &__next {
