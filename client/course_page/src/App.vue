@@ -6,6 +6,7 @@
     <HeaderScene></HeaderScene>
     <CourseInfo></CourseInfo>
     <EducationalDiploma></EducationalDiploma>
+    <CourseSignUp></CourseSignUp>
   </div>
 </template>
 
@@ -13,8 +14,8 @@
 import NavBar from "./components/NavBar.vue";
 import HeaderScene from "./components/HeaderScene.vue";
 import CourseInfo from "./components/CourseInfo.vue";
-import EducationalDiploma from "./components/EducationalDiploma.vue"
-
+import EducationalDiploma from "./components/EducationalDiploma.vue";
+import CourseSignUp from "./components/CourseSignUp.vue";
 export default {
   name: "App",
   components: {
@@ -22,6 +23,7 @@ export default {
     HeaderScene,
     CourseInfo,
     EducationalDiploma,
+    CourseSignUp
   },
 };
 </script>
