@@ -12,6 +12,7 @@
     <SimilarCourses></SimilarCourses>
     <EducationLicense></EducationLicense>
     <socialReposte></socialReposte>
+    <CourseSignUp></CourseSignUp>
   </div>
 </template>
 
