@@ -5,6 +5,7 @@
   <div class="contentApp">
     <HeaderScene></HeaderScene>
     <CourseInfo></CourseInfo>
+    <EducationalDiploma></EducationalDiploma>
   </div>
 </template>
 
@@ -12,12 +13,15 @@
 import NavBar from "./components/NavBar.vue";
 import HeaderScene from "./components/HeaderScene.vue";
 import CourseInfo from "./components/CourseInfo.vue";
+import EducationalDiploma from "./components/EducationalDiploma.vue"
+
 export default {
   name: "App",
   components: {
     NavBar,
     HeaderScene,
     CourseInfo,
+    EducationalDiploma,
   },
 };
 </script>
