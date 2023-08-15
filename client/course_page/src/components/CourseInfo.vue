@@ -1,6 +1,6 @@
 <template>
   <div class="bgColor">
-    <div class="mainSlider">
+    <div class="courseInfo">
       <h2>Информация о курсе</h2>
 
       <div class="carousel">
@@ -121,7 +121,7 @@ export default {
   height: 100%;
   width: 100%;
 }
-.mainSlider {
+.courseInfo {
   max-width: 1200px;
   width: 100%;
 

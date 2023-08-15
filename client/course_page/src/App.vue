@@ -9,6 +9,7 @@
     <CourseSignUp></CourseSignUp>
     <ContactFormBlue></ContactFormBlue>
     <EducationPlan></EducationPlan>
+    <SimilarCourses></SimilarCourses>
   </div>
 </template>
 
@@ -19,7 +20,8 @@ import CourseInfo from "./components/CourseInfo.vue";
 import EducationalDiploma from "./components/EducationalDiploma.vue";
 import CourseSignUp from "./components/CourseSignUp.vue";
 import ContactFormBlue from "./components/ContactFormBlue.vue";
-import EducationPlan from "./components/EducatuonPlan.vue"
+import EducationPlan from "./components/EducatuonPlan.vue";
+import SimilarCourses from "./components/SimilarCourses.vue";
 export default {
   name: "App",
   components: {
@@ -29,7 +31,8 @@ export default {
     EducationalDiploma,
     CourseSignUp,
     ContactFormBlue,
-    EducationPlan
+    EducationPlan,
+    SimilarCourses
   },
 };
 </script>
@@ -124,38 +127,40 @@ h5 {
 
 // CourseInfo Carousel paginationBtn customization
 .carousel__pagination-button::after {
-  margin-top: 15px;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-}
-.carousel {
-  &__prev,
-  &__next {
-
-    width: 57px;
-    height: 57px;
-
-    border: 1px solid #000000;
+    margin-top: 15px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
-
-    svg {
-      margin-top: 4px;
-    }
-
-    &:hover {
-      opacity: 0.8;
-    }
   }
-  @media (max-width:800px){
-
-    &__prev {
-      top: 98%;
-      left: calc(50% - 150px);
-    }
+.courseInfo{
+  .carousel {
+    &__prev,
     &__next {
-      top: 98%;
-      right: calc(50% - 150px);
+  
+      width: 57px;
+      height: 57px;
+  
+      border: 1px solid #000000;
+      border-radius: 50%;
+  
+      svg {
+        margin-top: 4px;
+      }
+  
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+    @media (max-width:800px){
+  
+      &__prev {
+        top: 98%;
+        left: calc(50% - 150px);
+      }
+      &__next {
+        top: 98%;
+        right: calc(50% - 150px);
+      }
     }
   }
 }
@@ -173,5 +178,35 @@ h5 {
   &__details {
     margin-top: 10px;
   }
+}
+
+//SimilarCourses nav arrows
+.similarCourses{
+  .carousel {
+  &__prev,
+  &__next {
+    top: 99%;
+
+    width: 57px;
+    height: 57px;
+
+    border: 1px solid #000000;
+    border-radius: 50%;
+
+    svg {
+      margin-top: 11px;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  &__prev {
+    left: calc(50% - 150px);
+  }
+  &__next {
+    right: calc(50% - 150px);
+  }
+}
 }
 </style>
