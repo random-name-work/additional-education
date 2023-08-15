@@ -10,6 +10,7 @@
     <ContactFormBlue></ContactFormBlue>
     <EducationPlan></EducationPlan>
     <SimilarCourses></SimilarCourses>
+    <EducationLicense></EducationLicense>
   </div>
 </template>
 
@@ -22,6 +23,7 @@ import CourseSignUp from "./components/CourseSignUp.vue";
 import ContactFormBlue from "./components/ContactFormBlue.vue";
 import EducationPlan from "./components/EducatuonPlan.vue";
 import SimilarCourses from "./components/SimilarCourses.vue";
+import EducationLicense from "./components/EducationLicense.vue";
 export default {
   name: "App",
   components: {
@@ -32,7 +34,8 @@ export default {
     CourseSignUp,
     ContactFormBlue,
     EducationPlan,
-    SimilarCourses
+    SimilarCourses,
+    EducationLicense
   },
 };
 </script>
@@ -181,7 +184,8 @@ h5 {
 }
 
 //SimilarCourses nav arrows
-.similarCourses{
+.similarCourses,
+.license{
   .carousel {
   &__prev,
   &__next {
