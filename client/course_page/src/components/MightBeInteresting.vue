@@ -216,19 +216,19 @@ header {
         text-align: center;
       }
     }
-      .caption {
-        margin-top: 20px;
-        display: flex;
+    .caption {
+      margin-top: 20px;
+      display: flex;
 
-        opacity: 0.8;
-        svg {
-          margin-top: 20px;
-          margin-left: 15px;
-        }
-        .views {
-          margin-left: 6px;
-        }
+      opacity: 0.8;
+      svg {
+        margin-top: 20px;
+        margin-left: 15px;
       }
+      .views {
+        margin-left: 6px;
+      }
+    }
   }
 
   &__slide {
