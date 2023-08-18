@@ -51,6 +51,7 @@
         <div class="btn">
           <v-btn
             @click="courseAmount += 10"
+            v-if="courseAmount < courses.amount"
             flat
             color="#3d8be4"
             min-height="60px"
@@ -98,7 +99,7 @@ export default {
     return {
       courseAmount: 10,
       courses: {
-        amount: 230,
+        amount: 16,
         array: [
           {
             id: 1,
@@ -157,6 +158,45 @@ export default {
 
             type: "Повышение квалификации",
             faculty: "Педагогика",
+            documentType: "Удостоверение о повышении квалификации",
+            additionally: ["LowPrice"],
+
+            img: "index",
+            header:
+              "Педагог высшего образования по программам подготовки кадров высшей квалификации",
+            time: "250",
+          },
+          {
+            id: 6,
+
+            type: "Повышение квалификации",
+            faculty: "Юриспруденция",
+            documentType: "Удостоверение о повышении квалификации",
+            additionally: [],
+
+            img: "index",
+            header:
+              "Педагог высшего образования по программам подготовки кадров высшей квалификации",
+            time: "250",
+          },
+          {
+            id: 7,
+
+            type: "Повышение квалификации",
+            faculty: "Медицина",
+            documentType: "Удостоверение о повышении квалификации",
+            additionally: ["LowPrice"],
+
+            img: "index",
+            header:
+              "Педагог высшего образования по программам подготовки кадров высшей квалификации",
+            time: "250",
+          },
+          {
+            id: 8,
+
+            type: "Повышение квалификации",
+            faculty: "Бизнес",
             documentType: "Удостоверение о повышении квалификации",
             additionally: ["LowPrice"],
 
