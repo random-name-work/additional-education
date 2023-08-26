@@ -6,6 +6,8 @@
     <LectionComponent></LectionComponent>
     <RelatedLectures></RelatedLectures>
     <EducationLicense></EducationLicense>
+    <ContactForm></ContactForm>
+    <FooterComponent></FooterComponent>
   </div>
 </template>
 
@@ -15,6 +17,8 @@ import NavBar from "./components/NavBar.vue";
 import LectionComponent from "./components/LectionComponent.vue";
 import RelatedLectures from "./components/RelatedLectures.vue"
 import EducationLicense from "./components/EducationLicense.vue"
+import ContactForm from "./components/ContactForm.vue"
+import FooterComponent from "./components/FooterComponent.vue"
 
 export default {
   name: "App",
@@ -22,7 +26,9 @@ export default {
     NavBar,
     LectionComponent,
     RelatedLectures,
-    EducationLicense
+    EducationLicense,
+    ContactForm,
+    FooterComponent
   },
 };
 </script>
@@ -150,5 +156,20 @@ h5 {
     right: calc(50% - 150px);
   }
 }
+}
+
+// ContactForm checkbox settings
+.v-input {
+  &__control {
+    margin-top: 10px;
+
+    .v-label {
+      overflow: visible;
+    }
+  }
+
+  &__details {
+    margin-top: 10px;
+  }
 }
 </style>
