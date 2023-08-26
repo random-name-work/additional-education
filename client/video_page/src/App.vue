@@ -5,6 +5,7 @@
   <div class="content">
     <LectionComponent></LectionComponent>
     <RelatedLectures></RelatedLectures>
+    <EducationLicense></EducationLicense>
   </div>
 </template>
 
@@ -13,13 +14,15 @@ import NavBar from "./components/NavBar.vue";
 
 import LectionComponent from "./components/LectionComponent.vue";
 import RelatedLectures from "./components/RelatedLectures.vue"
+import EducationLicense from "./components/EducationLicense.vue"
 
 export default {
   name: "App",
   components: {
     NavBar,
     LectionComponent,
-    RelatedLectures
+    RelatedLectures,
+    EducationLicense
   },
 };
 </script>
@@ -119,7 +122,8 @@ h5 {
 }
 
 //RelatedLectures nav arrows
-.RelatedLectures{
+.RelatedLectures,
+.license{
   .carousel {
   &__prev,
   &__next {
