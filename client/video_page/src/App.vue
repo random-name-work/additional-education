@@ -4,6 +4,7 @@
   </div>
   <div class="content">
     <LectionComponent></LectionComponent>
+    <RelatedLectures></RelatedLectures>
   </div>
 </template>
 
@@ -11,12 +12,14 @@
 import NavBar from "./components/NavBar.vue";
 
 import LectionComponent from "./components/LectionComponent.vue";
+import RelatedLectures from "./components/RelatedLectures.vue"
 
 export default {
   name: "App",
   components: {
     NavBar,
-    LectionComponent
+    LectionComponent,
+    RelatedLectures
   },
 };
 </script>
@@ -110,8 +113,38 @@ h5 {
 }
 
 // solution for wrap text in v-btn in LectionComponent.vue
-.v-btn .v-btn__content {
+.lectionComponent .btns .v-btn .v-btn__content {
   width: 100%;
   white-space: wrap;
+}
+
+//RelatedLectures nav arrows
+.RelatedLectures{
+  .carousel {
+  &__prev,
+  &__next {
+    top: 99%;
+
+    width: 57px;
+    height: 57px;
+
+    border: 1px solid #000000;
+    border-radius: 50%;
+
+    svg {
+      margin-top: 11px;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  &__prev {
+    left: calc(50% - 150px);
+  }
+  &__next {
+    right: calc(50% - 150px);
+  }
+}
 }
 </style>
