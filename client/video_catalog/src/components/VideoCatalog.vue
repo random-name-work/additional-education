@@ -77,7 +77,7 @@ export default {
   data() {
     return {
       videosAmount: 9,
-      themes: ["Тема1", "Тема2"],
+      themes: ["Theme1", "Theme2"],
       videos: {
         amount: 16,
         array: [
@@ -221,9 +221,9 @@ a {
   
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 50px;
   
-    align-items:end;
+    align-items: flex-end;
     justify-content: space-around;
   
     
@@ -235,6 +235,8 @@ a {
       gap: 10px;
   
       margin-bottom: 10px;
+    
+      text-align: center;
     }
     .chooseTheme {
       max-width: 233px;
