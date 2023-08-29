@@ -10,7 +10,7 @@
       >
         <path id="Vector 34" d="M7 1L1 7L7 13" stroke="#3D8BE4" />
       </svg>
-      <p class="text1">Каталог видео лекций</p>
+      <p class="text1">Каталог тестов</p>
     </a>
 
     <h2>
@@ -19,13 +19,8 @@
     </h2>
 
     <div class="description">
-      <h3>
-        Педагог высшего образования по программам подготовки кадров высшей
-        квалификации
-      </h3>
-      <hr />
       <article>
-        <h3>Описание видеолекции</h3>
+        <h4>Описание теста</h4>
         <p class="text1">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor. Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -33,6 +28,40 @@
           adipiscing elit, sed do eiusmod tempor.
         </p>
       </article>
+    </div>
+
+    <div class="startTest">
+      <header>
+        <h3>Отправьте свою работу</h3>
+        <time>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <path d="M12 6V14L16.5 17.5" stroke="#3D8BE4" />
+            <circle cx="12" cy="12" r="11.5" stroke="#3D8BE4" />
+          </svg>
+
+          <p class="caption">60 мин.</p>
+
+          <p class="caption">24 вопроса</p>
+        </time>
+      </header>
+
+      <v-btn
+        flat
+        href="#"
+        class="text-white"
+        color="#3d8be4"
+        min-height="60px"
+        min-width="180px"
+        max-width="180px"
+      >
+        Начать тест
+      </v-btn>
     </div>
   </div>
 </template>
@@ -69,21 +98,58 @@
     opacity: 0.8;
   }
 }
+
+h2 {
+  margin-top: 40px;
+
+  @media (max-width: 1279px) {
+    text-align: center;
+  }
+}
 .description {
   margin-top: 40px;
 
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-
-  hr {
-    opacity: 0.4;
+  @media (max-width: 1279px) {
+    text-align: center;
   }
-
   article {
     p.text1 {
-      max-width: 783px;
       margin-top: 20px;
+    }
+  }
+}
+
+.startTest {
+  margin-top: 64px;
+
+  border-top: 1px solid rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+
+  padding-top: 64px;
+  padding-bottom: 64px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: 550px) {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  header {
+    time {
+      margin-top: 7px;
+
+      color: #3d8be4;
+
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      @media (max-width: 550px) {
+        justify-content: center;
+      }
     }
   }
 }
