@@ -327,7 +327,7 @@ a {
       display: block;
 
       border-radius: 12px;
-      border: 1px solid var(--line, #e5e5e5);
+      border: 1px solid #e5e5e5;
       box-shadow: 0px 8px 30px 0px rgba(0, 0, 0, 0.05);
 
       &__item {

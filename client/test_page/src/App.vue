@@ -112,10 +112,12 @@ h5 {
   padding-top: 96px;
 }
 
-//RelatedLectures nav arrows
-.RelatedLectures,
-.license{
+//RelatedTests nav arrows
+.RelatedTests{
   .carousel {
+    &__pagination{
+      margin-top: 40px;
+    }
   &__prev,
   &__next {
     top: 99%;
@@ -155,6 +157,13 @@ h5 {
 
   &__details {
     margin-top: 10px;
+  }
+}
+
+//gap for relatedTests.vue Slider
+.carousel{
+  &__track{
+    gap: 40px;
   }
 }
 </style>

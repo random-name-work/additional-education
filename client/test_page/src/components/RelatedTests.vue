@@ -1,7 +1,7 @@
 <template>
-  <div class="RelatedLectures">
+  <div class="RelatedTests">
     <header>
-      <h2>Похожие видеолекции</h2>
+      <h2>Похожие тесты</h2>
       <v-btn
         flat
         href="#"
@@ -15,32 +15,35 @@
       </v-btn>
     </header>
     <Carousel ref="carousel" :breakpoints="breakpoints" v-model="currentSlide">
-      <Slide v-for="post in posts" :key="post.id">
-        <a :href="`${post.ref}`">
-          <div class="carousel__item">
-            <div class="header">
-              <h4>
-                {{ post.header }}
-              </h4>
-            </div>
-
-            <div class="caption">
-              <p class="caption name">{{ post.time }}</p>
+      <Slide v-for="test in tests.array" :key="test.id">
+        <a href="#">
+          <header>
+            <p class="text1">{{ test.Theme }}</p>
+            <time>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="14"
-                height="14"
-                viewBox="0 0 14 14"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
                 fill="none"
               >
-                <path
-                  d="M7 3.08008C2.4073 3.08008 0 6.46248 0 7.00008C0 7.53628 2.4073 10.9201 7 10.9201C11.592 10.9201 14 7.53628 14 7.00008C14 6.46248 11.592 3.08008 7 3.08008ZM7 10.015C5.2815 10.015 3.8885 8.66538 3.8885 7.00008C3.8885 5.33478 5.2815 3.98378 7 3.98378C8.7185 3.98378 10.1108 5.33478 10.1108 7.00008C10.1108 8.66538 8.7185 10.015 7 10.015ZM7 7.00008C6.7151 6.68718 7.4641 5.49228 7 5.49228C6.1404 5.49228 5.4439 6.16778 5.4439 7.00008C5.4439 7.83238 6.1404 8.50788 7 8.50788C7.8589 8.50788 8.5561 7.83238 8.5561 7.00008C8.5561 6.61718 7.2422 7.26538 7 7.00008Z"
-                  fill="black"
-                />
+                <path d="M12 6V14L16.5 17.5" stroke="#3D8BE4" />
+                <circle cx="12" cy="12" r="11.5" stroke="#3D8BE4" />
               </svg>
-              <p class="caption views">{{ post.views }}</p>
-            </div>
-          </div>
+
+              <p class="caption">{{ test.timeToPass }} мин.</p>
+
+              <p class="caption">{{ test.questionAmount }} вопроса</p>
+            </time>
+          </header>
+
+          <h4>
+            {{ test.header }}
+          </h4>
+
+          <p class="caption">
+            {{ test.author }}
+          </p>
         </a>
       </Slide>
       <template #addons>
@@ -95,32 +98,74 @@ export default {
   },
   data() {
     return {
-      posts: [
-        {
-          id: 1,
-          header: "Дизайн жилого интерьера с нуля",
-          time: "02 дек 2020",
-          views: 239,
-        },
-        {
-          id: 2,
-          header: "Дизайн жилого интерьера с нуля",
-          time: "02 дек 2020",
-          views: 239,
-        },
-        {
-          id: 3,
-          header: "Дизайн жилого интерьера с нуля",
-          time: "02 дек 2020",
-          views: 239,
-        },
-        {
-          id: 4,
-          header: "Дизайн жилого интерьера с нуля",
-          time: "02 дек 2020",
-          views: 239,
-        },
-      ],
+      tests: {
+        amount: 16,
+        array: [
+          {
+            id: 1,
+            Theme: "Педагогика",
+            header:
+              "Педагог высшего образования по программам подготовки кадров высшей квалификации",
+            timeToPass: "60",
+            questionAmount: 24,
+            author: "Аванесова Татьяна",
+          },
+          {
+            id: 1,
+            Theme: "Педагогика",
+            header:
+              "Педагог высшего образования по программам подготовки кадров высшей квалификации",
+            timeToPass: "60",
+            questionAmount: 24,
+            author: "Аванесова Татьяна",
+          },
+          {
+            id: 1,
+            Theme: "Педагогика",
+            header:
+              "Педагог высшего образования по программам подготовки кадров высшей квалификации",
+            timeToPass: "60",
+            questionAmount: 24,
+            author: "Аванесова Татьяна",
+          },
+          {
+            id: 1,
+            Theme: "Педагогика",
+            header:
+              "Педагог высшего образования по программам подготовки кадров высшей квалификации",
+            timeToPass: "60",
+            questionAmount: 24,
+            author: "Аванесова Татьяна",
+          },
+          {
+            id: 1,
+            Theme: "Педагогика",
+            header:
+              "Педагог высшего образования по программам подготовки кадров высшей квалификации",
+            timeToPass: "60",
+            questionAmount: 24,
+            author: "Аванесова Татьяна",
+          },
+          {
+            id: 1,
+            Theme: "Педагогика",
+            header:
+              "Педагог высшего образования по программам подготовки кадров высшей квалификации",
+            timeToPass: "60",
+            questionAmount: 24,
+            author: "Аванесова Татьяна",
+          },
+          {
+            id: 1,
+            Theme: "Педагогика",
+            header:
+              "Педагог высшего образования по программам подготовки кадров высшей квалификации",
+            timeToPass: "60",
+            questionAmount: 24,
+            author: "Аванесова Татьяна",
+          },
+        ],
+      },
       breakpoints: {
         320: {
           itemsToShow: 1,
@@ -154,7 +199,7 @@ a {
   }
 }
 // slider left right btns in App.vue styles
-.RelatedLectures {
+.RelatedTests {
   max-width: 1200px;
   width: 100%;
 
@@ -194,44 +239,54 @@ header {
   }
 }
 .carousel {
-  margin-top: 47px;
+  margin-top: 60px;
   margin-bottom: 100px;
-  &__item {
-    min-height: 300px;
+
+  //gap for relatedTests.vue Slider in App.vue
+  &__slide {
     width: 100%;
 
     padding-bottom: 22px;
 
-    img {
-      width: 100%;
+    border-radius: 12px;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0px 8px 30px 0px rgba(0, 0, 0, 0.05);
 
-      border-radius: 20px;
-    }
-    .header {
-      margin-top: 20px;
-      text-align: left;
+    padding-left: 30px;
+    padding-top: 40px;
+    padding-right: 30px;
+    padding-bottom: 40px;
 
-      @media (max-width: 450px) {
-        text-align: center;
-      }
-    }
-    .caption {
-      margin-top: 20px;
+    header {
       display: flex;
+      gap: 48px;
 
-      opacity: 0.8;
-      svg {
-        margin-top: 20px;
-        margin-left: 15px;
+      @media (max-width: 400px) {
+        flex-direction: column;
+        gap: 20px;
       }
-      .views {
-        margin-left: 6px;
+
+      time {
+        color: #3d8be4;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 8px;
       }
     }
-  }
 
-  &__slide {
-    padding: 26px;
+    h4 {
+      margin-top: 20px;
+
+      max-width: 303px;
+    }
+
+    // only p.caption in a
+    a > p.caption {
+      margin-top: 20px;
+    }
   }
 }
 </style>
