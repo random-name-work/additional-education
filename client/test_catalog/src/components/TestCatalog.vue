@@ -336,15 +336,23 @@ a {
         padding-right: 30px;
         padding-bottom: 40px;
 
+        width: 100%;
+
         header {
           display: flex;
           gap: 48px;
 
+
+          @media(max-width:400px){
+            flex-direction: column;
+            gap: 20px;
+          }
           time {
             color: #3d8be4;
 
             display: flex;
             align-items: center;
+            justify-content: center;
 
             gap: 8px;
           }
