@@ -3,16 +3,19 @@
     <NavBar></NavBar>
   </div>
   <div class="content">
+    <AboutUs></AboutUs>
   </div>
 </template>
 
 <script>
 import NavBar from "./components/NavBar.vue";
+import AboutUs from "./components/AboutUs.vue"
 
 export default {
   name: "App",
   components: {
     NavBar,
+    AboutUs
   },
 };
 </script>
