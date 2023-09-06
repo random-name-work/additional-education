@@ -21,6 +21,7 @@
 
           <v-btn
             flat
+            class="text-none"
             variant="outlined"
             color="#3d8be4"
             min-height="40px"
