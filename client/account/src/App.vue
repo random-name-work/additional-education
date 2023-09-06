@@ -3,16 +3,19 @@
     <NavBar></NavBar>
   </div>
   <div class="content">
+    <AccountComponent></AccountComponent>
   </div>
 </template>
 
 <script>
 import NavBar from "./components/NavBar.vue";
-
+import AccountComponent from "./components/AccountComponent.vue"
 export default {
   name: "App",
   components: {
     NavBar,
+    AccountComponent,
+
   },
 };
 </script>
@@ -102,6 +105,6 @@ h5 {
 }
 
 .content {
-  margin-top: 96px;
+  padding-top: 96px;
 }
 </style>
