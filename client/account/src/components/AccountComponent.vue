@@ -34,81 +34,23 @@
 
         <nav class="profileNav">
           <ul>
-            <li>
+            <li v-for="section in menu" :key="section.id">
               <input
                 v-model="choice"
                 type="radio"
-                id="desktop"
+                :id="section.id"
                 name="menuChoice"
-                value="1"
+                :value="section.value"
               />
-              <label class="text3" for="desktop">Рабочий стол</label>
-            </li>
-            <li>
-              <input
-                v-model="choice"
-                type="radio"
-                id="message"
-                name="menuChoice"
-                value="2"
-              />
-              <label class="text3" for="message">Сообщения</label>
-            </li>
-            <li>
-              <input
-                v-model="choice"
-                type="radio"
-                id="loyal"
-                name="menuChoice"
-                value="3"
-              />
-              <label class="text3" for="loyal">Программа лояльности</label>
-            </li>
-            <li>
-              <input
-                v-model="choice"
-                type="radio"
-                id="education"
-                name="menuChoice"
-                value="4"
-              />
-              <label class="text3" for="education">Обучение</label>
-            </li>
-            <li>
-              <input
-                v-model="choice"
-                type="radio"
-                id="materials"
-                name="menuChoice"
-                value="5"
-              />
-              <label class="text3" for="materials">Мои материалы</label>
-            </li>
-            <li>
-              <input
-                v-model="choice"
-                type="radio"
-                id="settings"
-                name="menuChoice"
-                value="6"
-              />
-              <label class="text3" for="settings">Настройки</label>
-            </li>
-            <li>
-              <input
-                v-model="choice"
-                type="radio"
-                id="exit"
-                name="menuChoice"
-                value="7"
-              />
-              <label class="text3" for="exit">Выйти</label>
+              <label class="text3" :for="section.id">{{section.labelText}}</label>
             </li>
           </ul>
         </nav>
       </aside>
 
-      <section class="sectionContent"></section>
+      <section class="sectionContent">
+        
+      </section>
     </section>
   </section>
 </template>
@@ -129,6 +71,44 @@ export default {
                 7 - exit
             */
       choice: 1,
+
+      menu: [
+        {
+            id: "desktop",
+            value: 1,
+            labelText: "Рабочий стол"
+        },
+        {
+            id: "message",
+            value: 1,
+            labelText: "Сообщения"
+        },
+        {
+            id: "loyal",
+            value: 1,
+            labelText: "Программа лояльности"
+        },
+        {
+            id: "education",
+            value: 1,
+            labelText: "Обучение"
+        },
+        {
+            id: "materials",
+            value: 1,
+            labelText: "Мои материалы"
+        },
+        {
+            id: "settings",
+            value: 1,
+            labelText: "Настройки"
+        },
+        {
+            id: "exit",
+            value: 1,
+            labelText: "Выйти"
+        },
+      ]
     };
   },
 };
@@ -148,6 +128,9 @@ h1 {
 
 .mainContent {
   margin-top: 60px;
+
+  display: flex;
+  gap: 131px;
 
   aside {
     max-width: 236px;
@@ -212,9 +195,10 @@ h1 {
         }
       }
     }
-    
+
   }
   section.sectionContent {
+
   }
 }
 </style>
