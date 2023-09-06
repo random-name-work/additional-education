@@ -43,21 +43,28 @@
                 name="menuChoice"
                 :value="section.value"
               />
-              <label class="text3" :for="section.id">{{section.labelText}}</label>
+              <label class="text3" :for="section.id">{{
+                section.labelText
+              }}</label>
             </li>
           </ul>
         </nav>
       </aside>
 
       <section class="sectionContent">
-        
+        <MenuDestop v-if="choice === 1"></MenuDestop>
       </section>
     </section>
   </section>
 </template>
 
 <script>
+import MenuDestop from "./MenuDesktop.vue";
+
 export default {
+  components: {
+    MenuDestop,
+  },
   data() {
     return {
       /*  
@@ -75,41 +82,41 @@ export default {
 
       menu: [
         {
-            id: "desktop",
-            value: 1,
-            labelText: "Рабочий стол"
+          id: "desktop",
+          value: 1,
+          labelText: "Рабочий стол",
         },
         {
-            id: "message",
-            value: 1,
-            labelText: "Сообщения"
+          id: "message",
+          value: 2,
+          labelText: "Сообщения",
         },
         {
-            id: "loyal",
-            value: 1,
-            labelText: "Программа лояльности"
+          id: "loyal",
+          value: 3,
+          labelText: "Программа лояльности",
         },
         {
-            id: "education",
-            value: 1,
-            labelText: "Обучение"
+          id: "education",
+          value: 4,
+          labelText: "Обучение",
         },
         {
-            id: "materials",
-            value: 1,
-            labelText: "Мои материалы"
+          id: "materials",
+          value: 5,
+          labelText: "Мои материалы",
         },
         {
-            id: "settings",
-            value: 1,
-            labelText: "Настройки"
+          id: "settings",
+          value: 6,
+          labelText: "Настройки",
         },
         {
-            id: "exit",
-            value: 1,
-            labelText: "Выйти"
+          id: "exit",
+          value: 7,
+          labelText: "Выйти",
         },
-      ]
+      ],
     };
   },
 };
@@ -135,6 +142,7 @@ h1 {
 
   aside {
     max-width: 236px;
+    width: 100%;
 
     display: flex;
     flex-direction: column;
@@ -196,10 +204,8 @@ h1 {
         }
       }
     }
-
   }
   section.sectionContent {
-
   }
 }
 </style>
