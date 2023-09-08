@@ -63,7 +63,8 @@ h5 {
   line-height: 150%;
 }
 .text1,
-.v-field-label {
+.v-field-label,
+.v-input {
   font-family: "Golos Text", sans-serif;
   font-size: clamp(15px, 4.6vw, 17px);
   font-style: normal;

@@ -28,6 +28,7 @@
 
       <section class="sectionContent">
         <MenuDestop v-if="choice === 1"></MenuDestop>
+        <MenuSettings v-if="choice === 6"></MenuSettings>
       </section>
     </section>
   </section>
@@ -35,10 +36,12 @@
 
 <script>
 import MenuDestop from "./MenuDesktop.vue";
+import MenuSettings from "./MenuSettings.vue";
 
 export default {
   components: {
     MenuDestop,
+    MenuSettings
   },
   data() {
     return {
@@ -51,7 +54,7 @@ export default {
                 6 - settings
                 7 - exit
             */
-      choice: 1,
+      choice: 6,
 
       menu: [
         {
@@ -145,6 +148,11 @@ h1 {
         }
       }
     }
+  }
+
+  section.sectionContent{
+    max-width: 835px;
+    width: 100%;
   }
 }
 </style>
