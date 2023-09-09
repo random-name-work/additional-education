@@ -1,16 +1,17 @@
 <template>
   <section class="menuSettings">
     <infoForm></infoForm>
+    <contacts></contacts>
   </section>
 </template>
 
 <script>
 import infoForm from "./MenuSettingsInfoForm.vue";
-
+import contacts from "./MenuSettingsContacts.vue"
 export default {
   components:{
     infoForm,
-
+    contacts
   },
   data() {
     return {
@@ -30,13 +31,16 @@ export default {
 
 <style lang="scss">
 section.menuSettings .v-form {
+  // padding for separate child components (info, contacts etc)
+  padding-bottom: 80px;
+  
   header {
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
 
-  section.info {
+  section {
     max-width: 835px;
     width: 100%;
 

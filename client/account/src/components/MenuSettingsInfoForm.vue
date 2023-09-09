@@ -96,7 +96,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .v-form {
   .editImg {
     position: relative;
