@@ -1,0 +1,149 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id Int @id @default(autoincrement())
+
+  phoneNum Int?     @unique
+  email    String?  @unique
+  jwt      String?
+  password String
+  roles    String[] @default(["User"])
+
+  userInfo UserInfo
+
+  createdCourses  Courses[]
+  createdBlogs    Blogs[]
+  createdTests    Tests[]
+  createdLections Lections[]
+
+  passedCourses  Courses[]
+  passedBlogs    Blogs[]
+  passedTests    Tests[]
+  passedLections Lections[]
+
+  chats Chats[]
+}
+model UserInfo {
+  id Int @id @default(autoincrement())
+
+  user   User @relation(fields: [userId], references: [id])
+  userId Int
+
+  // documents
+  passportMain       String?
+  passportAdditional String?
+  diploma            String?
+
+  //profile image
+  profileImage String?
+
+  // name
+  name        String?
+  familyName  String?
+  surname     String?
+  dateOfBirth String?
+
+  // contacts
+  contactPreferences String?
+  whatsappNumber     Int?
+  viberNumber        Int?
+  TelegramNumber     Int?
+  socialMedia        String[]
+
+  //passport data
+  passportSeries Int?
+  passportNumber Int?
+  passportCode   Int?
+  passportIssued String?
+  IssueDate      String?
+  INN            Int?
+  SNILS          Int?
+
+  //job info
+  jobPlace String?
+  jobPost  String?
+
+  // education
+  universityFullName  String?
+  universityShortName String?
+  educationLvl        String?
+  registrationNumber  Int?
+  diplomBlankNumber   Int?
+  diplomDate          String?
+}
+model Chats {
+  id Int @id @default(autoincrement())
+
+  firstUser   User @relation(fields: [firstUserId], references: [id])
+  firstUserId Int
+
+  secondUser   User @relation(fields: [secondUserId], references: [id])
+  secondUserId Int
+
+  messages String[]
+}
+
+model Courses {
+  id Int @id @default(autoincrement())
+
+  courseName    String
+  educationType String
+  faculty       String
+  diplomType    String
+  diplomImg     String
+  additional    String[]
+  minHours      Int
+
+  courseInfo CourseInfo
+}
+model CourseInfo {
+  id Int @id @default(autoincrement())
+
+  course   Courses @relation(fields: [courseId], references: [id])
+  courseId Int
+
+  authorName       String
+  authorSliderInfo String[]
+
+  moduleAmount   Int
+  listenerAmount Int
+  minMaxHours    String
+
+  courseGoal        String
+  educationForm     String
+  certificationType String
+
+  sections Section[]
+}
+model Section {
+  id Int @id @default(autoincrement())
+
+  courseInfo   CourseInfo @relation(fields: [courseInfoId], references: [id])
+  courseInfoId Int
+
+  hoursAmount Int
+  cost        Int
+  cashback    Int
+  modules     Modules[]
+}
+model Modules {
+  id Int @id @default(autoincrement())
+
+  section   Section @relation(fields: [sectionId], references: [id])
+  sectionId Int
+
+  hoursAmount Int
+  moduleName  String
+
+  tasks Json[]
+}
