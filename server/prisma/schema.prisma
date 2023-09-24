@@ -10,34 +10,42 @@ datasource db {
   url      = "file:./dev.db"
 }
 
+//   id Int @id @default(autoincrement())
+//   user   User @relation(fields: [userId], references: [id])
+//   userId Int
+
+// user
 model User {
   id Int @id @default(autoincrement())
 
-  phoneNum Int?     @unique
-  email    String?  @unique
+  phoneNum Int?          @unique
+  email    String?       @unique
   jwt      String?
   password String
-  roles    String[] @default(["User"])
+  roles    RolesOnUser[]
 
-  userInfo UserInfo
+  userInfo UserInfo?
 
   createdCourses  Courses[]
   createdBlogs    Blogs[]
   createdTests    Tests[]
   createdLections Lections[]
 
-  passedCourses  Courses[]
-  passedBlogs    Blogs[]
-  passedTests    Tests[]
-  passedLections Lections[]
+  passedCourses  CoursesOnUser[]
+  likedBlogs     BlogsOnUser[]
+  //posted comments
+  comments       Comment[]
+  passedTests    TestsOnUser[]
+  passedLections LectionsOnUser[]
 
-  chats Chats[]
+  chats ChatsOnUser[]
 }
+
 model UserInfo {
   id Int @id @default(autoincrement())
 
   user   User @relation(fields: [userId], references: [id])
-  userId Int
+  userId Int  @unique
 
   // documents
   passportMain       String?
@@ -58,7 +66,7 @@ model UserInfo {
   whatsappNumber     Int?
   viberNumber        Int?
   TelegramNumber     Int?
-  socialMedia        String[]
+  socialMedia        SocialMedia[]
 
   //passport data
   passportSeries Int?
@@ -81,39 +89,158 @@ model UserInfo {
   diplomBlankNumber   Int?
   diplomDate          String?
 }
+
+model SocialMedia {
+  id Int @id @default(autoincrement())
+
+  userInfo   UserInfo @relation(fields: [userInfoId], references: [id])
+  userInfoId Int
+
+  socialMediaName String
+  socialMediaUrl  String
+}
+
+// user end ============
+
+// chat
+model ChatsOnUser {
+  user   User @relation(fields: [userId], references: [id])
+  userId Int
+
+  chat   Chats @relation(fields: [chatId], references: [id])
+  chatId Int
+
+  @@id([userId, chatId])
+}
+
 model Chats {
   id Int @id @default(autoincrement())
 
-  firstUser   User @relation(fields: [firstUserId], references: [id])
-  firstUserId Int
+  connectedUsers ChatsOnUser[]
 
-  secondUser   User @relation(fields: [secondUserId], references: [id])
-  secondUserId Int
-
-  messages String[]
+  messages Messages[]
 }
 
-model Courses {
+model Messages {
   id Int @id @default(autoincrement())
 
-  courseName    String
-  educationType String
-  faculty       String
-  diplomType    String
-  diplomImg     String
-  additional    String[]
-  minHours      Int
-
-  courseInfo CourseInfo
+  chat   Chats @relation(fields: [chatId], references: [id])
+  chatId Int   @unique
 }
-model CourseInfo {
+
+// chat end =============
+
+// roles
+model RolesOnUser {
+  user   User @relation(fields: [userId], references: [id])
+  userId Int
+
+  role   Roles @relation(fields: [roleId], references: [id])
+  roleId Int
+
+  @@id([userId, roleId])
+}
+
+model Roles {
+  id Int @id @default(autoincrement())
+
+  users RolesOnUser[]
+
+  roleName String
+}
+
+// roles end ===========
+
+//for courses, blogs, lections, test sort
+//Повышение квалификации, профессиональная переподготовка, видеолекции
+model EducationType {
+  id Int @id @default(autoincrement())
+
+  course   Courses @relation(fields: [courseId], references: [id])
+  courseId Int     @unique
+
+  name String
+}
+
+//Педагогика, психология, экономика, медицина
+model Faculty {
+  id Int @id @default(autoincrement())
+
+  course   Courses? @relation(fields: [courseId], references: [id])
+  courseId Int?     @unique
+
+  blog   Blogs? @relation(fields: [blogId], references: [id])
+  blogId Int?   @unique
+
+  tests   Tests? @relation(fields: [testsId], references: [id])
+  testsId Int?   @unique
+
+  lection   Lections? @relation(fields: [lectionId], references: [id])
+  lectionId Int?      @unique
+
+  name String
+}
+
+// Удостоверение о повышении квалиф-ии, диплом о проф переподготовке, сертификат
+model DiplomType {
+  id Int @id @default(autoincrement())
+
+  course   Courses @relation(fields: [courseId], references: [id])
+  courseId Int     @unique
+
+  name String
+}
+
+// LowPrice, Популярные программы
+model CourseAdditional {
   id Int @id @default(autoincrement())
 
   course   Courses @relation(fields: [courseId], references: [id])
   courseId Int
 
-  authorName       String
-  authorSliderInfo String[]
+  name String
+}
+
+//sort end ================
+
+// course =============
+model CoursesOnUser {
+  user   User @relation(fields: [userId], references: [id])
+  userId Int
+
+  courses   Courses @relation(fields: [coursesId], references: [id])
+  coursesId Int
+
+  @@id([userId, coursesId])
+}
+
+model Courses {
+  id Int @id @default(autoincrement())
+
+  author   User @relation(fields: [authorId], references: [id])
+  authorId Int
+
+  passedUsers CoursesOnUser[]
+
+  courseName       String
+  educationType    EducationType?
+  faculty          Faculty?
+  diplomType       DiplomType?
+  diplomImg        String?
+  courseAdditional CourseAdditional[]
+  minHours         Int
+
+  courseInfo CourseInfo?
+}
+
+model CourseInfo {
+  id Int @id @default(autoincrement())
+
+  course   Courses @relation(fields: [courseId], references: [id])
+  courseId Int     @unique
+
+  authorName String?
+  authorInfo AuthorInfo[]
 
   moduleAmount   Int
   listenerAmount Int
@@ -125,17 +252,28 @@ model CourseInfo {
 
   sections Section[]
 }
+
+model AuthorInfo {
+  id Int @id @default(autoincrement())
+
+  courseInfo   CourseInfo @relation(fields: [courseInfoId], references: [id])
+  courseInfoId Int        @unique
+
+  aboutAuthor String
+}
+
 model Section {
   id Int @id @default(autoincrement())
 
   courseInfo   CourseInfo @relation(fields: [courseInfoId], references: [id])
-  courseInfoId Int
+  courseInfoId Int        @unique
 
   hoursAmount Int
   cost        Int
   cashback    Int
   modules     Modules[]
 }
+
 model Modules {
   id Int @id @default(autoincrement())
 
@@ -145,5 +283,201 @@ model Modules {
   hoursAmount Int
   moduleName  String
 
-  tasks Json[]
+  tasks ModuleTask[]
 }
+
+model ModuleTask {
+  id Int @id @default(autoincrement())
+
+  module   Modules @relation(fields: [moduleId], references: [id])
+  moduleId Int
+}
+
+// course end =============
+
+// blogs
+model BlogsOnUser {
+  user   User @relation(fields: [userId], references: [id])
+  userId Int
+
+  blogs   Blogs @relation(fields: [blogsId], references: [id])
+  blogsId Int
+
+  @@id([userId, blogsId])
+}
+
+model Blogs {
+  id Int @id @default(autoincrement())
+
+  author   User @relation(fields: [authorId], references: [id])
+  authorId Int
+
+  likeFromUser BlogsOnUser[]
+
+  blogInfo BlogInfo?
+
+  faculty        Faculty?
+  blogImg        String
+  blogTitle      String
+  blogAuthorName String
+  blogAuthorImg  String
+  createdAt      DateTime @default(now())
+  views          Int      @default(0)
+}
+
+model BlogInfo {
+  id Int @id @default(autoincrement())
+
+  blogs   Blogs @relation(fields: [blogsId], references: [id])
+  blogsId Int   @unique
+
+  blogBlocks BlogBlocks[]
+  likes      Int
+  comments   Comment[]
+}
+
+model BlogBlocks {
+  id Int @id @default(autoincrement())
+
+  blogInfo   BlogInfo @relation(fields: [blogInfoId], references: [id])
+  blogInfoId Int
+
+  //text, video, img, audio
+  blockType String
+
+  text           String?
+  textWithHeader BlogBlocks_textWithHeader?
+  videoUrl       String?
+  audioUrl       String?
+  imgUrl         String?
+}
+
+model BlogBlocks_textWithHeader {
+  id Int @id @default(autoincrement())
+
+  blogBlocks   BlogBlocks @relation(fields: [blogBlocksId], references: [id])
+  blogBlocksId Int        @unique
+
+  header String
+  text   String
+}
+
+model Comment {
+  id Int @id @default(autoincrement())
+
+  blogInfo   BlogInfo @relation(fields: [blogInfoId], references: [id])
+  blogInfoId Int      @unique
+
+  user   User @relation(fields: [userId], references: [id])
+  userId Int
+
+  likesAmount Int    @default(0)
+  commentText String
+}
+
+// blogs end =============
+
+//test
+model TestsOnUser {
+  user   User @relation(fields: [userId], references: [id])
+  userId Int
+
+  tests   Tests @relation(fields: [testsId], references: [id])
+  testsId Int
+
+  @@id([userId, testsId])
+}
+
+model Tests {
+  id Int @id @default(autoincrement())
+
+  author   User @relation(fields: [authorId], references: [id])
+  authorId Int
+
+  passedUsers TestsOnUser[]
+
+  testsInfo  TestsInfo?
+  faculti    Faculty?
+  timeToPass Int
+  askAmount  Int
+  authorName String
+}
+
+model TestsInfo {
+  id Int @id @default(autoincrement())
+
+  test   Tests @relation(fields: [testId], references: [id])
+  testId Int   @unique
+
+  testName        String
+  testHeader      String
+  testDescription String
+  pointsToPass    Int
+  timeToPass      Int
+  tasks           TestTasks[]
+}
+
+model TestTasks {
+  id Int @id @default(autoincrement())
+
+  testInfo   TestsInfo @relation(fields: [testInfoId], references: [id])
+  testInfoId Int       @unique
+
+  taskTitle      String
+  //checkbox / radiobtn
+  taskType       String
+  answerVariants TestTasks_answerVariant[]
+}
+
+model TestTasks_answerVariant {
+  id Int @id @default(autoincrement())
+
+  testTasks   TestTasks @relation(fields: [testTasksId], references: [id])
+  testTasksId Int
+
+  isRight     Boolean
+  variantText String
+}
+
+// test end ==========
+
+// lections
+model LectionsOnUser {
+  user   User @relation(fields: [userId], references: [id])
+  userId Int
+
+  lections   Lections @relation(fields: [lectionsId], references: [id])
+  lectionsId Int
+
+  @@id([userId, lectionsId])
+}
+
+model Lections {
+  id Int @id @default(autoincrement())
+
+  Author   User @relation(fields: [AuthorId], references: [id])
+  AuthorId Int
+
+  passedUsers LectionsOnUser[]
+
+  lectionInfo LectionInfo?
+  faculty     Faculty?
+  lectionImg  String
+  lectionName String
+  createdAt   DateTime     @default(now())
+  views       Int          @default(0)
+}
+
+model LectionInfo {
+  id Int @id @default(autoincrement())
+
+  lection   Lections @relation(fields: [lectionId], references: [id])
+  lectionId Int      @unique
+
+  videoLection      String
+  diplomForPass     String
+  descriptionHeader String
+  description       String
+}
+
+// lections end ===========
