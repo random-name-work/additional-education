@@ -1,6 +1,7 @@
 import { Body, Controller, Get, HttpCode, Param, Post, UsePipes, ValidationPipe } from '@nestjs/common';
-import { CreateUserPhoneDto } from './dto/create-user.dto';
+import { CreateUserPhoneDto } from './dto/create-user-phone.dto';
 import { UserService } from './user.service';
+import { CreateUserEmailDto } from './dto/create-user-email.dto';
 
 @Controller('user')
 export class UserController {
@@ -22,8 +23,16 @@ export class UserController {
     @UsePipes(new ValidationPipe())
     @Post("createPhone")
     @HttpCode(201)
-    async createUser(@Body() dto: CreateUserPhoneDto){
-        const res = this.userService.createUser(dto)
+    async createUserPhone(@Body() dto: CreateUserPhoneDto){
+        const res = this.userService.createUserPhone(dto)
+        return res
+    }
+
+    @UsePipes(new ValidationPipe())
+    @Post("createEmail")
+    @HttpCode(201)
+    async createUserEmail(@Body() dto: CreateUserEmailDto){
+        const res = this.userService.createUserEmail(dto)
         return res
     }
 }
