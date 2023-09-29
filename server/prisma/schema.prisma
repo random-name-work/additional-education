@@ -18,7 +18,7 @@ datasource db {
 model User {
   id Int @id @default(autoincrement())
 
-  phoneNum Int?          @unique
+  phoneNum String?          @unique
   email    String?       @unique
   jwt      String?
   password String
