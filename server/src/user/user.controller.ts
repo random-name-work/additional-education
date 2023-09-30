@@ -1,4 +1,4 @@
-import { Body, Controller, Get, HttpCode, Param, Post, UsePipes, ValidationPipe } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpCode, Param, Post, UsePipes, ValidationPipe } from '@nestjs/common';
 import { CreateUserPhoneDto } from './dto/create-user-phone.dto';
 import { UserService } from './user.service';
 import { CreateUserEmailDto } from './dto/create-user-email.dto';
@@ -10,6 +10,12 @@ export class UserController {
     @Get()
     async getAll(){
         const res = this.userService.getUsers()
+        return res
+    }
+
+    @Get("info")
+    async getAllInfos(){
+        const res = this.userService.getUsersInfos()
         return res
     }
 
@@ -33,6 +39,12 @@ export class UserController {
     @HttpCode(201)
     async createUserEmail(@Body() dto: CreateUserEmailDto){
         const res = this.userService.createUserEmail(dto)
+        return res
+    }
+
+    @Delete(":id")
+    async delUser(@Param("id") id: number){
+        const res = this.userService.delUser(+id)
         return res
     }
 }
