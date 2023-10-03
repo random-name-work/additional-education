@@ -38,12 +38,7 @@ export class UserService {
             })
             return res
         } catch (error) {
-            throw new HttpException({
-                status: HttpStatus.CONFLICT,
-                error,
-            },
-                HttpStatus.CONFLICT
-            );
+            return error
         }
     }
 
@@ -61,12 +56,7 @@ export class UserService {
             return res
 
         } catch (error) {
-            throw new HttpException({
-                status: HttpStatus.CONFLICT,
-                error,
-            },
-                HttpStatus.CONFLICT
-            );
+            return error
         }
     }
 
@@ -82,12 +72,7 @@ export class UserService {
                 })
                 return res
             } catch (error) {
-                throw new HttpException({
-                    status: HttpStatus.NOT_FOUND,
-                    error: 'User not found',
-                },
-                    HttpStatus.NOT_FOUND
-                );
+                return error
             }
         
         
@@ -104,12 +89,7 @@ export class UserService {
             return res
 
         } catch (error) {
-            throw new HttpException({
-                status: HttpStatus.NOT_FOUND,
-                error: 'User not found',
-            },
-                HttpStatus.NOT_FOUND
-            );
+            return error
         }
     }
 }
