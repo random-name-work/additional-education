@@ -85,14 +85,16 @@ export class UserService {
     }
 
     async delUser(id: number) {
+        try {
+            const res = await this.databaseService.user.delete({
+                where: {
+                    id,
+                }
+            })
+    
+            return res
 
-        // check user in db
-        const findUser = this.databaseService.user.findUnique({
-            where: {
-                id
-            }
-        })
-        if (!(await findUser)) {
+        } catch (error) {
             throw new HttpException({
                 status: HttpStatus.NOT_FOUND,
                 error: 'User not found',
@@ -100,14 +102,5 @@ export class UserService {
                 HttpStatus.NOT_FOUND
             );
         }
-
-        // deleting user
-        const delUser = this.databaseService.user.delete({
-            where: {
-                id,
-            }
-        })
-
-        return delUser
     }
 }
