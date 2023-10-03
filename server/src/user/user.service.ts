@@ -26,62 +26,48 @@ export class UserService {
     }
 
     async createUserPhone(dto: CreateUserPhoneDto) {
-
-        // check user in db
-        const findUser = this.databaseService.user.findUnique({
-            where: {
-                phoneNum: dto.phoneNum
-            }
-        })
-        if (await findUser) {
+        try {
+            const res = await this.databaseService.user.create({
+                data: {
+                    phoneNum: dto.phoneNum,
+                    password: dto.password,
+                    userInfo: {
+                        create: {}
+                    }
+                }
+            })
+            return res
+        } catch (error) {
             throw new HttpException({
                 status: HttpStatus.CONFLICT,
-                error: 'User with this phone already exist',
+                error,
             },
                 HttpStatus.CONFLICT
             );
         }
-
-        // create user
-        return await this.databaseService.user.create({
-            data: {
-                phoneNum: dto.phoneNum,
-                password: dto.password,
-                userInfo: {
-                    create: {}
-                }
-            }
-        })
-
     }
 
     async createUserEmail(dto: CreateUserEmailDto) {
-        
-        // check user in db
-        const findUser = this.databaseService.user.findUnique({
-            where: {
-                email: dto.email
-            }
-        })
-        if (await findUser) {
+        try {
+            const res = await this.databaseService.user.create({
+                data: {
+                    phoneNum: dto.email,
+                    password: dto.password,
+                    userInfo: {
+                        create: {}
+                    }
+                }
+            })
+            return res
+
+        } catch (error) {
             throw new HttpException({
                 status: HttpStatus.CONFLICT,
-                error: 'User with this email already exist',
+                error,
             },
                 HttpStatus.CONFLICT
             );
         }
-
-        // create user
-        return await this.databaseService.user.create({
-            data: {
-                phoneNum: dto.email,
-                password: dto.password,
-                userInfo: {
-                    create: {}
-                }
-            }
-        })
     }
 
     async changeUserData(id: number, dto: ChangeUserData){
@@ -90,7 +76,10 @@ export class UserService {
                 id
             },
             data:{
-                ...dto
+                email: dto?.email,
+                phoneNum: dto?.phoneNum,
+                password: dto?.password,
+                jwt: dto?.jwt
             }
         })
     }
