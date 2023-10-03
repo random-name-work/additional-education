@@ -46,7 +46,7 @@ export class UserService {
         try {
             const res = await this.databaseService.user.create({
                 data: {
-                    phoneNum: dto.email,
+                    email: dto.email,
                     password: dto.password,
                     userInfo: {
                         create: {}
