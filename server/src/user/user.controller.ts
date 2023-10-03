@@ -1,7 +1,8 @@
-import { Body, Controller, Delete, Get, HttpCode, Param, Post, UsePipes, ValidationPipe } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpCode, Param, Post, Put, UsePipes, ValidationPipe } from '@nestjs/common';
 import { CreateUserPhoneDto } from './dto/create-user-phone.dto';
 import { UserService } from './user.service';
 import { CreateUserEmailDto } from './dto/create-user-email.dto';
+import { ChangeUserData } from './dto/change-user-data.dto';
 
 @Controller('user')
 export class UserController {
@@ -42,7 +43,16 @@ export class UserController {
         return res
     }
 
+    @UsePipes(new ValidationPipe())
+    @Put(":id")
+    @HttpCode(201)
+    async ChangeUserData(@Param("id") id: number, @Body() dto: ChangeUserData){
+        const res = this.userService.changeUserData(+id, dto)
+        return res
+    }
+
     @Delete(":id")
+    @HttpCode(200)
     async delUser(@Param("id") id: number){
         const res = this.userService.delUser(+id)
         return res

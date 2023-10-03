@@ -3,21 +3,22 @@ import { DatabaseService } from 'src/database/database.service';
 import { CreateUserPhoneDto } from './dto/create-user-phone.dto';
 import { CreateUserEmailDto } from './dto/create-user-email.dto';
 import { error } from 'console';
+import { ChangeUserData } from './dto/change-user-data.dto';
 
 @Injectable()
 export class UserService {
     constructor(private readonly databaseService: DatabaseService) { }
 
     async getUsers() {
-        return this.databaseService.user.findMany()
+        return await this.databaseService.user.findMany()
     }
 
     async getUsersInfos() {
-        return this.databaseService.userInfo.findMany()
+        return await this.databaseService.userInfo.findMany()
     }
 
     async getOneUser(id: number) {
-        return this.databaseService.user.findUnique({
+        return await this.databaseService.user.findUnique({
             where: {
                 id
             }
@@ -25,7 +26,24 @@ export class UserService {
     }
 
     async createUserPhone(dto: CreateUserPhoneDto) {
-        return this.databaseService.user.create({
+
+        // check user in db
+        const findUser = this.databaseService.user.findUnique({
+            where: {
+                phoneNum: dto.phoneNum
+            }
+        })
+        if (await findUser) {
+            throw new HttpException({
+                status: HttpStatus.CONFLICT,
+                error: 'User with this phone already exist',
+            },
+                HttpStatus.CONFLICT
+            );
+        }
+
+        // create user
+        return await this.databaseService.user.create({
             data: {
                 phoneNum: dto.phoneNum,
                 password: dto.password,
@@ -38,13 +56,41 @@ export class UserService {
     }
 
     async createUserEmail(dto: CreateUserEmailDto) {
-        return this.databaseService.user.create({
+        
+        // check user in db
+        const findUser = this.databaseService.user.findUnique({
+            where: {
+                email: dto.email
+            }
+        })
+        if (await findUser) {
+            throw new HttpException({
+                status: HttpStatus.CONFLICT,
+                error: 'User with this email already exist',
+            },
+                HttpStatus.CONFLICT
+            );
+        }
+
+        // create user
+        return await this.databaseService.user.create({
             data: {
                 phoneNum: dto.email,
                 password: dto.password,
                 userInfo: {
                     create: {}
                 }
+            }
+        })
+    }
+
+    async changeUserData(id: number, dto: ChangeUserData){
+        return await this.databaseService.user.update({
+            where:{
+                id
+            },
+            data:{
+                ...dto
             }
         })
     }
