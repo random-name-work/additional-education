@@ -71,17 +71,26 @@ export class UserService {
     }
 
     async changeUserData(id: number, dto: ChangeUserData){
-        return await this.databaseService.user.update({
-            where:{
-                id
-            },
-            data:{
-                email: dto?.email,
-                phoneNum: dto?.phoneNum,
-                password: dto?.password,
-                jwt: dto?.jwt
+            try {
+                const res = await this.databaseService.user.update({
+                    where:{
+                        id
+                    },
+                    data:{
+                        ...dto
+                    }
+                })
+                return res
+            } catch (error) {
+                throw new HttpException({
+                    status: HttpStatus.NOT_FOUND,
+                    error: 'User not found',
+                },
+                    HttpStatus.NOT_FOUND
+                );
             }
-        })
+        
+        
     }
 
     async delUser(id: number) {
