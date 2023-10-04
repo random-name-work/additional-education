@@ -1,21 +1,20 @@
-import { Optional } from "@nestjs/common";
 import { IsEmail, IsOptional, IsString, Length } from "class-validator"
 
 export class ChangeUserData {
 
     @IsOptional()
     @IsEmail()
-    email?: string | null;
+    email: string;
 
     @IsOptional()
     @Length(11)
-    phoneNum?: string | null;
+    phoneNum: string;
 
     @IsOptional()
     @IsString()
     @Length(6)
-    password?: string | null;
+    password: string;
 
     @IsOptional()
-    jwt?: string | null
+    jwt: string;
 }
