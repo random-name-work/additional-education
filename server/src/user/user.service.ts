@@ -82,7 +82,7 @@ export class UserService {
         try {
             const res = await this.databaseService.userInfo.update({
                 where:{
-                    id
+                    userId: id
                 },
                 data:{
                     ...dto
