@@ -3,6 +3,7 @@ import { CreateUserPhoneDto } from './dto/create-user-phone.dto';
 import { UserService } from './user.service';
 import { CreateUserEmailDto } from './dto/create-user-email.dto';
 import { ChangeUserData } from './dto/change-user-data.dto';
+import { ChangeUserInfo } from './dto/change-user-info.dto';
 
 @Controller('user')
 export class UserController {
@@ -44,10 +45,18 @@ export class UserController {
     }
 
     @UsePipes(new ValidationPipe())
-    @Put(":id")
+    @Put("changeUserData/:id")
     @HttpCode(201)
     async ChangeUserData(@Param("id") id: number, @Body() dto: ChangeUserData){
         const res = this.userService.changeUserData(+id, dto)
+        return res
+    }
+
+    @UsePipes(new ValidationPipe())
+    @Put("changeUserInfo/:id")
+    @HttpCode(201)
+    async ChangeUserInfo(@Param("id") id: number, @Body() dto: ChangeUserInfo){
+        const res = this.userService.changeUserInfo(+id, dto)
         return res
     }
 

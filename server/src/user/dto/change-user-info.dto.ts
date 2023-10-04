@@ -3,70 +3,90 @@ import { IsEmail, IsOptional, IsString, Length } from "class-validator"
 export class ChangeUserInfo {
     // documents
     @IsOptional()
-    passportMain: String
+    passportMain: string
+
     @IsOptional()
-    passportAdditional: String
+    passportAdditional: string
+
     @IsOptional()
-    diploma: String
+    diploma: string
 
     //profile image
     @IsOptional()
-    profileImage: String
+    profileImage: string
 
     // name
     @IsOptional()
-    name: String
+    name: string
+
     @IsOptional()
-    familyName: String
+    familyName: string
+
     @IsOptional()
-    surname: String
+    surname: string
+
     @IsOptional()
-    dateOfBirth: String
+    dateOfBirth: string
 
     // contacts
     @IsOptional()
-    contactPreferences: String
+    contactPreferences: string
+
     @IsOptional()
-    whatsappNumber: Number
+    whatsappNumber: number
+
     @IsOptional()
-    viberNumber: Number
+    viberNumber: number
+
     @IsOptional()
-    TelegramNumber: Number
+    TelegramNumber: number
 
     //passport data
     @IsOptional()
-    passportSeries: Number
+    passportSeries: number
+
     @IsOptional()
-    passportNumber: Number
+    passportNumber: number
+
     @IsOptional()
-    passportCode: Number
+    passportCode: number
+
     @IsOptional()
-    passportIssued: String
+    passportIssued: string
+
     @IsOptional()
-    IssueDate: String
+    IssueDate: string
+
     @IsOptional()
-    INN: Number
+    INN: number
+
     @IsOptional()
-    SNILS: Number
+    SNILS: number
 
     //job info
     @IsOptional()
-    jobPlace: String
+    jobPlace: string
+
     @IsOptional()
-    jobPost: String
+    jobPost: string
 
     // education
     @IsOptional()
-    universityFullName: String
+    universityFullName: string
+
     @IsOptional()
-    universityShortName: String
+    universityShortName: string
+
     @IsOptional()
-    educationLvl: String
+    educationLvl: string
+
     @IsOptional()
-    registrationNumber: Number
+    registrationNumber: number
+
     @IsOptional()
-    diplomBlankNumber: Number
+    diplomBlankNumber: number
+
     @IsOptional()
-    diplomDate: String
+    diplomDate: string
 
 }

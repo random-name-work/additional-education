@@ -1,9 +1,9 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { DatabaseService } from 'src/database/database.service';
 import { CreateUserPhoneDto } from './dto/create-user-phone.dto';
 import { CreateUserEmailDto } from './dto/create-user-email.dto';
-import { error } from 'console';
 import { ChangeUserData } from './dto/change-user-data.dto';
+import { ChangeUserInfo } from './dto/change-user-info.dto';
 
 @Injectable()
 export class UserService {
@@ -76,6 +76,22 @@ export class UserService {
             }
         
         
+    }
+
+    async changeUserInfo(id: number, dto: ChangeUserInfo){
+        try {
+            const res = await this.databaseService.userInfo.update({
+                where:{
+                    id
+                },
+                data:{
+                    ...dto
+                }
+            })
+            return res
+        } catch (error) {
+            return error
+        }
     }
 
     async delUser(id: number) {
