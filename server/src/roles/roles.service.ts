@@ -11,6 +11,11 @@ export class RolesService {
         return res
     }
 
+    async getRolesOnUser(){
+        const res = await this.databaseService.rolesOnUser.findMany()
+        return res
+    }
+
     async createRole(dto: createRole){
         try {
             const res = await this.databaseService.roles.create({

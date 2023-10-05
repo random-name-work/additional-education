@@ -12,6 +12,12 @@ export class RolesController {
         return res
     }
 
+    @Get("rolesOnUser")
+    async getRolesOnUser(){
+        const res = await this.rolesService.getRolesOnUser()
+        return res
+    }
+    
     @Post("create")
     @HttpCode(201)
     async createRole(@Body() dto:createRole){
@@ -24,4 +30,6 @@ export class RolesController {
         const res = await this.rolesService.delRole(+id)
         return res
     }
+
+
 }
