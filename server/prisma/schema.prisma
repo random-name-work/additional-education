@@ -146,7 +146,7 @@ model Roles {
 
   users RolesOnUser[]
 
-  roleName String
+  roleName String @unique
 }
 
 // roles end ===========
