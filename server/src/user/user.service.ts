@@ -33,6 +33,15 @@ export class UserService {
                     password: dto.password,
                     userInfo: {
                         create: {}
+                    },
+                    roles: {
+                        create: [{
+                            role: {
+                                connect: {
+                                    roleName: "USER"
+                                }
+                            }
+                        }]
                     }
                 }
             })
@@ -50,6 +59,15 @@ export class UserService {
                     password: dto.password,
                     userInfo: {
                         create: {}
+                    },
+                    roles: {
+                        create: [{
+                            role: {
+                                connect: {
+                                    roleName: "USER"
+                                }
+                            }
+                        }]
                     }
                 }
             })
@@ -60,31 +78,31 @@ export class UserService {
         }
     }
 
-    async changeUserData(id: number, dto: ChangeUserData){
-            try {
-                const res = await this.databaseService.user.update({
-                    where:{
-                        id
-                    },
-                    data:{
-                        ...dto
-                    }
-                })
-                return res
-            } catch (error) {
-                return error
-            }
-        
-        
+    async changeUserData(id: number, dto: ChangeUserData) {
+        try {
+            const res = await this.databaseService.user.update({
+                where: {
+                    id
+                },
+                data: {
+                    ...dto
+                }
+            })
+            return res
+        } catch (error) {
+            return error
+        }
+
+
     }
 
-    async changeUserInfo(id: number, dto: ChangeUserInfo){
+    async changeUserInfo(id: number, dto: ChangeUserInfo) {
         try {
             const res = await this.databaseService.userInfo.update({
-                where:{
+                where: {
                     userId: id
                 },
-                data:{
+                data: {
                     ...dto
                 }
             })
@@ -101,7 +119,7 @@ export class UserService {
                     id,
                 }
             })
-    
+
             return res
 
         } catch (error) {
