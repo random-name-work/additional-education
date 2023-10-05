@@ -132,7 +132,7 @@ model Messages {
 
 // roles
 model RolesOnUser {
-  user   User @relation(fields: [userId], references: [id])
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId Int
 
   role   Roles @relation(fields: [roleId], references: [id])
