@@ -1,10 +1,11 @@
 import { Injectable } from '@nestjs/common';
+import bcrypt from "bcrypt";
 import { DatabaseService } from 'src/database/database.service';
 import { CreateUserPhoneDto } from './dto/create-user-phone.dto';
 import { CreateUserEmailDto } from './dto/create-user-email.dto';
 import { ChangeUserData } from './dto/change-user-data.dto';
 import { ChangeUserInfo } from './dto/change-user-info.dto';
-
+import { LoginUserPhone } from './dto/login-user-phone.dto';
 @Injectable()
 export class UserService {
     constructor(private readonly databaseService: DatabaseService) { }
@@ -27,10 +28,11 @@ export class UserService {
 
     async createUserPhone(dto: CreateUserPhoneDto) {
         try {
+            const hashPass = await bcrypt.hash(dto.password, 7);
             const res = await this.databaseService.user.create({
                 data: {
                     phoneNum: dto.phoneNum,
-                    password: dto.password,
+                    password: hashPass,
                     userInfo: {
                         create: {}
                     },
@@ -53,10 +55,11 @@ export class UserService {
 
     async createUserEmail(dto: CreateUserEmailDto) {
         try {
+            const hashPass = await bcrypt.hash(dto.password, 7);
             const res = await this.databaseService.user.create({
                 data: {
                     email: dto.email,
-                    password: dto.password,
+                    password: hashPass,
                     userInfo: {
                         create: {}
                     },
