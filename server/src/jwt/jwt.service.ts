@@ -13,7 +13,7 @@ export class JwtService {
       );
       return token
     } catch (error) {
-      console.log(error)
+      return error
     }
   }
 
@@ -22,10 +22,7 @@ export class JwtService {
       const jwtToken = jwt.verify(token, process.env.JWT_SECRET_KEY);
       return jwtToken
     } catch (error) {
-      return {
-        status: 401,
-        message: "Token not valid"
-      }
+      return error
     }
   }
 }
