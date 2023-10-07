@@ -1,7 +1,8 @@
-import { Body, Controller, Delete, Get, HttpCode, Param, Put, UsePipes, ValidationPipe } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpCode, Param, Post, Put, UploadedFile, UseInterceptors, UsePipes, ValidationPipe } from '@nestjs/common';
 import { UserService } from './user.service';
 import { ChangeUserData } from './dto/change-user-data.dto';
 import { ChangeUserInfo } from './dto/change-user-info.dto';
+import { FileInterceptor } from '@nestjs/platform-express';
 
 @Controller('user')
 export class UserController {
@@ -39,6 +40,13 @@ export class UserController {
     @HttpCode(201)
     async ChangeUserInfo(@Param("id") id: number, @Body() dto: ChangeUserInfo){
         const res = this.userService.changeUserInfo(+id, dto)
+        return res
+    }
+
+    @Post("uploadProfileImage")
+    @UseInterceptors(FileInterceptor('file'))
+    uploadProfileImage(@UploadedFile() file){
+        const res = this.userService.uploadProfileImage(file)
         return res
     }
 

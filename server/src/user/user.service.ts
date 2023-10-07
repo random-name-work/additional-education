@@ -3,10 +3,12 @@ import { DatabaseService } from 'src/database/database.service';
 import { ChangeUserData } from './dto/change-user-data.dto';
 import { ChangeUserInfo } from './dto/change-user-info.dto';
 import { JwtService }  from 'src/jwt/jwt.service';
+import { FilesService } from 'src/files/files.service';
 @Injectable()
 export class UserService {
     constructor(private readonly databaseService: DatabaseService, 
-                private readonly jwtService: JwtService) { }
+                private readonly jwtService: JwtService,
+                private readonly filesService: FilesService) { }
     async getUsers() {
         return await this.databaseService.user.findMany()
     }
@@ -55,6 +57,11 @@ export class UserService {
         } catch (error) {
             return error
         }
+    }
+
+    async uploadProfileImage(file: Express.Multer.File){
+        const fileName = await this.filesService.createImageFile(file)
+        return fileName
     }
 
     async delUser(id: number) {
