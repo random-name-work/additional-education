@@ -1,4 +1,4 @@
-import { IsEmail, IsOptional, IsString, Length } from "class-validator"
+import { IsString, Length } from "class-validator"
 
 export class LoginUserPhone {
 
@@ -8,7 +8,4 @@ export class LoginUserPhone {
     @IsString()
     @Length(6)
     password: string;
-
-    @IsOptional()
-    jwt: string;
 }
