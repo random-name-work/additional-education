@@ -72,9 +72,21 @@ export class AuthService {
         }
     }
 
-    async checkJwt(dto:CheckJwt){
+    async checkJwt(dto: CheckJwt) {
         const res = this.jwtService.checkToken(dto.jwt)
-        return res
+        const user = await this.databaseService.user.findFirst({
+            where: {
+                OR: [
+                    {
+                        phoneNum: res.phoneOrEmail
+                    },
+                    {
+                        email: res.phoneOrEmail
+                    }
+                ]
+            }
+        })
+        return { ...res, user }
     }
 
     async loginUserPhone(dto: LoginUserPhone) {
