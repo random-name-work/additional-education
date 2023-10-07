@@ -1,7 +1,5 @@
-import { Body, Controller, Delete, Get, HttpCode, Param, Post, Put, UsePipes, ValidationPipe } from '@nestjs/common';
-import { CreateUserPhoneDto } from './dto/create-user-phone.dto';
+import { Body, Controller, Delete, Get, HttpCode, Param, Put, UsePipes, ValidationPipe } from '@nestjs/common';
 import { UserService } from './user.service';
-import { CreateUserEmailDto } from './dto/create-user-email.dto';
 import { ChangeUserData } from './dto/change-user-data.dto';
 import { ChangeUserInfo } from './dto/change-user-info.dto';
 
@@ -25,22 +23,6 @@ export class UserController {
     async getOne(@Param("id") id: number){
         // +id because id: string, idk why
         const res = this.userService.getOneUser(+id)
-        return res
-    }
-
-    @UsePipes(new ValidationPipe())
-    @Post("createPhone")
-    @HttpCode(201)
-    async createUserPhone(@Body() dto: CreateUserPhoneDto){
-        const res = this.userService.createUserPhone(dto)
-        return res
-    }
-
-    @UsePipes(new ValidationPipe())
-    @Post("createEmail")
-    @HttpCode(201)
-    async createUserEmail(@Body() dto: CreateUserEmailDto){
-        const res = this.userService.createUserEmail(dto)
         return res
     }
 
