@@ -6,9 +6,10 @@ import { DatabaseModule } from './database/database.module';
 import { RolesModule } from './roles/roles.module';
 import { JwtModule } from './jwt/jwt.module';
 import { AuthModule } from './auth/auth.module';
+import { FilesModule } from './files/files.module';
 
 @Module({
-  imports: [UserModule, DatabaseModule, RolesModule, JwtModule, AuthModule],
+  imports: [UserModule, DatabaseModule, RolesModule, JwtModule, AuthModule, FilesModule],
   controllers: [AppController],
   providers: [AppService],
 })
