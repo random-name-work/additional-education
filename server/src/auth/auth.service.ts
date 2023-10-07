@@ -91,14 +91,18 @@ export class AuthService {
 
     async loginUserPhone(dto: LoginUserPhone) {
         try {
-            if (dto.jwt) {
-                const jwtCheck = this.jwtService.checkToken(dto.jwt)
-
-                if (!jwtCheck) {
-                    return
+            const user = await this.databaseService.user.findFirst({
+                where:{
+                    phoneNum: dto.phoneNum
                 }
-
-                return jwtCheck
+            })
+            
+            const correctPassword = bcrypt.compareSync(dto.password, user.password)
+            if (correctPassword){
+                return user
+            }
+            else{
+                return { message: "Неверный пароль или имя пользователя" }
             }
         } catch (error) {
             return error
@@ -106,6 +110,19 @@ export class AuthService {
     }
 
     async loginUserEmail(dto: LoginUserEmail) {
-
+        try {
+            const user = await this.databaseService.user.findFirst({
+                where:{
+                    email: dto.email
+                }
+            })
+            
+            const correctPassword = bcrypt.compareSync(dto.password, user.password)
+            if (correctPassword){
+                return user
+            }
+        } catch (error) {
+            return error
+        }
     }
 }
