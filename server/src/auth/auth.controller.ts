@@ -4,7 +4,7 @@ import { AuthService } from './auth.service';
 import { CreateUserEmailDto } from './dto/create-user-email.dto';
 import { LoginUserPhone } from './dto/login-user-phone.dto';
 import { LoginUserEmail } from './dto/login-user-email.dto';
-
+import { CheckJwt } from './dto/check-jwt.dto';
 @Controller('auth')
 export class AuthController {
     constructor(private readonly authService: AuthService){}
@@ -22,6 +22,12 @@ export class AuthController {
     @HttpCode(201)
     async createUserEmail(@Body() dto: CreateUserEmailDto){
         const res = this.authService.createUserEmail(dto)
+        return res
+    }
+
+    @Post("checkJwt")
+    async checkJwt(@Body() dto: CheckJwt){
+        const res = this.authService.checkJwt(dto)
         return res
     }
 

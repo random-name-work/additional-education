@@ -6,6 +6,7 @@ import { CreateUserEmailDto } from './dto/create-user-email.dto';
 import { LoginUserPhone } from './dto/login-user-phone.dto';
 import { LoginUserEmail } from './dto/login-user-email.dto';
 import * as bcrypt from "bcrypt";
+import { CheckJwt } from './dto/check-jwt.dto';
 
 @Injectable()
 export class AuthService {
@@ -69,6 +70,11 @@ export class AuthService {
         } catch (error) {
             return error
         }
+    }
+
+    async checkJwt(dto:CheckJwt){
+        const res = this.jwtService.checkToken(dto.jwt)
+        return res
     }
 
     async loginUserPhone(dto: LoginUserPhone) {
