@@ -59,9 +59,17 @@ export class UserService {
         }
     }
 
-    async uploadProfileImage(file: Express.Multer.File){
+    async uploadProfileImage(id: number, file: Express.Multer.File){
         const fileName = await this.filesService.createImageFile(file)
-        return fileName
+        const res = await this.databaseService.userInfo.update({
+            where: {
+                userId: id
+            },
+            data: {
+                profileImage: fileName
+            }
+        })
+        return res
     }
 
     async delUser(id: number) {

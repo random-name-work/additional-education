@@ -3,6 +3,7 @@ import { UserService } from './user.service';
 import { ChangeUserData } from './dto/change-user-data.dto';
 import { ChangeUserInfo } from './dto/change-user-info.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
+import { identity } from 'rxjs';
 
 @Controller('user')
 export class UserController {
@@ -43,10 +44,11 @@ export class UserController {
         return res
     }
 
-    @Post("uploadProfileImage")
+    @Put("uploadProfileImage")
     @UseInterceptors(FileInterceptor('file'))
-    uploadProfileImage(@UploadedFile() file: Express.Multer.File){
-        const res = this.userService.uploadProfileImage(file)
+    uploadProfileImage(@Body() upload: any, @UploadedFile() file: Express.Multer.File){
+        const id = +upload.id
+        const res = this.userService.uploadProfileImage(id, file)
         return res
     }
 
