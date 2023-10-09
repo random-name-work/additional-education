@@ -190,7 +190,6 @@ model CourseAdditional {
 
   name String
 }
-
 model CoursesToAdditional {
   courses   Courses @relation(fields: [coursesId], references: [id])
   coursesId Int
