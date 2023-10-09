@@ -39,6 +39,7 @@ model User {
   passedLections LectionsOnUser[]
 
   chats UsersOnChat[]
+  sendedMessages Messages[]
 }
 
 model UserInfo {
@@ -107,7 +108,7 @@ model UsersOnChat {
   user   User @relation(fields: [userId], references: [id])
   userId Int
 
-  chat   Chats @relation(fields: [chatId], references: [id])
+  chat   Chats @relation(fields: [chatId], references: [id], onDelete: Cascade)
   chatId Int
 
   @@id([userId, chatId])
@@ -124,9 +125,12 @@ model Chats {
 model Messages {
   id Int @id @default(autoincrement())
 
-  chat   Chats @relation(fields: [chatId], references: [id])
-  chatId Int   @unique
+  chat   Chats @relation(fields: [chatId], references: [id], onDelete: Cascade)
+  chatId Int
 
+  fromUser User @relation(fields: [fromUserId], references: [id])
+  fromUserId Int
+  
   message String
 }
 
