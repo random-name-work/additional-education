@@ -18,7 +18,7 @@ datasource db {
 model User {
   id Int @id @default(autoincrement())
 
-  phoneNum String?          @unique
+  phoneNum String?       @unique
   email    String?       @unique
   jwt      String?
   password String
@@ -156,8 +156,7 @@ model Roles {
 model EducationType {
   id Int @id @default(autoincrement())
 
-  course   Courses @relation(fields: [courseId], references: [id])
-  courseId Int     @unique
+  course Courses[]
 
   name String
 }
@@ -166,17 +165,10 @@ model EducationType {
 model Faculty {
   id Int @id @default(autoincrement())
 
-  course   Courses? @relation(fields: [courseId], references: [id])
-  courseId Int?     @unique
-
-  blog   Blogs? @relation(fields: [blogId], references: [id])
-  blogId Int?   @unique
-
-  tests   Tests? @relation(fields: [testsId], references: [id])
-  testsId Int?   @unique
-
-  lection   Lections? @relation(fields: [lectionId], references: [id])
-  lectionId Int?      @unique
+  course  Courses[]
+  blog    Blogs[]
+  tests   Tests[]
+  lection Lections[]
 
   name String
 }
@@ -185,8 +177,7 @@ model Faculty {
 model DiplomType {
   id Int @id @default(autoincrement())
 
-  course   Courses @relation(fields: [courseId], references: [id])
-  courseId Int     @unique
+  course Courses[]
 
   name String
 }
@@ -195,10 +186,19 @@ model DiplomType {
 model CourseAdditional {
   id Int @id @default(autoincrement())
 
-  course   Courses @relation(fields: [courseId], references: [id])
-  courseId Int
+  course CoursesToAdditional[]
 
   name String
+}
+
+model CoursesToAdditional {
+  courses   Courses @relation(fields: [coursesId], references: [id])
+  coursesId Int
+
+  courseAdditional   CourseAdditional @relation(fields: [courseAdditionalId], references: [id])
+  courseAdditionalId Int
+
+  @@id([courseAdditionalId, coursesId])
 }
 
 //sort end ================
@@ -222,13 +222,22 @@ model Courses {
 
   passedUsers CoursesOnUser[]
 
-  courseName       String
-  educationType    EducationType?
-  faculty          Faculty?
-  diplomType       DiplomType?
-  diplomImg        String?
-  courseAdditional CourseAdditional[]
-  minHours         Int
+  courseName String
+
+  educationType   EducationType @relation(fields: [educationTypeId], references: [id])
+  educationTypeId Int
+
+  faculty   Faculty @relation(fields: [facultyId], references: [id])
+  facultyId Int
+
+  diplomType   DiplomType @relation(fields: [diplomTypeId], references: [id])
+  diplomTypeId Int
+  diplomImg    String?
+
+  courseAdditional      CoursesToAdditional[]
+  coursesToAdditionalId Int
+
+  minHours Int
 
   courseInfo CourseInfo?
 }
@@ -316,7 +325,8 @@ model Blogs {
 
   blogInfo BlogInfo?
 
-  faculty        Faculty?
+  faculty        Faculty  @relation(fields: [facultyId], references: [id])
+  facultyId      Int
   blogImg        String
   blogTitle      String
   blogAuthorName String
@@ -397,7 +407,8 @@ model Tests {
   passedUsers TestsOnUser[]
 
   testsInfo  TestsInfo?
-  faculti    Faculty?
+  faculty    Faculty    @relation(fields: [facultyId], references: [id])
+  facultyId  Int
   timeToPass Int
   askAmount  Int
   authorName String
@@ -461,7 +472,8 @@ model Lections {
   passedUsers LectionsOnUser[]
 
   lectionInfo LectionInfo?
-  faculty     Faculty?
+  faculty     Faculty      @relation(fields: [facultyId], references: [id])
+  facultyId   Int
   lectionImg  String
   lectionName String
   createdAt   DateTime     @default(now())
