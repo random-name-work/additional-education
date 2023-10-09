@@ -126,6 +126,8 @@ model Messages {
 
   chat   Chats @relation(fields: [chatId], references: [id])
   chatId Int   @unique
+
+  message String
 }
 
 // chat end =============
