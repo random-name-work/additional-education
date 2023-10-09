@@ -9,6 +9,7 @@ import { AuthModule } from './auth/auth.module';
 import { FilesModule } from './files/files.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
+import { SortModule } from './sort/sort.module';
 @Module({
   imports: [
     UserModule,
@@ -20,6 +21,7 @@ import { join } from 'path';
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, 'static'),
     }),
+    SortModule,
   ],
   controllers: [AppController],
   providers: [AppService],
