@@ -2,12 +2,10 @@ import { Injectable } from '@nestjs/common';
 import { DatabaseService } from 'src/database/database.service';
 import { ChangeUserData } from './dto/change-user-data.dto';
 import { ChangeUserInfo } from './dto/change-user-info.dto';
-import { JwtService }  from 'src/jwt/jwt.service';
 import { FilesService } from 'src/files/files.service';
 @Injectable()
 export class UserService {
     constructor(private readonly databaseService: DatabaseService, 
-                private readonly jwtService: JwtService,
                 private readonly filesService: FilesService) { }
     async getUsers() {
         return await this.databaseService.user.findMany()
@@ -18,11 +16,16 @@ export class UserService {
     }
 
     async getOneUser(id: number) {
-        return await this.databaseService.user.findUnique({
-            where: {
-                id
-            }
-        })
+        try {
+            const res = await this.databaseService.user.findUnique({
+                where: {
+                    id
+                }
+            })
+            return res
+        } catch (error) {
+            return error
+        }
     }
 
     async changeUserData(id: number, dto: ChangeUserData) {

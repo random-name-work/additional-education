@@ -18,29 +18,33 @@ export class ChatService {
     }
 
     async createChat(dto: createChat) {
-        const res = await this.databaseService.chats.create({
-            data: {
-                connectedUsers: {
-                    create: [
-                        {
-                            user: {
-                                connect: {
-                                    id: dto.id1
+        try {
+            const res = await this.databaseService.chats.create({
+                data: {
+                    connectedUsers: {
+                        create: [
+                            {
+                                user: {
+                                    connect: {
+                                        id: dto.id1
+                                    }
+                                }
+                            },
+                            {
+                                user: {
+                                    connect: {
+                                        id: dto.id2
+                                    }
                                 }
                             }
-                        },
-                        {
-                            user: {
-                                connect: {
-                                    id: dto.id2
-                                }
-                            }
-                        }
-                    ]
+                        ]
+                    }
                 }
-            }
-        })
-        return res
+            })
+            return res
+        } catch (error) {
+            return error
+        }
     }
 
     async deleteChat(id: number) {
@@ -62,22 +66,26 @@ export class ChatService {
     }
 
     async addMessage(dto: addMessage) {
-        const res = this.databaseService.messages.create({
-            data: {
-                message: dto.message,
-                chat: {
-                    connect: {
-                        id: dto.chatId
-                    }
-                },
-                fromUser: {
-                    connect: {
-                        id: dto.fromUserId
+        try {
+            const res = await this.databaseService.messages.create({
+                data: {
+                    message: dto.message,
+                    chat: {
+                        connect: {
+                            id: dto.chatId
+                        }
+                    },
+                    fromUser: {
+                        connect: {
+                            id: dto.fromUserId
+                        }
                     }
                 }
-            }
-        })
-        return res
+            })
+            return res
+        } catch (error) {
+            return error
+        }
     }
 
     async deleteMessage(id: number) {

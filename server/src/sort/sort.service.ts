@@ -10,58 +10,74 @@ export class SortService {
     constructor(private readonly databaseService: DatabaseService) { }
 
     async getEduTypes() {
-        const res = this.databaseService.educationType.findMany()
+        const res = await this.databaseService.educationType.findMany()
         return res
     }
 
     async addEduTypes(dto: addEduTypes) {
-        const res = this.databaseService.educationType.create({
-            data: {
-                ...dto
-            }
-        })
-        return res
+        try {
+            const res = await this.databaseService.educationType.create({
+                data: {
+                    ...dto
+                }
+            })
+            return res
+        } catch (error) {
+            return error
+        }
     }
 
     async getFaculty() {
-        const res = this.databaseService.faculty.findMany()
+        const res = await this.databaseService.faculty.findMany()
         return res
     }
 
     async addFaculty(dto: addFaculty) {
-        const res = this.databaseService.faculty.create({
-            data: {
-                ...dto
-            }
-        })
-        return res
+        try {
+            const res = await this.databaseService.faculty.create({
+                data: {
+                    ...dto
+                }
+            })
+            return res
+        } catch (error) {
+            return error
+        }
     }
 
     async getDiplomType() {
-        const res = this.databaseService.diplomType.findMany()
+        const res = await this.databaseService.diplomType.findMany()
         return res
     }
 
     async addDiplomType(dto: addDiplomType) {
-        const res = this.databaseService.diplomType.create({
-            data: {
-                ...dto
-            }
-        })
-        return res
+        try {
+            const res = await this.databaseService.diplomType.create({
+                data: {
+                    ...dto
+                }
+            })
+            return res
+        } catch (error) {
+            return error
+        }
     }
 
     async getCourseAdditional() {
-        const res = this.databaseService.courseAdditional.findMany()
+        const res = await this.databaseService.courseAdditional.findMany()
         return res
     }
 
     async addCourseAdditional(dto: addCourseAdditional) {
-        const res = this.databaseService.courseAdditional.create({
-            data: {
-                ...dto
-            }
-        })
-        return res
+        try {
+            const res = await this.databaseService.courseAdditional.create({
+                data: {
+                    ...dto
+                }
+            })
+            return res
+        } catch (error) {
+            return error
+        }
     }
 }
