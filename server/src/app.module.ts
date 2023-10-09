@@ -10,6 +10,7 @@ import { FilesModule } from './files/files.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { SortModule } from './sort/sort.module';
+import { ChatModule } from './chat/chat.module';
 @Module({
   imports: [
     UserModule,
@@ -22,6 +23,7 @@ import { SortModule } from './sort/sort.module';
       rootPath: join(__dirname, 'static'),
     }),
     SortModule,
+    ChatModule,
   ],
   controllers: [AppController],
   providers: [AppService],
