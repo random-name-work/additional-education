@@ -38,7 +38,7 @@ model User {
   passedTests    TestsOnUser[]
   passedLections LectionsOnUser[]
 
-  chats ChatsOnUser[]
+  chats UsersOnChat[]
 }
 
 model UserInfo {
@@ -103,7 +103,7 @@ model SocialMedia {
 // user end ============
 
 // chat
-model ChatsOnUser {
+model UsersOnChat {
   user   User @relation(fields: [userId], references: [id])
   userId Int
 
@@ -116,7 +116,7 @@ model ChatsOnUser {
 model Chats {
   id Int @id @default(autoincrement())
 
-  connectedUsers ChatsOnUser[]
+  connectedUsers UsersOnChat[]
 
   messages Messages[]
 }
