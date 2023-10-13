@@ -237,10 +237,9 @@ model Courses {
 
   diplomType   DiplomType @relation(fields: [diplomTypeId], references: [id])
   diplomTypeId Int
-  diplomImg    String?
+  diplomImg    String
 
-  courseAdditional      CoursesToAdditional[]
-  coursesToAdditionalId Int
+  courseToAdditional      CoursesToAdditional[]
 
   minHours Int
 
@@ -256,13 +255,13 @@ model CourseInfo {
   authorName String?
   authorInfo AuthorInfo[]
 
-  moduleAmount   Int
-  listenerAmount Int
-  minMaxHours    String
+  moduleAmount   Int?
+  listenerAmount Int?
+  minMaxHours    String?
 
-  courseGoal        String
-  educationForm     String
-  certificationType String
+  courseGoal        String?
+  educationForm     String?
+  certificationType String?
 
   sections Section[]
 }
