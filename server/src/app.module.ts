@@ -11,6 +11,7 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { SortModule } from './sort/sort.module';
 import { ChatModule } from './chat/chat.module';
+import { CourseModule } from './course/course.module';
 @Module({
   imports: [
     UserModule,
@@ -24,6 +25,7 @@ import { ChatModule } from './chat/chat.module';
     }),
     SortModule,
     ChatModule,
+    CourseModule,
   ],
   controllers: [AppController],
   providers: [AppService],
