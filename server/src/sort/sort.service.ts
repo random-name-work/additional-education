@@ -80,4 +80,9 @@ export class SortService {
             return error
         }
     }
+
+    async getCourseToAdditional() {
+        const res = await this.databaseService.coursesToAdditional.findMany()
+        return res
+    }
 }

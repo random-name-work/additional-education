@@ -76,4 +76,10 @@ export class SortController {
             return error
         }
     }
+
+    @Get('courseToAdditional')
+    async getCourseToAdditional(){
+        const res = this.sortService.getCourseToAdditional()
+        return res
+    }
 }
