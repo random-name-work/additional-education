@@ -38,7 +38,7 @@ model User {
   passedTests    TestsOnUser[]
   passedLections LectionsOnUser[]
 
-  chats UsersOnChat[]
+  chats          UsersOnChat[]
   sendedMessages Messages[]
 }
 
@@ -128,9 +128,9 @@ model Messages {
   chat   Chats @relation(fields: [chatId], references: [id], onDelete: Cascade)
   chatId Int
 
-  fromUser User @relation(fields: [fromUserId], references: [id])
+  fromUser   User @relation(fields: [fromUserId], references: [id])
   fromUserId Int
-  
+
   message String
 }
 
@@ -196,8 +196,9 @@ model CourseAdditional {
 
   name String
 }
+
 model CoursesToAdditional {
-  courses   Courses @relation(fields: [coursesId], references: [id])
+  courses   Courses @relation(fields: [coursesId], references: [id], onDelete: Cascade)
   coursesId Int
 
   courseAdditional   CourseAdditional @relation(fields: [courseAdditionalId], references: [id])
@@ -213,7 +214,7 @@ model CoursesOnUser {
   user   User @relation(fields: [userId], references: [id])
   userId Int
 
-  courses   Courses @relation(fields: [coursesId], references: [id])
+  courses   Courses @relation(fields: [coursesId], references: [id], onDelete: Cascade)
   coursesId Int
 
   @@id([userId, coursesId])
@@ -239,7 +240,7 @@ model Courses {
   diplomTypeId Int
   diplomImg    String
 
-  courseToAdditional      CoursesToAdditional[]
+  courseToAdditional CoursesToAdditional[]
 
   minHours Int
 
@@ -249,14 +250,14 @@ model Courses {
 model CourseInfo {
   id Int @id @default(autoincrement())
 
-  course   Courses @relation(fields: [courseId], references: [id])
+  course   Courses @relation(fields: [courseId], references: [id], onDelete: Cascade)
   courseId Int     @unique
 
   authorName String?
   authorInfo AuthorInfo[]
 
-  moduleAmount   Int?
-  listenerAmount Int?
+  moduleAmount   Int?    @default(0)
+  listenerAmount Int?    @default(0)
   minMaxHours    String?
 
   courseGoal        String?
@@ -269,7 +270,7 @@ model CourseInfo {
 model AuthorInfo {
   id Int @id @default(autoincrement())
 
-  courseInfo   CourseInfo @relation(fields: [courseInfoId], references: [id])
+  courseInfo   CourseInfo @relation(fields: [courseInfoId], references: [id], onDelete: Cascade)
   courseInfoId Int        @unique
 
   aboutAuthor String
@@ -278,7 +279,7 @@ model AuthorInfo {
 model Section {
   id Int @id @default(autoincrement())
 
-  courseInfo   CourseInfo @relation(fields: [courseInfoId], references: [id])
+  courseInfo   CourseInfo @relation(fields: [courseInfoId], references: [id], onDelete: Cascade)
   courseInfoId Int        @unique
 
   hoursAmount Int
@@ -290,7 +291,7 @@ model Section {
 model Modules {
   id Int @id @default(autoincrement())
 
-  section   Section @relation(fields: [sectionId], references: [id])
+  section   Section @relation(fields: [sectionId], references: [id], onDelete: Cascade)
   sectionId Int
 
   hoursAmount Int
@@ -302,7 +303,7 @@ model Modules {
 model ModuleTask {
   id Int @id @default(autoincrement())
 
-  module   Modules @relation(fields: [moduleId], references: [id])
+  module   Modules @relation(fields: [moduleId], references: [id], onDelete: Cascade)
   moduleId Int
 }
 
