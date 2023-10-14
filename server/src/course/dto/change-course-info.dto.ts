@@ -1,16 +1,13 @@
-import { IsNumber, IsString } from "class-validator";
+import { IsNumber, IsOptional, IsString } from "class-validator";
 
 export class changeCourseInfo {
 
     @IsString()
     authorName: string
 
-
     @IsNumber()
-    moduleAmount: number
-
-    @IsNumber()
-    listenerAmount: number
+    @IsOptional()
+    listenerAmount?: number
 
     @IsString()
     minMaxHours: string

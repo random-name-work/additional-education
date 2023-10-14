@@ -46,5 +46,32 @@ export class CourseService {
         }
     }
 
+    async changeCourseInfo(id: number, dto: changeCourseInfo){
+        try {
+            const res = await this.databaseService.courseInfo.update({
+                where: {
+                    courseId: id
+                },
+                data:{
+                    ...dto
+                }
+            })
+            return res
+        } catch (error) {
+            return error
+        }
+    }
 
+    async deleteCourse(id: number){
+        try {
+            const res = await this.databaseService.courses.delete({
+                where: {
+                    id
+                }
+            })
+            return res
+        } catch (error) {
+            return error
+        }
+    }
 }
