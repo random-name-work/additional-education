@@ -225,7 +225,7 @@ model Courses {
 
   author   User @relation(fields: [authorId], references: [id])
   authorId Int
-
+  
   passedUsers CoursesOnUser[]
 
   courseName String
@@ -271,7 +271,7 @@ model AuthorInfo {
   id Int @id @default(autoincrement())
 
   courseInfo   CourseInfo @relation(fields: [courseInfoId], references: [id], onDelete: Cascade)
-  courseInfoId Int        @unique
+  courseInfoId Int        
 
   aboutAuthor String
 }
@@ -280,11 +280,11 @@ model Section {
   id Int @id @default(autoincrement())
 
   courseInfo   CourseInfo @relation(fields: [courseInfoId], references: [id], onDelete: Cascade)
-  courseInfoId Int        @unique
+  courseInfoId Int        
 
   hoursAmount Int
   cost        Int
-  cashback    Int
+  cashback    Int?      @default(0)
   modules     Modules[]
 }
 
@@ -297,14 +297,127 @@ model Modules {
   hoursAmount Int
   moduleName  String
 
-  tasks ModuleTask[]
+  videoLessons   videoLesson[]
+  lectionLessons lectionLesson[]
+  testLessons    testLesson[]
+  examLessons    examLesson[]
 }
 
-model ModuleTask {
+model videoLesson {
   id Int @id @default(autoincrement())
 
   module   Modules @relation(fields: [moduleId], references: [id], onDelete: Cascade)
   moduleId Int
+
+  queueNumber Int
+
+  lessonName         String
+  videoUrl           String
+  descriptionHeader  String
+  descriptionContent String
+
+  homeworkName       String
+  homeworkDesription String
+  homeworkFile       String
+}
+
+model lectionLesson {
+  id Int @id @default(autoincrement())
+
+  module   Modules @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  moduleId Int
+
+  lectionBlocks lectionBlock[]
+
+  lessonName String
+
+  queueNumber Int
+
+  homeworkName       String
+  homeworkDesription String
+  homeworkFile       String
+}
+
+model lectionBlock {
+  id Int @id @default(autoincrement())
+
+  lectionLesson   lectionLesson @relation(fields: [lectionLessonId], references: [id], onDelete: Cascade)
+  lectionLessonId Int
+
+  header String?
+  text   String?
+  img    String?
+}
+
+model testLesson {
+  id Int @id @default(autoincrement())
+
+  module   Modules @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  moduleId Int
+
+  lessonName String
+
+  queueNumber Int
+
+  descriptionHeader  String
+  descriptionContent String
+  timeForPass        Int
+  questionsAmount    Int
+  maxPoints          Int
+  pointForPass       Int
+
+  testQuestions testQuestion[]
+
+  homeworkName       String
+  homeworkDesription String
+  homeworkFile       String
+}
+
+model testQuestion {
+  id Int @id @default(autoincrement())
+
+  testLesson   testLesson @relation(fields: [testLessonId], references: [id], onDelete: Cascade)
+  testLessonId Int
+
+  // radio, checkbox
+  questionType String
+
+  queueNumber Int
+
+  questionHeader   String
+  questionImg      String
+  questionVariants testQuestionVariant[]
+}
+
+model testQuestionVariant {
+  id Int @id @default(autoincrement())
+
+  testQuestion   testQuestion @relation(fields: [testQuestionId], references: [id], onDelete: Cascade)
+  testQuestionId Int
+
+  queueNumber Int
+
+  variantText String
+  isTrue      Boolean
+}
+
+model examLesson {
+  id Int @id @default(autoincrement())
+
+  module   Modules @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  moduleId Int
+
+  lessonName String
+
+  queueNumber Int
+
+  header String?
+  text   String?
+  img    String?
+
+  homeworkName       String
+  homeworkDesription String
+  homeworkFile       String
 }
 
 // course end =============
