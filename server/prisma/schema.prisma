@@ -29,14 +29,14 @@ model User {
   createdCourses  Courses[]
   createdBlogs    Blogs[]
   createdTests    Tests[]
-  createdLections Lections[]
+  createdLections Videolections[]
 
   passedCourses  CoursesOnUser[]
   likedBlogs     BlogsOnUser[]
   //posted comments
   comments       Comment[]
   passedTests    TestsOnUser[]
-  passedLections LectionsOnUser[]
+  passedLections VideolectionsOnUser[]
 
   chats          UsersOnChat[]
   sendedMessages Messages[]
@@ -174,7 +174,7 @@ model Faculty {
   course  Courses[]
   blog    Blogs[]
   tests   Tests[]
-  lection Lections[]
+  lection Videolections[]
 
   name String
 }
@@ -557,43 +557,45 @@ model TestTasks_answerVariant {
 // test end ==========
 
 // lections
-model LectionsOnUser {
+model VideolectionsOnUser {
   user   User @relation(fields: [userId], references: [id])
   userId Int
 
-  lections   Lections @relation(fields: [lectionsId], references: [id])
-  lectionsId Int
+  Videolections   Videolections @relation(fields: [VideolectionsId], references: [id], onDelete: Cascade)
+  VideolectionsId Int
 
-  @@id([userId, lectionsId])
+  @@id([userId, VideolectionsId])
 }
 
-model Lections {
+model Videolections {
   id Int @id @default(autoincrement())
 
   Author   User @relation(fields: [AuthorId], references: [id])
   AuthorId Int
 
-  passedUsers LectionsOnUser[]
+  passedUsers VideolectionsOnUser[]
 
-  lectionInfo LectionInfo?
+  VideolectionInfo VideolectionInfo?
+
   faculty     Faculty      @relation(fields: [facultyId], references: [id])
   facultyId   Int
+
   lectionImg  String
   lectionName String
   createdAt   DateTime     @default(now())
   views       Int          @default(0)
 }
 
-model LectionInfo {
+model VideolectionInfo {
   id Int @id @default(autoincrement())
 
-  lection   Lections @relation(fields: [lectionId], references: [id])
-  lectionId Int      @unique
+  Videolection   Videolections @relation(fields: [VideolectionId], references: [id], onDelete: Cascade)
+  VideolectionId Int      @unique
 
-  videoLection      String
-  diplomForPass     String
-  descriptionHeader String
-  description       String
+  videoLectionURL      String?
+  diplomForPass     String?
+  descriptionHeader String?
+  description       String?
 }
 
 // lections end ===========
