@@ -13,6 +13,7 @@ import { SortModule } from './sort/sort.module';
 import { ChatModule } from './chat/chat.module';
 import { CourseModule } from './course/course.module';
 import { BlogModule } from './blog/blog.module';
+import { VideolectionModule } from './videolection/videolection.module';
 @Module({
   imports: [
     UserModule,
@@ -28,6 +29,7 @@ import { BlogModule } from './blog/blog.module';
     ChatModule,
     CourseModule,
     BlogModule,
+    VideolectionModule,
   ],
   controllers: [AppController],
   providers: [AppService],
