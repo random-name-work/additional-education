@@ -12,6 +12,7 @@ import { join } from 'path';
 import { SortModule } from './sort/sort.module';
 import { ChatModule } from './chat/chat.module';
 import { CourseModule } from './course/course.module';
+import { BlogModule } from './blog/blog.module';
 @Module({
   imports: [
     UserModule,
@@ -26,6 +27,7 @@ import { CourseModule } from './course/course.module';
     SortModule,
     ChatModule,
     CourseModule,
+    BlogModule,
   ],
   controllers: [AppController],
   providers: [AppService],
