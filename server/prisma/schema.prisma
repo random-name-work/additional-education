@@ -225,7 +225,7 @@ model Courses {
 
   author   User @relation(fields: [authorId], references: [id])
   authorId Int
-  
+
   passedUsers CoursesOnUser[]
 
   courseName String
@@ -271,7 +271,7 @@ model AuthorInfo {
   id Int @id @default(autoincrement())
 
   courseInfo   CourseInfo @relation(fields: [courseInfoId], references: [id], onDelete: Cascade)
-  courseInfoId Int        
+  courseInfoId Int
 
   aboutAuthor String
 }
@@ -280,7 +280,7 @@ model Section {
   id Int @id @default(autoincrement())
 
   courseInfo   CourseInfo @relation(fields: [courseInfoId], references: [id], onDelete: Cascade)
-  courseInfoId Int        
+  courseInfoId Int
 
   hoursAmount Int
   cost        Int
@@ -427,7 +427,7 @@ model BlogsOnUser {
   user   User @relation(fields: [userId], references: [id])
   userId Int
 
-  blogs   Blogs @relation(fields: [blogsId], references: [id])
+  blogs   Blogs @relation(fields: [blogsId], references: [id], onDelete: Cascade)
   blogsId Int
 
   @@id([userId, blogsId])
@@ -443,58 +443,44 @@ model Blogs {
 
   blogInfo BlogInfo?
 
-  faculty        Faculty  @relation(fields: [facultyId], references: [id])
+  faculty        Faculty   @relation(fields: [facultyId], references: [id])
   facultyId      Int
+
   blogImg        String
   blogTitle      String
-  blogAuthorName String
-  blogAuthorImg  String
-  createdAt      DateTime @default(now())
-  views          Int      @default(0)
+  createdAt      DateTime? @default(now())
+  views          Int?      @default(0)
 }
 
 model BlogInfo {
   id Int @id @default(autoincrement())
 
-  blogs   Blogs @relation(fields: [blogsId], references: [id])
+  blogs   Blogs @relation(fields: [blogsId], references: [id], onDelete: Cascade)
   blogsId Int   @unique
 
   blogBlocks BlogBlocks[]
-  likes      Int
+  likes      Int @default(0)
   comments   Comment[]
 }
 
 model BlogBlocks {
   id Int @id @default(autoincrement())
 
-  blogInfo   BlogInfo @relation(fields: [blogInfoId], references: [id])
+  blogInfo   BlogInfo @relation(fields: [blogInfoId], references: [id], onDelete: Cascade)
   blogInfoId Int
 
-  //text, video, img, audio
-  blockType String
-
-  text           String?
-  textWithHeader BlogBlocks_textWithHeader?
-  videoUrl       String?
-  audioUrl       String?
-  imgUrl         String?
-}
-
-model BlogBlocks_textWithHeader {
-  id Int @id @default(autoincrement())
-
-  blogBlocks   BlogBlocks @relation(fields: [blogBlocksId], references: [id])
-  blogBlocksId Int        @unique
-
-  header String
-  text   String
+  header   String?
+  text     String?
+  videoUrl String?
+  audioUrl String?
+  imgUrl   String?
 }
 
 model Comment {
   id Int @id @default(autoincrement())
 
-  blogInfo   BlogInfo @relation(fields: [blogInfoId], references: [id])
-  blogInfoId Int      @unique
+  blogInfo   BlogInfo @relation(fields: [blogInfoId], references: [id], onDelete: Cascade)
+  blogInfoId Int      
 
   user   User @relation(fields: [userId], references: [id])
   userId Int
