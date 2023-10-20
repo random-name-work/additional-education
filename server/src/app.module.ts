@@ -14,6 +14,7 @@ import { ChatModule } from './chat/chat.module';
 import { CourseModule } from './course/course.module';
 import { BlogModule } from './blog/blog.module';
 import { VideolectionModule } from './videolection/videolection.module';
+import { TestModule } from './test/test.module';
 @Module({
   imports: [
     UserModule,
@@ -30,6 +31,7 @@ import { VideolectionModule } from './videolection/videolection.module';
     CourseModule,
     BlogModule,
     VideolectionModule,
+    TestModule,
   ],
   controllers: [AppController],
   providers: [AppService],
