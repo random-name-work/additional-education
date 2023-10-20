@@ -496,7 +496,7 @@ model TestsOnUser {
   user   User @relation(fields: [userId], references: [id])
   userId Int
 
-  tests   Tests @relation(fields: [testsId], references: [id])
+  tests   Tests @relation(fields: [testsId], references: [id], onDelete: Cascade)
   testsId Int
 
   @@id([userId, testsId])
@@ -511,8 +511,10 @@ model Tests {
   passedUsers TestsOnUser[]
 
   testsInfo  TestsInfo?
+
   faculty    Faculty    @relation(fields: [facultyId], references: [id])
   facultyId  Int
+
   timeToPass Int
   askAmount  Int
   authorName String
@@ -521,33 +523,33 @@ model Tests {
 model TestsInfo {
   id Int @id @default(autoincrement())
 
-  test   Tests @relation(fields: [testId], references: [id])
+  test   Tests @relation(fields: [testId], references: [id], onDelete: Cascade)
   testId Int   @unique
 
-  testName        String
-  testHeader      String
-  testDescription String
-  pointsToPass    Int
-  timeToPass      Int
+  testName        String?
+  testHeader      String?
+  testDescription String?
+  pointsToPass    Int?
+  timeToPass      Int?
   tasks           TestTasks[]
 }
 
 model TestTasks {
   id Int @id @default(autoincrement())
 
-  testInfo   TestsInfo @relation(fields: [testInfoId], references: [id])
-  testInfoId Int       @unique
+  testInfo   TestsInfo @relation(fields: [testInfoId], references: [id], onDelete: Cascade)
+  testInfoId Int       
 
   taskTitle      String
   //checkbox / radiobtn
   taskType       String
-  answerVariants TestTasks_answerVariant[]
+  answerVariants TestTasksAnswerVariant[]
 }
 
-model TestTasks_answerVariant {
+model TestTasksAnswerVariant {
   id Int @id @default(autoincrement())
 
-  testTasks   TestTasks @relation(fields: [testTasksId], references: [id])
+  testTasks   TestTasks @relation(fields: [testTasksId], references: [id], onDelete: Cascade)
   testTasksId Int
 
   isRight     Boolean
