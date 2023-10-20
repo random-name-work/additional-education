@@ -8,20 +8,20 @@ export class VideolectionController {
     constructor(private readonly videoLectionService: VideolectionService) { }
 
     @Get('videolections')
-    async getComment() {
+    async getVideolections() {
         const res = this.videoLectionService.getVideolections()
         return res
     }
 
     @Post('addVideolection/:userId/:facultyId')
     @UsePipes(new ValidationPipe())
-    async addComment(@Param('userId') userId: number, @Param('facultyId') facultyId: number, @Body() dto: addVideoLection) {
+    async addVideolection(@Param('userId') userId: number, @Param('facultyId') facultyId: number, @Body() dto: addVideoLection) {
         const res = this.videoLectionService.addVideolection(+userId, +facultyId, dto)
         return res
     }
 
     @Delete('deleteVideolection/:id')
-    async deleteComment(@Param('id') id: number) {
+    async deleteVideolection(@Param('id') id: number) {
         const res = this.videoLectionService.deleteVideolection(+id)
         return res
     }
