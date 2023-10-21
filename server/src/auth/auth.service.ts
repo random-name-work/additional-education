@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { DatabaseService } from 'src/database/database.service';
 import { JwtService } from 'src/jwt/jwt.service';
 import { CreateUserPhoneDto } from './dto/create-user-phone.dto';
@@ -102,7 +102,7 @@ export class AuthService {
                 return user
             }
             else{
-                return { message: "Неверный пароль или имя пользователя" }
+                throw new HttpException('Unauthorised', HttpStatus.UNAUTHORIZED)
             }
         } catch (error) {
             return error
@@ -120,6 +120,9 @@ export class AuthService {
             const correctPassword = bcrypt.compareSync(dto.password, user.password)
             if (correctPassword){
                 return user
+            }
+            else{
+                throw new HttpException('Unauthorised', HttpStatus.UNAUTHORIZED)
             }
         } catch (error) {
             return error

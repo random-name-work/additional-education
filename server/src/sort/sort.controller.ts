@@ -4,7 +4,7 @@ import { addEduTypes } from './dto/add-edu-types.dto';
 import { addFaculty } from './dto/add-faculty.dto';
 import { addDiplomType } from './dto/add-diplom-type.dto';
 import { addCourseAdditional } from './dto/add-course-additional.dto';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiResponse, ApiTags } from '@nestjs/swagger';
 
 @Controller('sort')
 @ApiTags('sort')
@@ -12,12 +12,14 @@ export class SortController {
     constructor(private readonly sortService: SortService) { }
 
     @Get('eduTypes')
+    @ApiResponse({ status: 200, description: 'Return eduTypes'})
     async getEduTypes(){
         const res = this.sortService.getEduTypes()
         return res
     }
 
     @Post('addEduTypes')
+    @ApiResponse({ status: 200, description: 'Return eduType'})
     @UsePipes(new ValidationPipe())
     async addEduTypes(@Body() dto: addEduTypes){
         try {
@@ -29,12 +31,14 @@ export class SortController {
     }
 
     @Get('faculty')
+    @ApiResponse({ status: 200, description: 'Return facultys'})
     async getFaculty(){
         const res = this.sortService.getFaculty()
         return res
     }
 
     @Post('addFaculty')
+    @ApiResponse({ status: 200, description: 'Return faculty'})
     @UsePipes(new ValidationPipe())
     async addFaculty(@Body() dto: addFaculty){
         try {
@@ -46,12 +50,14 @@ export class SortController {
     }
 
     @Get('diplomType')
+    @ApiResponse({ status: 200, description: 'Return diplomTypes'})
     async getDiplomType(){
         const res = this.sortService.getDiplomType()
         return res
     }
 
     @Post('addDiplomType')
+    @ApiResponse({ status: 200, description: 'Return diplomType'})
     @UsePipes(new ValidationPipe())
     async addDiplomType(@Body() dto: addDiplomType){
         try {
@@ -63,12 +69,14 @@ export class SortController {
     }
 
     @Get('courseAdditional')
+    @ApiResponse({ status: 200, description: 'Return courseAdditionals'})
     async getCourseAdditional(){
         const res = this.sortService.getCourseAdditional()
         return res
     }
 
     @Post('addCourseAdditional')
+    @ApiResponse({ status: 200, description: 'Return courseAdditional'})
     @UsePipes(new ValidationPipe())
     async addCourseAdditional(@Body() dto: addCourseAdditional){
         try {
@@ -80,6 +88,7 @@ export class SortController {
     }
 
     @Get('courseToAdditional')
+    @ApiResponse({ status: 200, description: 'Return courseToAdditional'})
     async getCourseToAdditional(){
         const res = this.sortService.getCourseToAdditional()
         return res

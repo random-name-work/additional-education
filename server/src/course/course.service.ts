@@ -124,7 +124,7 @@ export class CourseService {
     }
 
     // section CRUD
-    async getSection() {
+    async getSections() {
         const res = await this.databaseService.section.findMany()
         return res
     }
