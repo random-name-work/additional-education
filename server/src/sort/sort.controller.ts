@@ -4,8 +4,10 @@ import { addEduTypes } from './dto/add-edu-types.dto';
 import { addFaculty } from './dto/add-faculty.dto';
 import { addDiplomType } from './dto/add-diplom-type.dto';
 import { addCourseAdditional } from './dto/add-course-additional.dto';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('sort')
+@ApiTags('sort')
 export class SortController {
     constructor(private readonly sortService: SortService) { }
 

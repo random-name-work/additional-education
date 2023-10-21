@@ -9,6 +9,15 @@ async function bootstrap() {
     .setTitle('Additional Education docs')
     .setDescription('The additional education API description')
     .setVersion('1.0')
+    .addTag('roles')
+    .addTag('auth')
+    .addTag('user')
+    .addTag('chat')
+    .addTag('sort')
+    .addTag('blog')
+    .addTag('course')
+    .addTag('test')
+    .addTag('videolection')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('swagger', app, document);

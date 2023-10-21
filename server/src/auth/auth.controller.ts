@@ -5,7 +5,10 @@ import { CreateUserEmailDto } from './dto/create-user-email.dto';
 import { LoginUserPhone } from './dto/login-user-phone.dto';
 import { LoginUserEmail } from './dto/login-user-email.dto';
 import { CheckJwt } from './dto/check-jwt.dto';
+import { ApiTags } from '@nestjs/swagger';
+
 @Controller('auth')
+@ApiTags('auth')
 export class AuthController {
     constructor(private readonly authService: AuthService){}
 

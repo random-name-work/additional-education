@@ -2,8 +2,10 @@ import { Body, Controller, Delete, Get, Param, Post, UsePipes, ValidationPipe } 
 import { ChatService } from './chat.service';
 import { createChat } from './dto/create-chat.dto';
 import { addMessage } from './dto/add-message.dto';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('chat')
+@ApiTags('chat')
 export class ChatController {
     constructor(private readonly chatService: ChatService) { }
 

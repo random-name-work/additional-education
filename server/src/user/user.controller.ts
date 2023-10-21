@@ -3,9 +3,10 @@ import { UserService } from './user.service';
 import { ChangeUserData } from './dto/change-user-data.dto';
 import { ChangeUserInfo } from './dto/change-user-info.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { identity } from 'rxjs';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('user')
+@ApiTags('user')
 export class UserController {
     constructor(private readonly userService: UserService){}
 

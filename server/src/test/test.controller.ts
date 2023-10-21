@@ -4,8 +4,10 @@ import { addTest } from './dto/add-test.dto';
 import { changeTestInfo } from './dto/change-test-info.dto';
 import { addTestTask } from './dto/add-test-task.dto';
 import { addTestTaskAnswerVariant } from './dto/add-test-task-answer-variant.dto';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('test')
+@ApiTags('test')
 export class TestController {
     constructor(private readonly testService: TestService) { }
 

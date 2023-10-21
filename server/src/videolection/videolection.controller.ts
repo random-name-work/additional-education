@@ -2,8 +2,10 @@ import { Body, Controller, Delete, Get, Param, Post, Put, UsePipes, ValidationPi
 import { VideolectionService } from './videolection.service';
 import { addVideoLection } from './dto/add-video-lection.dto';
 import { changeVideolectionInfo } from './dto/change-video-lection-info.dto';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('videolection')
+@ApiTags('videolection')
 export class VideolectionController {
     constructor(private readonly videoLectionService: VideolectionService) { }
 

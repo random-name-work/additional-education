@@ -12,8 +12,10 @@ import { addTest } from './dto/add-test.dto';
 import { addTestQuestion } from './dto/add-test-question.dto';
 import { addTestQuestionVariant } from './dto/add-test-question-variant.dto';
 import { addExam } from './dto/add-exam.dto';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('course')
+@ApiTags('course')
 export class CourseController {
     constructor(private readonly courseSerice: CourseService) { }
 
