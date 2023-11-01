@@ -69,10 +69,6 @@ export default {
   margin-top: 96px;
 }
 
-.carousel {
-  @extend %slider__settings;
-}
-
 // ContactForm checkbox settings
 .v-input {
   &__control {

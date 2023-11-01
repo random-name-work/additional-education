@@ -1,0 +1,26 @@
+.carousel {
+  &__prev,
+  &__next {
+    top: 105% !important;
+
+    width: 57px;
+    height: 57px;
+
+    border: 1px solid #000000;
+    border-radius: 50%;
+
+    svg {
+      margin-top: 11px;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  &__prev {
+    left: calc(50% - 140px);
+  }
+  &__next {
+    right: calc(50% - 140px);
+  }
+}

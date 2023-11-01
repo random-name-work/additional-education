@@ -50,16 +50,9 @@
               </p>
             </div>
             <div class="timeAndBtn__btn">
-              <v-btn
-                href="#"
-                variant="outlined"
-                color="#3d8be4"
-                min-height="40px"
-                min-width="140px"
-                block
-              >
+              <white-button140 :href="`https:/google.com`">
                 Подробнее
-              </v-btn>
+              </white-button140>
             </div>
           </div>
         </div>
@@ -97,21 +90,19 @@
             </span>
           </template>
         </navigation>
-        <Pagination />
       </template>
     </Carousel>
   </div>
 </template>
 
 <script>
-import { Carousel, Navigation, Pagination, Slide } from "vue3-carousel";
+import { Carousel, Navigation, Slide } from "vue3-carousel";
 import "vue3-carousel/dist/carousel.css";
 
 export default {
   components: {
     Carousel,
     Slide,
-    Pagination,
     Navigation,
   },
   data() {
@@ -180,18 +171,27 @@ export default {
         320: {
           itemsToShow: 1,
           snapAlign: "center",
+          wrapAround: "true",
         },
         600: {
           itemsToShow: 1.5,
+          snapAlign: "center",
+          wrapAround: "true",
         },
         800: {
           itemsToShow: 2,
+          snapAlign: "center",
+          wrapAround: "true",
         },
         1000: {
           itemsToShow: 2.5,
+          snapAlign: "center",
+          wrapAround: "true",
         },
         1300: {
           itemsToShow: 3,
+          snapAlign: "center",
+          wrapAround: "true",
         },
       },
     };
@@ -199,7 +199,8 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
+@import url(../styles/content/base.scss);
 // slider left right btns in App.vue styles
 .findCourseSlider {
   max-width: 1200px;
@@ -211,111 +212,110 @@ export default {
   @media (max-width: 1300px) {
     padding-top: 80px;
   }
-}
-h2 {
-  margin-left: 10px;
-  margin-right: 10px;
+  h2 {
+    margin-left: 10px;
+    margin-right: 10px;
 
-  text-align: center;
-}
-.btns {
-  margin-top: 30px;
-
-  margin-left: 10px;
-  margin-right: 10px;
-
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  justify-content: center;
-
-  // custom input
-  input {
-    display: none;
+    text-align: center;
   }
-  input:checked ~ .label {
-    color: #3d8be4;
-    
-    padding-bottom: 7px;
-    border-bottom: 2px solid #3D8BE4;
-  }
-  label {
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 150%;
+  .btns {
+    margin-top: 30px;
 
-    &:hover {
-      opacity: 0.8;
-      cursor: pointer;
+    margin-left: 10px;
+    margin-right: 10px;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+
+    // custom input
+    input {
+      display: none;
+    }
+    input:checked ~ .label {
+      color: var(--main-color);
+
+      padding-bottom: 7px;
+      border-bottom: 2px solid var(--main-color);
+    }
+    label {
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 150%;
+
+      &:hover {
+        opacity: 0.8;
+        cursor: pointer;
+      }
     }
   }
-}
-.carousel {
-  margin-top: 47px;
-  margin-bottom: 100px;
-  &__item {
-    
-    min-height: 465px;
-    width: 100%;
-
-    padding-bottom: 22px;
-    
-    border-radius: 12px;
-    border: 1px solid #e5e5e5;
-    
-    background: #ffffff;
-    box-shadow: 0px 8px 30px 0px rgba(0, 0, 0, 0.05);
-
-    overflow: hidden;
-
-    img {
+  .carousel {
+    margin-top: 47px;
+    margin-bottom: 100px;
+    &__item {
+      min-height: 465px;
       width: 100%;
-    }
-    .type {
-      margin-top: 10px;
-      margin-left: 30px;
-      margin-right: 30px;
-      text-align: left;
-      @media (max-width: 450px) {
-        text-align: center;
+
+      padding-bottom: 22px;
+
+      border-radius: 12px;
+      border: 1px solid #e5e5e5;
+
+      background: #ffffff;
+      box-shadow: 0px 8px 30px 0px rgba(0, 0, 0, 0.05);
+
+      overflow: hidden;
+
+      img {
+        width: 100%;
       }
-    }
-    .header {
-      margin-top: 20px;
-      margin-left: 30px;
-      margin-right: 30px;
-      text-align: left;
-
-      @media (max-width: 450px) {
-        text-align: center;
+      .type {
+        margin-top: 10px;
+        margin-left: 30px;
+        margin-right: 30px;
+        text-align: left;
+        @media (max-width: 450px) {
+          text-align: center;
+        }
       }
-    }
-    .timeAndBtn {
-      margin-top: 32px;
-      margin-left: 30px;
-      margin-right: 30px;
-      text-align: left;
+      .header {
+        margin-top: 20px;
+        margin-left: 30px;
+        margin-right: 30px;
+        text-align: left;
 
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+        @media (max-width: 450px) {
+          text-align: center;
+        }
+      }
+      .timeAndBtn {
+        margin-top: 32px;
+        margin-left: 30px;
+        margin-right: 30px;
+        text-align: left;
 
-      &__time {
         display: flex;
         align-items: center;
+        justify-content: space-between;
 
-        gap: 8px;
-      }
-      @media (max-width: 450px) {
-        flex-direction: column;
-        gap: 20px;
+        &__time {
+          display: flex;
+          align-items: center;
+
+          gap: 8px;
+        }
+        @media (max-width: 450px) {
+          flex-direction: column;
+          gap: 20px;
+        }
       }
     }
-  }
 
-  &__slide {
-    padding: 26px;
+    &__slide {
+      padding: 26px;
+    }
   }
 }
 </style>
