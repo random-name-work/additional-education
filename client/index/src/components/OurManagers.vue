@@ -11,16 +11,9 @@
         <img src="./../assets/ManagerPhoto.png" alt="manager photo" />
         <h4>{{ manager.name }}</h4>
         <p class="text1">{{ manager.description }}</p>
-        <v-btn
-          flat
-          variant="outlined"
-          color="#3d8be4"
-          min-height="50px"
-          max-width="307px"
-          block
-          href="#"
-          >Обратиться</v-btn
-        >
+        <white-button-full :href="`https://google.com`">
+          Обратиться
+        </white-button-full>
         <div class="socialMedia">
           <a href="#">
             <img src="./../assets/socialIcons/VK.png" alt="VK" />
@@ -135,9 +128,9 @@ export default {
 
     gap: 40px;
 
-    @media (max-width:1300px){
-        margin-left: 10px;
-        margin-right: 10px;
+    @media (max-width: 1300px) {
+      margin-left: 10px;
+      margin-right: 10px;
     }
     .managerCard {
       max-width: 367px;

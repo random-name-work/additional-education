@@ -16,30 +16,15 @@
       </p>
 
       <div class="btns">
-        <v-btn
-          flat
-          color="#3d8be4"
-          min-height="60px"
-          min-width="180px"
-          max-width="180px"
-          block
-        >
+        <blue-button180 :href="`https://google.com`">
           Скачать PDF
-        </v-btn>
-        <v-btn
-          flat
-          variant="outlined"
-          color="#3d8be4"
-          min-height="60px"
-          min-width="225px"
-          max-width="225px"
-          block
-        >
+        </blue-button180>
+        <white-button225 :href="`https://google.com`">
           Проверить лицензию
-        </v-btn>
+        </white-button225>
       </div>
     </div>
-    <Carousel ref="carousel" :breakpoints="breakpoints" v-model="currentSlide">
+    <Carousel ref="carousel" :wrapAround="true" v-model="currentSlide">
       <Slide v-for="license in licenses" :key="license.id">
         <div class="carousel__item">
           <img src="./../assets/License.png" alt="license" />
@@ -78,20 +63,18 @@
             </span>
           </template>
         </navigation>
-        <Pagination />
       </template>
     </Carousel>
   </div>
 </template>
 
 <script>
-import { Carousel, Navigation, Pagination, Slide } from "vue3-carousel";
+import { Carousel, Navigation, Slide } from "vue3-carousel";
 import "vue3-carousel/dist/carousel.css";
 export default {
   components: {
     Carousel,
     Slide,
-    Pagination,
     Navigation,
   },
   data() {

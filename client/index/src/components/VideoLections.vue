@@ -4,6 +4,7 @@
       ref="carousel"
       itemsToShow="1"
       snapAlign="center"
+      wrapAround="true"
       v-model="currentSlide"
     >
       <Slide v-for="video in Videos" :key="video.id">
@@ -14,17 +15,9 @@
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor.
             </h2>
-            <v-btn
-              flat
-              color="#3d8be4"
-              min-height="60px"
-              min-width="180px"
-              max-height="60px"
-              max-width="180px"
-              block
-              href="#"
-              >Смотреть все</v-btn
-            >
+            <blue-button180 :href="`https://google.com`">
+              Смотреть все
+            </blue-button180>
           </div>
           <div class="rightPart">
             <a href="#">
@@ -79,21 +72,19 @@
             </span>
           </template>
         </navigation>
-        <Pagination />
       </template>
     </Carousel>
   </div>
 </template>
 
 <script>
-import { Carousel, Navigation, Pagination, Slide } from "vue3-carousel";
+import { Carousel, Navigation, Slide } from "vue3-carousel";
 import "vue3-carousel/dist/carousel.css";
 
 export default {
   components: {
     Carousel,
     Slide,
-    Pagination,
     Navigation,
   },
   data() {

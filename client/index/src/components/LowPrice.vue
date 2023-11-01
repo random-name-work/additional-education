@@ -6,18 +6,11 @@
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et.
       </p>
-      <v-btn
-        flat
-        href="#"
-        class="mt-10"
-        color="#3d8be4"
-        min-height="60px"
-        min-width="180px"
-        max-width="180px"
-        block
+      <blue-button180
+        :href="`https://google.com`"
       >
         Смотреть больше
-      </v-btn>
+      </blue-button180>
     </div>
     <Carousel ref="carousel" :breakpoints="breakpoints" v-model="currentSlide">
       <Slide v-for="course in sortedCourses" :key="course.id">
@@ -74,16 +67,11 @@
               </p>
             </div>
             <div class="timeAndBtn__btn">
-              <v-btn
-                href="#"
-                variant="outlined"
-                color="#3d8be4"
-                min-height="40px"
-                min-width="140px"
-                block
+              <white-button140
+              :href="`https://google.com`"
               >
                 Подробнее
-              </v-btn>
+              </white-button140>
             </div>
           </div>
         </div>
@@ -121,21 +109,19 @@
             </span>
           </template>
         </navigation>
-        <Pagination />
       </template>
     </Carousel>
   </div>
 </template>
 
 <script>
-import { Carousel, Navigation, Pagination, Slide } from "vue3-carousel";
+import { Carousel, Navigation, Slide } from "vue3-carousel";
 import "vue3-carousel/dist/carousel.css";
 
 export default {
   components: {
     Carousel,
     Slide,
-    Pagination,
     Navigation,
   },
   data() {
@@ -195,18 +181,27 @@ export default {
         320: {
           itemsToShow: 1,
           snapAlign: "center",
+          wrapAround: "true",
         },
         600: {
           itemsToShow: 1.5,
+          snapAlign: "center",
+          wrapAround: "true",
         },
         800: {
           itemsToShow: 2,
+          snapAlign: "center",
+          wrapAround: "true",
         },
         1000: {
           itemsToShow: 2.5,
+          snapAlign: "center",
+          wrapAround: "true",
         },
         1300: {
           itemsToShow: 3,
+          snapAlign: "center",
+          wrapAround: "true",
         },
       },
     };

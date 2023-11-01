@@ -42,16 +42,9 @@
           color="red"
         ></v-checkbox>
 
-        <v-btn
-          class="mt-7 text-none w-100"
-          flat
-          color="#3d8be4"
-          min-height="60px"
-          max-width="450px"
-          :disabled="!valid"
-        >
+        <blue-button-full :disabled="!valid">
           Получить консультацию
-        </v-btn>
+        </blue-button-full>
       </v-form>
     </div>
   </div>

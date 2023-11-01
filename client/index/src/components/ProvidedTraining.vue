@@ -7,9 +7,9 @@
           У нас действует 2 вида договора на обучение. По одному вы оплачиваете
           сами, а второй предлагает оплатить обучение за счёт вашей компании.
         </p>
-        <v-btn flat color="#3d8be4" min-height="60px" min-width="180px" block
-          >Выбрать курс
-        </v-btn>
+        <blue-button180 :href="`https://google.com`">
+          Выбрать курс
+        </blue-button180>
       </div>
       <div class="scene">
         <img src="./../assets/ProvidedScene.png" alt="providedScene" />
