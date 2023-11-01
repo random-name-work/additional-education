@@ -1,22 +1,17 @@
 <template>
   <div class="headerBlock">
     <div class="header">
-      <p class="text1">Университет дополнительного профессионального образования</p>
+      <p class="text1">
+        Университет дополнительного профессионального образования
+      </p>
       <h1>Повышение квалификации и профессиональная переподготовка</h1>
       <div class="headerBtns">
-        <v-btn flat color="#3d8be4" min-height="60px" min-width="180px" block>
+        <blue-button180 :href="`https://google.com`">
           Выбрать курс
-        </v-btn>
-        <v-btn
-          flat
-          variant="outlined"
-          color="#3d8be4"
-          min-height="60px"
-          min-width="180px"
-          block
-        >
+        </blue-button180>
+        <white-button180 :href="`https://google.com`">
           Консультация
-        </v-btn>
+        </white-button180>
       </div>
     </div>
     <div class="numbers">
@@ -31,13 +26,13 @@
       <div class="number">
         <h1>8</h1>
         <p>Lorem ipsum</p>
-      </div>
+      </div> 
     </div>
   </div>
-  
 </template>
 
-<script></script>
+<script>
+</script>
 
 <style scoped lang="scss">
 .headerBlock {
@@ -108,6 +103,7 @@
       p {
         margin-top: 36px;
         font-size: clamp(12px, 3.7vw, 19px);
+        font-family: "Golos Text", sans-serif;
 
         @media (max-width: 1300px) {
           margin-top: 10px;
