@@ -84,22 +84,22 @@
       <div class="content">
         <div class="socialIcons">
           <a href="#">
-            <img src="./../assets/socialIcons/VK.png" alt="vk" />
+            <img src="./../../assets/socialIcons/VK.png" alt="vk" />
           </a>
           <a href="#">
-            <img src="./../assets/socialIcons/Instagram.png" alt="instagram" />
+            <img src="./../../assets/socialIcons/Instagram.png" alt="instagram" />
           </a>
           <a href="#">
-            <img src="./../assets/socialIcons/Facebook.png" alt="facebook" />
+            <img src="./../../assets/socialIcons/Facebook.png" alt="facebook" />
           </a>
           <a href="#">
-            <img src="./../assets/socialIcons/Telegram.png" alt="telegram" />
+            <img src="./../../assets/socialIcons/Telegram.png" alt="telegram" />
           </a>
           <a href="#">
-            <img src="./../assets/socialIcons/WhatsApp.png" alt="whatsapp" />
+            <img src="./../../assets/socialIcons/WhatsApp.png" alt="whatsapp" />
           </a>
           <a href="#">
-            <img src="./../assets/socialIcons/Viber.png" alt="viber" />
+            <img src="./../../assets/socialIcons/Viber.png" alt="viber" />
           </a>
         </div>
         <div class="phone">
@@ -148,7 +148,7 @@
           <p class="caption">Круглосуточно, для подачи документов</p>
         </div>
         <div class="logo">
-          <img src="./../assets/logo.png" alt="logo" />
+          <img src="./../../assets/logo.png" alt="logo" />
         </div>
       </div>
     </div>
