@@ -17,6 +17,7 @@
 
 <script>
 export default {
+  name:"WhiteButton140",
   props:{
     href: [String]
   }
