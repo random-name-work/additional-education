@@ -3,105 +3,129 @@
     <div class="footer">
       <div class="content">
         <h5>Об организации</h5>
-        <div class="refBlock">
-          <a href="#">
-            <p class="menu">Об УДПО</p>
-          </a>
-          <a href="#">
-            <p class="menu">Руководство</p>
-          </a>
-          <a href="#">
-            <p class="menu">Нормативные док</p>
-          </a>
-          <a href="#">
-            <p class="menu">Преподователи</p>
-          </a>
-          <a href="#">
-            <p class="menu">Образование</p>
-          </a>
-          <a href="#">
-            <p class="menu">Платные услуги</p>
-          </a>
-          <a href="#">
-            <p class="menu">Вакансии</p>
-          </a>
-        </div>
+        <ul class="refBlock">
+          <li>
+            <a href="#" class="menu">Об УДПО</a>
+          </li>
+          <li>
+            <a href="#" class="menu">Руководство</a>
+          </li>
+          <li>
+            <a href="#" class="menu">Нормативные док</a>
+          </li>
+          <li>
+            <a href="#" class="menu">Преподователи</a>
+          </li>
+          <li>
+            <a href="#" class="menu">Образование</a>
+          </li>
+          <li>
+            <a href="#" class="menu">Платные услуги</a>
+          </li>
+          <li>
+            <a href="#" class="menu">Вакансии</a>
+          </li>
+        </ul>
       </div>
       <div class="content">
         <h5>Обучение</h5>
-        <div class="refBlock">
-          <a href="#">
-            <p class="menu">Курсы</p>
-          </a>
-          <a href="#">
-            <p class="menu">Видеолекции</p>
-          </a>
-          <a href="#">
-            <p class="menu">Тесты</p>
-          </a>
-          <a href="#">
-            <p class="menu">Low Price</p>
-          </a>
-        </div>
+        <ul class="refBlock">
+          <li>
+            <a href="#" class="menu">Курсы</a>
+          </li>
+          <li>
+            <a href="#" class="menu">Видеолекции</a>
+          </li>
+          <li>
+            <a href="#" class="menu">Тесты</a>
+          </li>
+          <li>
+            <a href="#" class="menu">Low Price</a>
+          </li>
+        </ul>
       </div>
       <div class="content">
         <h5>Медиа</h5>
-        <div class="refBlock">
-          <a href="#">
-            <p class="menu">Блог</p>
-          </a>
-          <a href="#">
-            <p class="menu">Вопросы и ответы</p>
-          </a>
-        </div>
+        <ul class="refBlock">
+          <li>
+            <a href="#" class="menu">Блог</a>
+          </li>
+          <li>
+            <a href="#" class="menu">Вопросы и ответы</a>
+          </li>
+        </ul>
       </div>
       <div class="content">
         <h5>Об организации</h5>
-        <div class="refBlock">
-          <a href="#">
-            <p class="menu">Об УДПО</p>
-          </a>
-          <a href="#">
-            <p class="menu">Руководство</p>
-          </a>
-          <a href="#">
-            <p class="menu">Нормативные док</p>
-          </a>
-          <a href="#">
-            <p class="menu">Преподователи</p>
-          </a>
-          <a href="#">
-            <p class="menu">Образование</p>
-          </a>
-          <a href="#">
-            <p class="menu">Платные услуги</p>
-          </a>
-          <a href="#">
-            <p class="menu">Вакансии</p>
-          </a>
-        </div>
+        <ul class="refBlock">
+          <li>
+            <a href="#" class="menu">Об УДПО</a>
+          </li>
+          <li>
+            <a href="#" class="menu">Руководство</a>
+          </li>
+          <li>
+            <a href="#" class="menu">Нормативные док</a>
+          </li>
+          <li>
+            <a href="#" class="menu">Преподователи</a>
+          </li>
+          <li>
+            <a href="#" class="menu">Образование</a>
+          </li>
+          <li>
+            <a href="#" class="menu">Платные услуги</a>
+          </li>
+          <li>
+            <a href="#" class="menu">Вакансии</a>
+          </li>
+        </ul>
       </div>
       <div class="content">
-        <div class="socialIcons">
-          <a href="#">
-            <img src="./../../assets/socialIcons/VK.png" alt="vk" />
-          </a>
-          <a href="#">
-            <img src="./../../assets/socialIcons/Instagram.png" alt="instagram" />
-          </a>
-          <a href="#">
-            <img src="./../../assets/socialIcons/Facebook.png" alt="facebook" />
-          </a>
-          <a href="#">
-            <img src="./../../assets/socialIcons/Telegram.png" alt="telegram" />
-          </a>
-          <a href="#">
-            <img src="./../../assets/socialIcons/WhatsApp.png" alt="whatsapp" />
-          </a>
-          <a href="#">
-            <img src="./../../assets/socialIcons/Viber.png" alt="viber" />
-          </a>
-        </div>
+        <ul class="socialIcons">
+          <li>
+            <a href="#">
+              <img src="./../../assets/socialIcons/VK.png" alt="vk" />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img
+                src="./../../assets/socialIcons/Instagram.png"
+                alt="instagram"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img
+                src="./../../assets/socialIcons/Facebook.png"
+                alt="facebook"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img
+                src="./../../assets/socialIcons/Telegram.png"
+                alt="telegram"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img
+                src="./../../assets/socialIcons/WhatsApp.png"
+                alt="whatsapp"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="./../../assets/socialIcons/Viber.png" alt="viber" />
+            </a>
+          </li>
+        </ul>
         <div class="phone">
           <a href="tel:88463754131">
             <svg
@@ -184,7 +208,7 @@ a {
   flex-wrap: wrap;
   gap: 30px;
 
-  @media(max-width: 1300px){
+  @media (max-width: 1300px) {
     justify-content: center;
   }
   .content {
@@ -195,11 +219,15 @@ a {
     .refBlock {
       margin-top: 12px;
 
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+      list-style: none;
+
+      li {
+        margin-top: 10px;
+      }
     }
     .socialIcons {
+      list-style: none;
+      
       display: flex;
       gap: 20px;
     }
