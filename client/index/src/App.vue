@@ -82,5 +82,8 @@ export default {
   &__details {
     margin-top: 10px;
   }
+  .v-checkbox-btn .v-label {
+    font-size: 12px !important;
+  }
 }
 </style>
