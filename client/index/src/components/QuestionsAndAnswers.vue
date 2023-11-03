@@ -35,11 +35,11 @@
             </svg>
           </div>
 
-          <div class="content">
+          <Transition name="fade" class="content">
             <p class="text1" v-if="isOpen.includes(question.id)">
               {{ question.content }}
             </p>
-          </div>
+          </Transition>
           <hr />
         </div>
       </div>
@@ -137,8 +137,10 @@ export default {
         padding-left: 10px;
         padding-right: 10px;
       }
+
       &__header {
         margin-top: 20px;
+        margin-bottom: 20px;
 
         display: flex;
         justify-content: space-between;
@@ -152,7 +154,15 @@ export default {
           }
         }
       }
+      .fade-enter-active,
+      .fade-leave-active {
+        transition: opacity 0.5s linear;
+      }
 
+      .fade-enter-from,
+      .fade-leave-to {
+        opacity: 0;
+      }
       .content {
         margin-top: 10px;
         margin-bottom: 20px;
