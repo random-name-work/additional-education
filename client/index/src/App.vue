@@ -68,22 +68,4 @@ export default {
 .content {
   margin-top: 96px;
 }
-
-// ContactForm checkbox settings
-.v-input {
-  &__control {
-    margin-top: 10px;
-
-    .v-label {
-      overflow: visible;
-    }
-  }
-
-  &__details {
-    margin-top: 10px;
-  }
-  .v-checkbox-btn .v-label {
-    font-size: 12px !important;
-  }
-}
 </style>
