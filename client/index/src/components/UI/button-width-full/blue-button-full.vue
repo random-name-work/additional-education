@@ -6,7 +6,7 @@
       min-height="50px"
       max-height="50px"
       :href="href"
-      :disabled="!isDisabled"
+      :disabled="isDisabled"
       block
     >
       <slot></slot>

@@ -6,6 +6,7 @@
       color="#3d8be4"
       min-height="50px"
       max-height="50px"
+      :disabled="isDisabled"
       :href="href"
       block
     >
@@ -17,8 +18,9 @@
   export default {
     name:"WhiteButtonFull",
     props:{
-      href: [String]
-    }
+      href: [String],
+      isDisabled: [Boolean]
+    },
   };
   </script>
   

@@ -42,7 +42,7 @@
           color="red"
         ></v-checkbox>
 
-        <blue-button-full :disabled="!valid">
+        <blue-button-full :isDisabled="!valid">
           Получить консультацию
         </blue-button-full>
       </v-form>
