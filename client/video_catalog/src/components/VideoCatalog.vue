@@ -8,9 +8,12 @@
         <p class="text1">Найдено: {{ videos.amount }}</p>
       </div>
       <div class="sortType">
-        <p class="text1">По популярности</p>
-        <input type="checkbox" />
-        <p class="text1">По дате обновления</p>
+        <checkbox-switcher
+          first="По популярности"
+          second="По дате обновления"
+          v-model="checkboxSort"
+        >
+        </checkbox-switcher>
       </div>
       <div class="chooseTheme">
         <v-autocomplete
@@ -56,18 +59,12 @@
       </div>
     </div>
     <div class="btn">
-      <v-btn
+      <blue-button180
         @click="videosAmount += 6"
         v-if="videosAmount < videos.amount"
-        flat
-        color="#3d8be4"
-        min-height="60px"
-        max-width="180px"
-        min-width="180px"
-        block
       >
         Загрузить ещё 6
-      </v-btn>
+      </blue-button180>
     </div>
   </div>
 </template>
@@ -76,6 +73,7 @@
 export default {
   data() {
     return {
+      checkboxSort: "",
       videosAmount: 9,
       themes: ["Theme1", "Theme2"],
       videos: {
@@ -207,35 +205,34 @@ a {
   padding-top: 80px;
   padding-bottom: 80px;
 
-  @media(max-width:1279px){
+  @media (max-width: 1279px) {
     padding-left: 10px;
     padding-right: 10px;
   }
-  header{
-    @media(max-width:1279px){
-    text-align: center;
-  }
+  header {
+    @media (max-width: 1279px) {
+      text-align: center;
+    }
   }
   .sortSettings {
     margin-top: 55px;
-  
+
     display: flex;
     flex-wrap: wrap;
     gap: 50px;
-  
-    align-items: flex-end;
+
+    align-items: center;
     justify-content: space-around;
-  
-    
+
     .found {
       margin-bottom: 10px;
     }
     .sortType {
       display: flex;
       gap: 10px;
-  
+
       margin-bottom: 10px;
-    
+
       text-align: center;
     }
     .chooseTheme {
@@ -249,7 +246,7 @@ a {
   }
   .videos {
     margin-top: 55px;
-  
+
     display: flex;
     flex-wrap: wrap;
     gap: 49px;
@@ -259,19 +256,19 @@ a {
       &__item {
         max-height: 367px;
         width: 100%;
-  
+
         padding-bottom: 22px;
-  
+
         img {
           max-width: 367px;
           width: 100%;
-  
+
           border-radius: 20px;
         }
         .header {
           margin-top: 20px;
           text-align: left;
-  
+
           @media (max-width: 450px) {
             text-align: center;
           }
@@ -279,7 +276,7 @@ a {
         .caption {
           margin-top: 20px;
           display: flex;
-  
+
           opacity: 0.8;
           svg {
             margin-top: 20px;
@@ -295,7 +292,7 @@ a {
   .btn {
     margin-top: 80px;
     width: 100%;
-  
+
     display: flex;
     justify-content: center;
   }
