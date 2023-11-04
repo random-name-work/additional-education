@@ -6,17 +6,10 @@
         Диплом о профессиональной переподготовке установленного образца на
         бланках Гознак и Спецбанк со всеми современными степенями защиты.
       </p>
-      <v-btn
-        flat
-        color="#3d8be4"
-        min-height="60px"
-        max-height="60px"
-        min-width="180px"
-        max-width="180px"
-        block
+      <blue-button180 :href="`#`"
       >
         Приобрести курс
-      </v-btn>
+      </blue-button180>
     </div>
     <div class="imagePart">
       <div class="certificate1">

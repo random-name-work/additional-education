@@ -7,19 +7,12 @@
         квалификации
       </h2>
       <div class="headerBtns">
-        <v-btn flat color="#3d8be4" min-height="60px" min-width="180px" block>
+        <blue-button180 :href="`#`">
           Записаться на курс
-        </v-btn>
-        <v-btn
-          flat
-          variant="outlined"
-          color="#3d8be4"
-          min-height="60px"
-          min-width="180px"
-          block
-        >
+        </blue-button180>
+        <white-button180>
           Консультация
-        </v-btn>
+        </white-button180>
       </div>
     </div>
     <div class="image">
@@ -99,6 +92,7 @@
       @media (max-width: 600px) {
         max-width: 280px;
         flex-direction: column;
+        align-items: center;
       }
     }
   }

@@ -16,17 +16,9 @@
           <p class="text2">
             <span class="light">Cashback:</span> {{ card.cashback }}
           </p>
-          <v-btn
-            flat
-            variant="outlined"
-            color="#ffffff"
-            min-height="60px"
-            min-width="220px"
-            max-width="220px"
-            block
-          >
+          <white-border-button225 :href="`#`">
             Записаться на курс
-          </v-btn>
+          </white-border-button225>
         </div>
       </div>
     </div>

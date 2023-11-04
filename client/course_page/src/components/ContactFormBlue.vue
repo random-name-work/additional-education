@@ -47,40 +47,35 @@
           :rules="[(v) => !!v || 'Обязательное поле']"
           label="Я согласен с условиями обработки персональных данных."
           required
-          color="red"
+          hide-details
         ></v-checkbox>
 
-        <v-btn
-          class="mt-7 text-none w-100"
-          flat
-          color="#3d8be4"
-          min-height="60px"
-          max-width="450px"
-          :disabled="!valid"
-        >
+        <blue-button-full :href="`#`" :disabled="!valid">
           Получить консультацию
-        </v-btn>
+        </blue-button-full>
       </v-form>
     </div>
   </div>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      valid: "",
-      managers: ["Менеджер 1", "Менеджер 2", "Менеджер 3"],
+import BlueButtonFull from './UI/button-width-full/blue-button-full.vue';
 
-      name: "",
-      nameRules: [],
-      number: "",
-      numberRules: [],
-      email: "",
-      emailRules: [],
-      checkbox: false,
-    };
-  },
+export default {
+    data() {
+        return {
+            valid: "",
+            managers: ["Менеджер 1", "Менеджер 2", "Менеджер 3"],
+            name: "",
+            nameRules: [],
+            number: "",
+            numberRules: [],
+            email: "",
+            emailRules: [],
+            checkbox: false,
+        };
+    },
+    components: { BlueButtonFull }
 };
 </script>
 
@@ -150,7 +145,10 @@ export default {
       margin-right: auto;
       margin-left: auto;
     }
-    // v-label settings for checkbox in App.vue
+    
+    .v-btn{
+      margin-top: 20px;
+    }
   }
 }
 </style>

@@ -81,6 +81,10 @@
 
       display: flex;
       justify-content: space-between;
+
+      img:hover{
+        opacity: 0.8;
+      }
     }
   }
   .imageBlock {

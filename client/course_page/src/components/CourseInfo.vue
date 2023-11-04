@@ -3,29 +3,21 @@
     <div class="courseInfo">
       <h2>Информация о курсе</h2>
 
-      <div class="carousel">
-        <carousel :items-to-show="1">
-          <slide v-for="slide in slides" :key="slide">
-            <img src="../assets/courseInfoScene.png" alt="EducationScene" />
+      <div class="authorInfo">
+        <img src="../assets/courseInfoScene.png" alt="EducationScene" />
 
-            <div class="slideContent">
-              <h5>Автор курса</h5>
-              <h3>{{ slide.authorName }}</h3>
-              <ul>
-                <li v-for="about in slide.aboutAuthor" :key="about">
-                  <p class="text1">{{ about }}</p>
-                </li>
-              </ul>
-            </div>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        <div class="content">
+          <h5>Автор курса</h5>
+          <h3>{{ authorInfo.authorName }}</h3>
+          <ul>
+            <li v-for="about in authorInfo.aboutAuthor" :key="about">
+              <p class="text1">{{ about }}</p>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
+
     <div class="courseTarget">
       <div class="target">
         <div class="target__text">
@@ -58,57 +50,20 @@
 
 <script>
 // If you are using PurgeCSS, make sure to whitelist the carousel CSS classes
-import "vue3-carousel/dist/carousel.css";
-import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
-
 export default {
   name: "App",
-  components: {
-    Carousel,
-    Slide,
-    Pagination,
-    Navigation,
-  },
+  components: {},
   data() {
     return {
-      slides: [
-        {
-          authorName: "Буланов Максим Владимирович",
-          aboutAuthor: [
-            "Профессиональный тьютор",
-            "Проектирует образовательные программы",
-            "Сооснователь проектов Место и образовательного бюро Розетка",
-            "Помогает ученикам найти собственный путь развития",
-          ],
-        },
-        {
-          authorName: "Буланов Максим Владимирович",
-          aboutAuthor: [
-            "Профессиональный тьютор",
-            "Проектирует образовательные программы",
-            "Сооснователь проектов Место и образовательного бюро Розетка",
-            "Помогает ученикам найти собственный путь развития",
-          ],
-        },
-        {
-          authorName: "Буланов Максим Владимирович",
-          aboutAuthor: [
-            "Профессиональный тьютор",
-            "Проектирует образовательные программы",
-            "Сооснователь проектов Место и образовательного бюро Розетка",
-            "Помогает ученикам найти собственный путь развития",
-          ],
-        },
-        {
-          authorName: "Буланов Максим Владимирович",
-          aboutAuthor: [
-            "Профессиональный тьютор",
-            "Проектирует образовательные программы",
-            "Сооснователь проектов Место и образовательного бюро Розетка",
-            "Помогает ученикам найти собственный путь развития",
-          ],
-        },
-      ],
+      authorInfo: {
+        authorName: "Буланов Максим Владимирович",
+        aboutAuthor: [
+          "Профессиональный тьютор",
+          "Проектирует образовательные программы",
+          "Сооснователь проектов Место и образовательного бюро Розетка",
+          "Помогает ученикам найти собственный путь развития",
+        ],
+      },
     };
   },
 };
@@ -139,29 +94,23 @@ export default {
       text-align: center;
     }
   }
-  .carousel {
-    margin-top: 120px;
+  .authorInfo {
+    display: flex;
 
-    .carousel__slide {
-      align-items: normal;
-    }
-    .carousel__pagination-button {
-      margin-top: 120px;
-    }
+    margin-top: 120px;
 
     img {
       @media (max-width: 1279px) {
         display: none;
       }
     }
-    .slideContent {
+    .content {
       text-align: left;
       margin-left: 120px;
 
       @media (max-width: 1279px) {
         justify-content: center;
-        margin-left: 40px;
-        margin-right: 40px;
+        margin: auto;
       }
       h3 {
         margin-top: 40px;
@@ -230,7 +179,7 @@ export default {
     margin-top: -50px;
 
     @media (max-width: 1279px) {
-      margin-top: 20px;
+      margin-top: 40px;
 
       flex-direction: column;
     }

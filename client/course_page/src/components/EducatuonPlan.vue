@@ -7,14 +7,7 @@
       </div>
 
       <div class="btn">
-        <v-btn
-          flat
-          color="#3d8be4"
-          min-height="60px"
-          min-width="188px"
-          max-width="188px"
-          block
-        >
+        <blue-button180 :href="`#`">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -28,7 +21,7 @@
             />
           </svg>
           Скачать
-        </v-btn>
+        </blue-button180>
       </div>
     </div>
 
@@ -96,6 +89,7 @@ export default {
   data() {
     return {
       buttonsName: ["250 ак.ч.", "510 ак.ч.", "700 ак.ч.", "1400 ак.ч."],
+      sortType: "250 ак.ч.",
       modules: [
         {
           name: "Модуль 1. Педагогика",
