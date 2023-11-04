@@ -34,33 +34,17 @@
               </svg>
               <p class="caption">от {{ course.time }} ак.ч.</p>
             </div>
-            <div class="btn">
-              <v-btn
-                href="#"
-                variant="outlined"
-                color="#3d8be4"
-                min-height="40px"
-                min-width="140px"
-                block
-              >
+              <white-button140 :href="`#`">
                 Подробнее
-              </v-btn>
-            </div>
+              </white-button140>
           </div>
         </div>
         <div class="btn">
-          <v-btn
+          <blue-button180
             @click="courseAmount += 10"
-            v-if="courseAmount < courses.amount"
-            flat
-            color="#3d8be4"
-            min-height="60px"
-            max-width="180px"
-            min-width="180px"
-            block
-          >
+            v-if="courseAmount < courses.amount">
             Загрузить ещё 10
-          </v-btn>
+          </blue-button180>
         </div>
       </div>
       <div class="sort">
@@ -84,6 +68,7 @@
               :label="`${content}`"
               v-for="content in sType.array"
               :key="content"
+              hide-details
             >
             </v-checkbox>
           </div>
