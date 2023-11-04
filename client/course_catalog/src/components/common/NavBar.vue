@@ -66,7 +66,7 @@
               />
               <path d="M7.82422 9L13.8242 15L7.82422 21" stroke="#3D8BE4" />
             </svg>
-            <p class="menu ml-2">Войти / зарегистрироваться</p>
+            <p class="menu ml-2"> Вход / Регистрация</p>
           </v-btn>
         </div>
         <v-spacer></v-spacer>
@@ -134,7 +134,7 @@
                 color="#3D8BE4"
                 v-if="width < 1000"
               >
-                <p class="menu ml-2">Войти / зарегистрироваться</p>
+                <p class="menu ml-2">Вход / Регистрация</p>
               </v-btn>
             </v-list-item>
           </v-list>
