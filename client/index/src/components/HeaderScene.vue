@@ -80,6 +80,7 @@
       @media (max-width: 600px) {
         max-width: 280px;
         flex-direction: column;
+        align-items: center;
       }
     }
   }

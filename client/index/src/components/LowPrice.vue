@@ -6,9 +6,7 @@
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et.
       </p>
-      <blue-button180
-        :href="`https://google.com`"
-      >
+      <blue-button180 :href="`https://google.com`">
         Смотреть больше
       </blue-button180>
     </div>
@@ -67,9 +65,7 @@
               </p>
             </div>
             <div class="timeAndBtn__btn">
-              <white-button140
-              :href="`https://google.com`"
-              >
+              <white-button140 :href="`https://google.com`">
                 Подробнее
               </white-button140>
             </div>
@@ -232,24 +228,9 @@ h2 {
     text-align: center;
   }
 }
-.text2 {
-  margin-top: 40px;
-  padding-left: 10px;
-  padding-right: 10px;
-
-  max-width: 570px;
-  width: 100%;
-
-  @media (max-width: 1300px) {
-    margin-left: auto;
-    margin-right: auto;
-
-    text-align: center;
-  }
-}
 
 .textBtn {
-  margin-top: 30px;
+  margin-top: 40px;
 
   margin-left: 10px;
   margin-right: 10px;
@@ -257,11 +238,29 @@ h2 {
   display: flex;
   justify-content: space-between;
 
-  @media (max-width: 1300px){
+  @media (max-width: 1300px) {
     flex-direction: column;
     align-items: center;
+  
+    .v-btn{
+      margin-top: 20px;
+    }
   }
 
+  .text2 {
+    padding-left: 10px;
+    padding-right: 10px;
+
+    max-width: 570px;
+    width: 100%;
+
+    @media (max-width: 1300px) {
+      margin-left: auto;
+      margin-right: auto;
+
+      text-align: center;
+    }
+  }
 }
 .carousel {
   margin-top: 47px;
