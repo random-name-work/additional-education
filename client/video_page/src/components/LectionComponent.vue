@@ -19,28 +19,7 @@
         <p class="text2">Ваш сертификат за прохождение готов</p>
       </div>
       <div class="btns">
-        <v-btn
-          flat
-          variant="outlined"
-          color="#3d8be4"
-          min-height="60px"
-          min-width="188px"
-          max-width="188px"
-          block
-        >
-          Электронный 300 рублей
-        </v-btn>
-        <v-btn
-          class="text-wrap text-white"
-          flat
-          color="#3d8be4"
-          min-height="60px"
-          min-width="188px"
-          max-width="188px"
-          block
-        >
-          Печатный 500 рублей
-        </v-btn>
+        <blue-button180> Получить <br> сертификат </blue-button180>
       </div>
     </div>
 
@@ -52,17 +31,7 @@
           <img src="../assets/LectionComponentLock.png" alt="lock img" />
         </div>
 
-        <v-btn
-          class="text-white"
-          flat
-          color="#3d8be4"
-          min-height="60px"
-          min-width="188px"
-          max-width="188px"
-          block
-        >
-          Получить доступ
-        </v-btn>
+        <blue-button180> Получить доступ </blue-button180>
       </div>
     </div>
 
@@ -73,13 +42,13 @@
       </h3>
       <hr />
       <article>
-          <h3>Описание видеолекции</h3>
-          <p class="text1">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            tempor. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor.
-          </p>
+        <h3>Описание видеолекции</h3>
+        <p class="text1">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor. Lorem ipsum dolor sit amet, consectetur adipiscing
+          elit, sed do eiusmod tempor. Lorem ipsum dolor sit amet, consectetur
+          adipiscing elit, sed do eiusmod tempor.
+        </p>
       </article>
     </div>
   </div>
@@ -192,23 +161,22 @@
     }
   }
 }
-.description{
-    margin-top: 40px;
+.description {
+  margin-top: 40px;
 
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 
-    hr{
-        opacity: 0.4;
+  hr {
+    opacity: 0.4;
+  }
+
+  article {
+    p.text1 {
+      max-width: 783px;
+      margin-top: 20px;
     }
-    
-    article{
-
-        p.text1{
-            max-width: 783px;
-            margin-top: 20px;
-        }
-    }
+  }
 }
 </style>

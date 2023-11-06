@@ -39,19 +39,12 @@
           :rules="[(v) => !!v || 'Обязательное поле']"
           label="Я согласен с условиями обработки персональных данных."
           required
-          color="red"
+          hide-details
         ></v-checkbox>
 
-        <v-btn
-          class="mt-7 text-none w-100"
-          flat
-          color="#3d8be4"
-          min-height="60px"
-          max-width="450px"
-          :disabled="!valid"
-        >
+        <blue-button-full :disabled="!valid">
           Получить консультацию
-        </v-btn>
+        </blue-button-full>
       </v-form>
     </div>
   </div>
@@ -132,7 +125,9 @@ export default {
       margin-right: auto;
       margin-left: auto;
     }
-    // v-label settings for checkbox in App.vue
+    .v-btn{
+      margin-top: 20px;
+    }
   }
 }
 </style>

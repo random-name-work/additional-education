@@ -1,0 +1,69 @@
+.carousel {
+  &__prev,
+  &__next {
+    top: 105% !important;
+
+    width: 57px;
+    height: 57px;
+
+    border: 1px solid #000000;
+    border-radius: 50%;
+
+    svg {
+      margin-top: 11px;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  &__prev {
+    left: calc(50% - 140px);
+  }
+  &__next {
+    right: calc(50% - 140px);
+  }
+}
+
+/* Component Script code
+import { Carousel, Navigation, Slide } from "vue3-carousel";
+import "vue3-carousel/dist/carousel.css";
+export default {
+  components: {
+    Carousel,
+    Slide,
+    Navigation,
+  },
+  data() {
+    return {
+      breakpoints: {
+        320: {
+          itemsToShow: 1,
+          snapAlign: "center",
+          wrapAround: "true",
+        },
+        600: {
+          itemsToShow: 1.5,
+          snapAlign: "center",
+          wrapAround: "true",
+        },
+        800: {
+          itemsToShow: 2,
+          snapAlign: "center",
+          wrapAround: "true",
+        },
+        1000: {
+          itemsToShow: 2.5,
+          snapAlign: "center",
+          wrapAround: "true",
+        },
+        1300: {
+          itemsToShow: 3,
+          snapAlign: "center",
+          wrapAround: "true",
+        },
+      },
+    };
+  },
+};
+*/
