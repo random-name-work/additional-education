@@ -2,19 +2,7 @@
   <v-form v-model="infoForm" @submit.prevent>
     <header>
       <h2>Личная информация</h2>
-      <v-btn
-        flat
-        class="text-none text-white"
-        color="#3d8be4"
-        min-height="40px"
-        max-height="40px"
-        min-width="158px"
-        max-width="158px"
-        block
-        type="submit"
-      >
-        Сохранить
-      </v-btn>
+      <blue-button180> Сохранить </blue-button180>
     </header>
 
     <section class="info">

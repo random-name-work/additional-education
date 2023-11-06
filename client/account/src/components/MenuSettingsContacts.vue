@@ -2,19 +2,7 @@
   <v-form v-model="infoForm" @submit.prevent>
     <header>
       <h2>Контакты</h2>
-      <v-btn
-        flat
-        class="text-none text-white"
-        color="#3d8be4"
-        min-height="40px"
-        max-height="40px"
-        min-width="158px"
-        max-width="158px"
-        block
-        type="submit"
-      >
-        Сохранить
-      </v-btn>
+      <blue-button180> Сохранить </blue-button180>
     </header>
 
     <section class="settings">
@@ -63,7 +51,7 @@
 
       <v-row class="messengers">
         <v-col>
-          <img src="../assets/whatsapp.png" alt="whatsapp">
+          <img src="../assets/whatsapp.png" alt="whatsapp" />
           <v-text-field
             variant="outlined"
             v-model="phoneWhatsapp"
@@ -86,7 +74,7 @@
 
       <v-row>
         <v-col>
-          <img src="../assets/viber.png" alt="viber">
+          <img src="../assets/viber.png" alt="viber" />
           <v-text-field
             variant="outlined"
             v-model="phoneViber"
@@ -109,7 +97,7 @@
 
       <v-row>
         <v-col>
-          <img src="../assets/telegram.png" alt="telegram">
+          <img src="../assets/telegram.png" alt="telegram" />
           <v-text-field
             variant="outlined"
             v-model="phoneTelegram"
@@ -122,7 +110,7 @@
         </v-col>
         <v-col>
           <v-checkbox
-          color="#000"
+            color="#000"
             v-model="TelegramCheckbox"
             :rules="TelegramCheckboxRules"
             label="Telegram использует мой указанный телефон"
@@ -130,29 +118,28 @@
           ></v-checkbox>
         </v-col>
       </v-row>
-      
+
       <h3>Соцсети</h3>
 
       <p class="text1">Привяжите соцсети, чтобы удобнее входить в аккаунт</p>
 
       <div class="social">
-        <a href="#">  
-          <img src="../assets/social/yandex.png" alt="yandex">
+        <a href="#">
+          <img src="../assets/social/yandex.png" alt="yandex" />
         </a>
-        <a href="#">  
-          <img src="../assets/social/ok.png" alt="ok">
+        <a href="#">
+          <img src="../assets/social/ok.png" alt="ok" />
         </a>
-        <a href="#">  
-          <img src="../assets/social/vk.png" alt="vk">
+        <a href="#">
+          <img src="../assets/social/vk.png" alt="vk" />
         </a>
-        <a href="#">  
-          <img src="../assets/social/facebook.png" alt="facebook">
+        <a href="#">
+          <img src="../assets/social/facebook.png" alt="facebook" />
         </a>
-        <a href="#">  
-          <img src="../assets/social/mail.png" alt="mail">
+        <a href="#">
+          <img src="../assets/social/mail.png" alt="mail" />
         </a>
       </div>
-
     </section>
   </v-form>
 </template>
@@ -172,7 +159,7 @@ export default {
 
       email: "",
       emailRules: [],
-      
+
       phoneWhatsapp: "",
       phoneWhatsappRules: [],
       WhatsappCheckbox: false,
@@ -193,39 +180,38 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.v-form{
-
-  h3{
+.v-form {
+  h3 {
     margin-top: 40px;
   }
 
-  .v-row{
+  .v-row {
     align-items: center;
   }
 
-  .messengers{
+  .messengers {
     margin-top: 40px;
   }
-  .v-col{
+  .v-col {
     display: flex;
     align-items: center;
 
-    .v-input{
+    .v-input {
       padding-top: 0px;
       margin-left: 10px;
     }
   }
 
-  p.text1{
+  p.text1 {
     opacity: 0.4;
   }
-  .social{
+  .social {
     margin-top: 30px;
 
     display: flex;
     gap: 20px;
 
-    a:hover{
+    a:hover {
       opacity: 0.8;
     }
   }

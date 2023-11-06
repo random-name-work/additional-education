@@ -39,14 +39,8 @@
       >
         <img src="../assets/document.png" alt="document" />
         <p class="text1">{{ certificate.header }}</p>
-        <v-btn
-          flat
-          class="text-none text-white"
-          color="#3d8be4"
-          min-height="60px"
-          min-width="188px"
-          max-width="188px"
-          block
+        <blue-button180
+          
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -61,7 +55,7 @@
             />
           </svg>
           Скачать PDF
-        </v-btn>
+        </blue-button180>
       </div>
     </section>
 
@@ -77,18 +71,10 @@
       >
         <img src="../assets/document.png" alt="document" />
         <p class="text1">{{ document.header }}</p>
-        <v-btn
-          flat
-          class="text-none text-white"
-          color="#3d8be4"
-          min-height="60px"
-          min-width="188px"
-          max-width="188px"
-          block
-        >
+        <blue-button180 :href="`#`">
           <img src="../assets/clip.png" alt="clip">
           Прикрепить файл
-        </v-btn>
+        </blue-button180>
       </div>
     </section>
   </section>
