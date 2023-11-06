@@ -8,11 +8,8 @@
       <div class="found">
         <p class="text1">Найдено: {{ blogs.amount }}</p>
       </div>
-      <div class="sortType">
-        <p class="text1">По популярности</p>
-        <input type="checkbox" />
-        <p class="text1">По дате обновления</p>
-      </div>
+      <checkbox-switcher first="По популярности" second="По дате обновления">
+      </checkbox-switcher>
       <div class="chooseTheme">
         <v-autocomplete
           label="Выберите тему"
@@ -61,19 +58,12 @@
     </div>
 
     <div class="moreBtn">
-      <v-btn
+      <blue-button180
         @click="blogsAmount += 6"
         v-if="blogsAmount < blogs.array.length"
-        class="text-white"
-        flat
-        color="#3d8be4"
-        min-height="60px"
-        max-width="180px"
-        min-width="180px"
-        block
       >
         Загрузить ещё 6
-      </v-btn>
+      </blue-button180>
     </div>
   </div>
 </template>
@@ -223,7 +213,7 @@ a {
     flex-wrap: wrap;
     gap: 50px;
 
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-around;
 
     .found {
