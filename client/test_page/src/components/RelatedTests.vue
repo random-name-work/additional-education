@@ -2,48 +2,40 @@
   <div class="RelatedTests">
     <header>
       <h2>Похожие тесты</h2>
-      <v-btn
-        flat
-        href="#"
-        class="text-white"
-        color="#3d8be4"
-        min-height="60px"
-        min-width="180px"
-        max-width="180px"
-      >
-        Смотреть больше
-      </v-btn>
+      <blue-button180> Смотреть больше </blue-button180>
     </header>
     <Carousel ref="carousel" :breakpoints="breakpoints" v-model="currentSlide">
       <Slide v-for="test in tests.array" :key="test.id">
         <a href="#">
-          <header>
-            <p class="text1">{{ test.Theme }}</p>
-            <time>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-              >
-                <path d="M12 6V14L16.5 17.5" stroke="#3D8BE4" />
-                <circle cx="12" cy="12" r="11.5" stroke="#3D8BE4" />
-              </svg>
+          <div class="carousel__item">
+            <header>
+              <p class="text1">{{ test.Theme }}</p>
+              <time>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <path d="M12 6V14L16.5 17.5" stroke="#3D8BE4" />
+                  <circle cx="12" cy="12" r="11.5" stroke="#3D8BE4" />
+                </svg>
 
-              <p class="caption">{{ test.timeToPass }} мин.</p>
+                <p class="caption">{{ test.timeToPass }} мин.</p>
 
-              <p class="caption">{{ test.questionAmount }} вопроса</p>
-            </time>
-          </header>
+                <p class="caption">{{ test.questionAmount }} вопроса</p>
+              </time>
+            </header>
 
-          <h4>
-            {{ test.header }}
-          </h4>
+            <h4>
+              {{ test.header }}
+            </h4>
 
-          <p class="caption">
-            {{ test.author }}
-          </p>
+            <p class="caption">
+              {{ test.author }}
+            </p>
+          </div>
         </a>
       </Slide>
       <template #addons>
@@ -79,21 +71,19 @@
             </span>
           </template>
         </navigation>
-        <Pagination />
       </template>
     </Carousel>
   </div>
 </template>
 
 <script>
-import { Carousel, Navigation, Pagination, Slide } from "vue3-carousel";
+import { Carousel, Navigation, Slide } from "vue3-carousel";
 import "vue3-carousel/dist/carousel.css";
 
 export default {
   components: {
     Carousel,
     Slide,
-    Pagination,
     Navigation,
   },
   data() {
@@ -170,18 +160,27 @@ export default {
         320: {
           itemsToShow: 1,
           snapAlign: "center",
+          wrapAround: "true",
         },
         600: {
           itemsToShow: 1.5,
+          snapAlign: "center",
+          wrapAround: "true",
         },
         800: {
           itemsToShow: 2,
+          snapAlign: "center",
+          wrapAround: "true",
         },
         1000: {
           itemsToShow: 2.5,
+          snapAlign: "center",
+          wrapAround: "true",
         },
         1300: {
           itemsToShow: 3,
+          snapAlign: "center",
+          wrapAround: "true",
         },
       },
     };
@@ -242,20 +241,17 @@ header {
   margin-top: 60px;
   margin-bottom: 100px;
 
-  //gap for relatedTests.vue Slider in App.vue
-  &__slide {
-    width: 100%;
-
-    padding-bottom: 22px;
-
-    border-radius: 12px;
-    border: 1px solid #e5e5e5;
-    box-shadow: 0px 8px 30px 0px rgba(0, 0, 0, 0.05);
-
+  &__item {
     padding-left: 30px;
     padding-top: 40px;
     padding-right: 30px;
     padding-bottom: 40px;
+
+    width: 100%;
+
+    border-radius: 12px;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0px 8px 30px 0px rgba(0, 0, 0, 0.05);
 
     header {
       display: flex;
@@ -281,11 +277,13 @@ header {
       margin-top: 20px;
 
       max-width: 303px;
+
+      text-align: left;
     }
 
-    // only p.caption in a
-    a > p.caption {
+    p.caption {
       margin-top: 20px;
+      text-align: left;
     }
   }
 }

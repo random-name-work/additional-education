@@ -51,17 +51,9 @@
         </time>
       </header>
 
-      <v-btn
-        flat
-        href="#"
-        class="text-white"
-        color="#3d8be4"
-        min-height="60px"
-        min-width="180px"
-        max-width="180px"
-      >
+      <blue-button180>
         Начать тест
-      </v-btn>
+      </blue-button180>
     </div>
   </div>
 </template>
