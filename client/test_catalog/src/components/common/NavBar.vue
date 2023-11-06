@@ -5,12 +5,16 @@
         scroll-behavior="elevate"
         class="align-center pt-4 pb-4 pl-7 pr-7"
       >
-        <img src="./../assets/logo.png" alt="logo" />
+        <img src="./../../assets/logo.png" alt="logo" />
         <v-spacer></v-spacer>
         <v-btn
           class="text-none"
           variant="outlined"
           color="#3D8BE4"
+          min-height="40px"
+          max-height="40px"
+          min-width="158px"
+          max-width="158px"
           v-if="width >= 1000"
         >
           Все курсы
@@ -20,7 +24,7 @@
           <div class="btn" v-for="link in links" :key="link.name">
             <v-btn
               variant="text"
-              class="menu text-none px-1"
+              class="text-none px-1 menu"
               :href="`${link.href}`"
             >
               {{ link.name }}
@@ -62,7 +66,7 @@
               />
               <path d="M7.82422 9L13.8242 15L7.82422 21" stroke="#3D8BE4" />
             </svg>
-            <p class="menu ml-2">Войти / зарегистрироваться</p>
+            <p class="menu ml-2"> Вход / Регистрация</p>
           </v-btn>
         </div>
         <v-spacer></v-spacer>
@@ -82,7 +86,15 @@
           </template>
           <v-list>
             <v-list-item v-if="width < 1000" class="justify-center">
-              <v-btn class="text-none" variant="outlined" color="#3D8BE4">
+              <v-btn
+                class="text-none"
+                variant="outlined"
+                color="#3D8BE4"
+                min-height="40px"
+                max-height="40px"
+                min-width="158px"
+                max-width="158px"
+              >
                 Все курсы
               </v-btn>
             </v-list-item>
@@ -116,8 +128,13 @@
               </div>
             </v-list-item>
             <v-list-item v-if="width < 1000" class="justify-center">
-              <v-btn class="text-none" variant="outline" color="#3D8BE4" v-if="width < 1000">
-                <p class="menu ml-2">Войти / зарегистрироваться</p>
+              <v-btn
+                class="text-none"
+                variant="outline"
+                color="#3D8BE4"
+                v-if="width < 1000"
+              >
+                <p class="menu ml-2">Вход / Регистрация</p>
               </v-btn>
             </v-list-item>
           </v-list>

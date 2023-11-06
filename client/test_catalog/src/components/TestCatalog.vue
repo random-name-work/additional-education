@@ -7,11 +7,8 @@
       <div class="found">
         <p class="text1">Найдено: {{ tests.amount }}</p>
       </div>
-      <div class="sortType">
-        <p class="text1">По популярности</p>
-        <input type="checkbox" />
-        <p class="text1">По дате обновления</p>
-      </div>
+      <checkbox-switcher first="По популярности" second="По дате обновления">
+      </checkbox-switcher>
       <div class="chooseTheme">
         <v-autocomplete
           label="Выберите тему"
@@ -59,18 +56,12 @@
     </div>
 
     <div class="btn">
-      <v-btn
+      <blue-button180
         @click="testsAmount += 6"
         v-if="testsAmount < tests.amount"
-        flat
-        color="#3d8be4"
-        min-height="60px"
-        max-width="180px"
-        min-width="180px"
-        block
       >
         Загрузить ещё 6
-      </v-btn>
+      </blue-button180>
     </div>
   </div>
 </template>
@@ -292,19 +283,11 @@ a {
     flex-wrap: wrap;
     gap: 50px;
 
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-around;
 
     .found {
       margin-bottom: 10px;
-    }
-    .sortType {
-      display: flex;
-      gap: 10px;
-
-      margin-bottom: 10px;
-
-      text-align: center;
     }
     .chooseTheme {
       max-width: 233px;
@@ -342,8 +325,7 @@ a {
           display: flex;
           gap: 48px;
 
-
-          @media(max-width:400px){
+          @media (max-width: 400px) {
             flex-direction: column;
             gap: 20px;
           }
@@ -365,7 +347,7 @@ a {
         }
 
         // only p.caption in &_item, not &_item header
-        & > p.caption{
+        & > p.caption {
           margin-top: 20px;
         }
       }
