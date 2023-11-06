@@ -2,19 +2,14 @@
   <div class="RelatedBlogs">
     <header>
       <h2>Рекомендовано</h2>
-      <v-btn
-        flat
-        href="#"
-        class="text-white"
-        color="#3d8be4"
-        min-height="60px"
-        min-width="180px"
-        max-width="180px"
-      >
-        Читать больше
-      </v-btn>
+      <blue-button180> Читать больше </blue-button180>
     </header>
-    <Carousel ref="carousel" :snap-align="center" :breakpoints="breakpoints" v-model="currentSlide">
+    <Carousel
+      ref="carousel"
+      :snap-align="center"
+      :breakpoints="breakpoints"
+      v-model="currentSlide"
+    >
       <Slide v-for="post in posts" :key="post.id">
         <a href="#">
           <div class="carousel__item">
@@ -84,21 +79,19 @@
             </span>
           </template>
         </navigation>
-        <Pagination />
       </template>
     </Carousel>
   </div>
 </template>
 
 <script>
-import { Carousel, Navigation, Pagination, Slide } from "vue3-carousel";
+import { Carousel, Navigation, Slide } from "vue3-carousel";
 import "vue3-carousel/dist/carousel.css";
 
 export default {
   components: {
     Carousel,
     Slide,
-    Pagination,
     Navigation,
   },
   data() {
@@ -164,18 +157,27 @@ export default {
         320: {
           itemsToShow: 1,
           snapAlign: "center",
+          wrapAround: "true",
         },
         600: {
           itemsToShow: 1.5,
+          snapAlign: "center",
+          wrapAround: "true",
         },
         800: {
           itemsToShow: 2,
+          snapAlign: "center",
+          wrapAround: "true",
         },
         1000: {
           itemsToShow: 2.5,
+          snapAlign: "center",
+          wrapAround: "true",
         },
         1300: {
           itemsToShow: 3,
+          snapAlign: "center",
+          wrapAround: "true",
         },
       },
     };
