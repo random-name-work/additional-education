@@ -24,6 +24,22 @@ export class UserController {
         return res
     }
 
+    @Get("info/:id")
+    @ApiResponse({ status: 200, description: 'Return one user info'})
+    async getOneInfos(@Param("id") id: number){
+        // +id because id: string, idk why
+        const res = this.userService.getOneUsersInfos(+id)
+        return res
+    }
+
+    @Get("userImgAndName/:id")
+    @ApiResponse({ status: 200, description: 'Return one user img'})
+    async getOneUsersImgAndName(@Param("id") id: number){
+        // +id because id: string, idk why
+        const res = this.userService.getOneUsersImgAndName(+id)
+        return res
+    }
+
     @Get(":id")
     @ApiResponse({ status: 200, description: 'Return one user'})
     async getOne(@Param("id") id: number){

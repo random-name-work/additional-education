@@ -15,6 +15,27 @@ export class UserService {
         return await this.databaseService.userInfo.findMany()
     }
 
+    async getOneUsersInfos(id: number) {
+        return await this.databaseService.userInfo.findUnique({
+            where: {
+                userId: id
+            }
+        })
+    }
+
+    async getOneUsersImgAndName(id: number) {
+        const res = await this.databaseService.userInfo.findUnique({
+            where: {
+                userId: id
+            }
+        })
+        return {
+            img: res.profileImage,
+            name: res.name,
+            familyName: res.familyName
+        }
+    }
+
     async getOneUser(id: number) {
         try {
             const res = await this.databaseService.user.findUnique({
