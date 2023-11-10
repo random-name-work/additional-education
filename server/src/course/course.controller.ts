@@ -26,6 +26,13 @@ export class CourseController {
         return res
     }
 
+    @Get('coursesForAdditional/:additionalName')
+    @ApiResponse({ status: 200, description: 'Return coursesForAdditional'})
+    async coursesForAdditional(@Param("additionalName") additionalName: string) {
+        const res = this.courseSerice.getCourseForAdditional(additionalName)
+        return res
+    }
+
     @Get('coursesInfo')
     @ApiResponse({ status: 200, description: 'Return courseInfos'})
     async getCoursesInfo() {

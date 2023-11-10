@@ -23,6 +23,40 @@ export class CourseService {
         return res
     }
 
+    async getCourseForAdditional(additionalName: string){
+        try {
+            const courseAdditional = await this.databaseService.courseAdditional.findFirst({
+                where:{
+                    name: additionalName
+                }
+            })
+            let courseToAdditional = await this.databaseService.coursesToAdditional.findMany({
+                where:{
+                    courseAdditionalId: courseAdditional.id
+                }
+            })
+            //delete repeats
+            courseToAdditional = courseToAdditional.filter((elem, ind) => courseToAdditional.indexOf(elem) === ind)
+
+            let coursesForAdditional = []
+            for await (const elem of courseToAdditional){
+                const course = await this.databaseService.courses.findFirst({
+                    where:{
+                        id: elem.coursesId
+                    }
+                })
+                coursesForAdditional.push(course)
+            }
+
+            //delete repeats
+            coursesForAdditional = coursesForAdditional.filter((elem, ind) => coursesForAdditional.indexOf(elem) === ind)
+
+            return coursesForAdditional
+        } catch (error) {
+            return error
+        }
+    }
+
     async getCourseInfo() {
         const res = await this.databaseService.courseInfo.findMany()
         return res
