@@ -2,18 +2,18 @@
   <div class="findCourseSlider">
     <h2>Найти то, что тебе нужно</h2>
     <div class="btns">
-      <div class="btn" v-for="btn in buttonsName" :key="btn">
+      <div class="btn" v-for="btn in faculty" :key="btn.id">
         <input
           v-model="sortType"
-          :id="`${btn}`"
+          :id="`${btn.id}`"
           type="radio"
           name="type"
-          :value="`${btn}`"
+          :value="`${btn.name}`"
         />
         <div class="label">
-          <label :for="`${btn}`" @click="displayId = btn">
+          <label :for="`${btn.id}`" @click="displayId = btn">
             <h5>
-              {{ btn }}
+              {{ btn.name }}
             </h5>
           </label>
         </div>
@@ -25,12 +25,12 @@
           <img src="@/assets/courseImage1.png" alt="" />
           <div class="type">
             <p class="text1">
-              {{ course.header }}
+              {{ faculty.find((element) => element.id == course.facultyId).name }}
             </p>
           </div>
           <div class="header">
             <h4>
-              {{ course.content }}
+              {{ course.courseName }}
             </h4>
           </div>
           <div class="timeAndBtn">
@@ -46,7 +46,7 @@
                 <circle cx="12" cy="12" r="11.5" stroke="#3D8BE4" />
               </svg>
               <p class="caption">
-                {{ course.time }}
+                От {{ course.minHours }} ак. ч.
               </p>
             </div>
             <div class="timeAndBtn__btn">
@@ -105,68 +105,13 @@ export default {
     Slide,
     Navigation,
   },
+  props:{
+    courses: Array,
+    faculty: Array
+  },
   data() {
     return {
-      buttonsName: [
-        "Все курсы",
-        "Педагогика",
-        "Психология",
-        "Медицина",
-        "Юриспруденция",
-        "Бизнес",
-        "Экономика",
-      ],
       sortType: "Все курсы",
-      sortedCourses: [
-        {
-          id: 1,
-          img: "@/img/courseImage1.png",
-          header: "Педагогика",
-          content:
-            "Педагог высшего образования по программам подготовки кадров высшей квалификации",
-          time: "от 250 ак.ч.",
-        },
-        {
-          id: 2,
-          img: "./../assets/courseImage2.png",
-          header: "Медицина",
-          content:
-            "Педагог высшего образования по программам подготовки кадров высшей квалификации",
-          time: "от 250 ак.ч.",
-        },
-        {
-          id: 3,
-          img: "./../assets/courseImage3.png",
-          header: "Юриспруденция",
-          content:
-            "Педагог высшего образования по программам подготовки кадров высшей квалификации",
-          time: "от 250 ак.ч.",
-        },
-        {
-          id: 4,
-          img: "./../assets/courseImage1",
-          header: "Педагогика",
-          content:
-            "Педагог высшего образования по программам подготовки кадров высшей квалификации",
-          time: "от 250 ак.ч.",
-        },
-        {
-          id: 5,
-          img: "./../assets/courseImage2",
-          header: "Медицина",
-          content:
-            "Педагог высшего образования по программам подготовки кадров высшей квалификации",
-          time: "от 250 ак.ч.",
-        },
-        {
-          id: 6,
-          img: "./../assets/courseImage3",
-          header: "Юриспруденция",
-          content:
-            "Педагог высшего образования по программам подготовки кадров высшей квалификации",
-          time: "от 250 ак.ч.",
-        },
-      ],
       breakpoints: {
         320: {
           itemsToShow: 1,
@@ -196,6 +141,17 @@ export default {
       },
     };
   },
+  computed:{
+    sortedCourses(){
+      if (this.sortType == "Все курсы") {
+        return this.courses
+      }
+      else{
+        const facultyId = this.faculty.find((fac) => fac.name == this.sortType).id
+        return this.courses.filter((course) => course.facultyId == facultyId)
+      }
+    }
+  }
 };
 </script>
 
@@ -255,6 +211,8 @@ export default {
     margin-top: 47px;
     margin-bottom: 100px;
     &__item {
+      position: relative;
+
       min-height: 465px;
       width: 100%;
 
@@ -282,8 +240,8 @@ export default {
       }
       .header {
         margin-top: 20px;
-        margin-left: 30px;
-        margin-right: 30px;
+        margin-left: 29px;
+        margin-right: 29px;
         text-align: left;
 
         @media (max-width: 450px) {
@@ -291,9 +249,14 @@ export default {
         }
       }
       .timeAndBtn {
-        margin-top: 32px;
         margin-left: 30px;
         margin-right: 30px;
+
+        position: absolute;
+        bottom: 22px;
+
+        width: calc(100% - 60px);
+
         text-align: left;
 
         display: flex;

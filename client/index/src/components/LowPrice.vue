@@ -11,7 +11,7 @@
       </blue-button180>
     </div>
     <Carousel ref="carousel" :breakpoints="breakpoints" v-model="currentSlide">
-      <Slide v-for="course in sortedCourses" :key="course.id">
+      <Slide v-for="course in lowPrice" :key="course.id">
         <div class="carousel__item">
           <div class="lowPrice">
             <svg
@@ -38,13 +38,15 @@
 
           <div class="type">
             <p class="text1">
-              {{ course.header }}
+              {{
+                faculty.find((element) => element.id == course.facultyId).name
+              }}
             </p>
           </div>
 
           <div class="header">
             <h4>
-              {{ course.content }}
+              {{ course.courseName }}
             </h4>
           </div>
 
@@ -60,9 +62,7 @@
                 <path d="M12 6V14L16.5 17.5" stroke="#3D8BE4" />
                 <circle cx="12" cy="12" r="11.5" stroke="#3D8BE4" />
               </svg>
-              <p class="caption">
-                {{ course.time }}
-              </p>
+              <p class="caption">От {{ course.minHours }} ак.ч.</p>
             </div>
             <div class="timeAndBtn__btn">
               <white-button140 :href="`https://google.com`">
@@ -120,59 +120,12 @@ export default {
     Slide,
     Navigation,
   },
+  props: {
+    lowPrice: Array,
+    faculty: Array,
+  },
   data() {
     return {
-      sortedCourses: [
-        {
-          id: 1,
-          img: "@/img/courseImage1.png",
-          header: "Педагогика",
-          content:
-            "Педагог высшего образования по программам подготовки кадров высшей квалификации",
-          time: "от 250 ак.ч.",
-        },
-
-        {
-          id: 2,
-          img: "./../assets/courseImage2.png",
-          header: "Медицина",
-          content:
-            "Педагог высшего образования по программам подготовки кадров высшей квалификации",
-          time: "от 250 ак.ч.",
-        },
-        {
-          id: 3,
-          img: "./../assets/courseImage3.png",
-          header: "Юриспруденция",
-          content:
-            "Педагог высшего образования по программам подготовки кадров высшей квалификации",
-          time: "от 250 ак.ч.",
-        },
-        {
-          id: 4,
-          img: "./../assets/courseImage1",
-          header: "Педагогика",
-          content:
-            "Педагог высшего образования по программам подготовки кадров высшей квалификации",
-          time: "от 250 ак.ч.",
-        },
-        {
-          id: 5,
-          img: "./../assets/courseImage2",
-          header: "Медицина",
-          content:
-            "Педагог высшего образования по программам подготовки кадров высшей квалификации",
-          time: "от 250 ак.ч.",
-        },
-        {
-          id: 6,
-          img: "./../assets/courseImage3",
-          header: "Юриспруденция",
-          content:
-            "Педагог высшего образования по программам подготовки кадров высшей квалификации",
-          time: "от 250 ак.ч.",
-        },
-      ],
       breakpoints: {
         320: {
           itemsToShow: 1,
@@ -241,8 +194,8 @@ h2 {
   @media (max-width: 1300px) {
     flex-direction: column;
     align-items: center;
-  
-    .v-btn{
+
+    .v-btn {
       margin-top: 20px;
     }
   }
@@ -266,6 +219,8 @@ h2 {
   margin-top: 47px;
   margin-bottom: 100px;
   &__item {
+    position: relative;
+
     min-height: 465px;
     width: 100%;
 
@@ -308,8 +263,8 @@ h2 {
     }
     .header {
       margin-top: 20px;
-      margin-left: 30px;
-      margin-right: 30px;
+      margin-left: 29px;
+      margin-right: 29px;
       text-align: left;
 
       @media (max-width: 450px) {
@@ -317,6 +272,11 @@ h2 {
       }
     }
     .timeAndBtn {
+      position: absolute;
+      bottom: 22px;
+
+      width: calc(100% - 60px);
+
       margin-top: 32px;
       margin-left: 30px;
       margin-right: 30px;

@@ -7,23 +7,23 @@
       </blue-button180>
     </header>
     <Carousel ref="carousel" :breakpoints="breakpoints" v-model="currentSlide">
-      <Slide v-for="post in posts" :key="post.id">
-        <a :href="`${post.ref}`">
+      <Slide v-for="blog in blogs" :key="blog.id">
+        <a :href="`${blog.id}`">
           <div class="carousel__item">
             <img src="@/assets/blogImage.png" alt="" />
 
             <div class="header">
               <h4>
-                {{ post.header }}
+                {{ blog.blogTitle }}
               </h4>
             </div>
 
             <div class="user">
               <img src="./../assets/blogUserImage.png" alt="blogUserImage" />
               <div class="data">
-                <h5>{{ post.user.name }}</h5>
+                <h5>{{ blog.name }} {{ blog.familyName }}</h5>
                 <div class="caption">
-                  <p class="caption name">{{ post.time }}</p>
+                  <p class="caption name">{{ blog.createdAt }}</p>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="14"
@@ -36,7 +36,7 @@
                       fill="black"
                     />
                   </svg>
-                  <p class="caption views">{{ post.views }}</p>
+                  <p class="caption views">{{ blog.views }}</p>
                 </div>
               </div>
             </div>
@@ -91,71 +91,11 @@ export default {
     Slide,
     Navigation,
   },
+  props:{
+    blogs: Array
+  },
   data() {
     return {
-      posts: [
-        {
-          id: 1,
-          ref: "#",
-          img: "@/img/blogImage.png",
-          header:
-            "Как получить налоговый вычет за обучение: на что обратить внимание и стоит ли оформлять его через посредников",
-          user: {
-            name: "Федеров Сергей",
-            image: "",
-          },
-          time: "02 дек 2020",
-          views: 239,
-        },
-        {
-          id: 2,
-          img: "@/img/blogImage.png",
-          header:
-            "Как получить налоговый вычет за обучение: на что обратить внимание и стоит ли оформлять его через посредников",
-          user: {
-            name: "Федеров Сергей",
-            image: "",
-          },
-          time: "02 дек 2020",
-          views: 239,
-        },
-        {
-          id: 3,
-          img: "@/img/blogImage.png",
-          header:
-            "Как получить налоговый вычет за обучение: на что обратить внимание и стоит ли оформлять его через посредников",
-          user: {
-            name: "Федеров Сергей",
-            image: "",
-          },
-          time: "02 дек 2020",
-          views: 239,
-        },
-        {
-          id: 4,
-          img: "@/img/blogImage.png",
-          header:
-            "Как получить налоговый вычет за обучение: на что обратить внимание и стоит ли оформлять его через посредников",
-          user: {
-            name: "Федеров Сергей",
-            image: "",
-          },
-          time: "02 дек 2020",
-          views: 239,
-        },
-        {
-          id: 5,
-          img: "@/img/blogImage.png",
-          header:
-            "Как получить налоговый вычет за обучение: на что обратить внимание и стоит ли оформлять его через посредников",
-          user: {
-            name: "Федеров Сергей",
-            image: "",
-          },
-          time: "02 дек 2020",
-          views: 239,
-        },
-      ],
       breakpoints: {
         320: {
           itemsToShow: 1,

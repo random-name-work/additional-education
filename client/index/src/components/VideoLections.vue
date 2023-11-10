@@ -7,13 +7,12 @@
       wrapAround="true"
       v-model="currentSlide"
     >
-      <Slide v-for="video in Videos" :key="video.id">
+      <Slide v-for="video in videolections" :key="video.id">
         <div class="carousel__item">
           <div class="leftPart">
             <h5>Видеолекции</h5>
             <h2>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor.
+              {{ video.lectionName }} 
             </h2>
             <blue-button180 :href="`https://google.com`">
               Смотреть все
@@ -87,24 +86,11 @@ export default {
     Slide,
     Navigation,
   },
+  props: {
+    videolections: Array,
+  },
   data() {
-    return {
-      Videos: [
-        {
-          id: 1,
-          img: "@/img/courseImage1.png",
-        },
-
-        {
-          id: 2,
-          img: "./../assets/courseImage2.png",
-        },
-        {
-          id: 3,
-          img: "./../assets/courseImage3.png",
-        },
-      ],
-    };
+    return {};
   },
 };
 </script>
@@ -127,6 +113,7 @@ export default {
   margin-bottom: 100px;
 
   &__item {
+    width: 100%;
     padding-bottom: 60px;
 
     display: flex;
@@ -136,7 +123,7 @@ export default {
       flex-direction: column;
     }
     .leftPart {
-      max-width: 49%;
+      max-width: 588px;
       width: 100%;
 
       text-align: left;
@@ -152,6 +139,7 @@ export default {
       }
       h2 {
         margin-top: 20px;
+        width: 100%;
       }
       .v-btn {
         margin-top: 60px;
