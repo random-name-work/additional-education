@@ -35,6 +35,7 @@
 </script>
 
 <style scoped lang="scss">
+// does it work?
 .headerBlock {
   max-width: 1200px;
   width: 100%;
